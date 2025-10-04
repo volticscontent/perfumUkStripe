@@ -40,8 +40,8 @@ export const SHOPIFY_STORES: { [key: string]: ShopifyStore } = {
   }
 };
 
-// Configuração padrão agora usa a loja 2 (WIFI MONEY)
-export const DEFAULT_STORE_ID = '2';
+// Configuração padrão agora usa a loja 1 (EURO PRIDE)
+export const DEFAULT_STORE_ID = '1';
 
 /**
  * Obtém a configuração da loja 2 (loja padrão ativa)
@@ -61,7 +61,7 @@ export function getStore3Config(): ShopifyStore {
  * Obtém a configuração de uma loja por ID
  */
 export function getStoreById(storeId: string): ShopifyStore {
-  return SHOPIFY_STORES[storeId] || SHOPIFY_STORES['2']; // Fallback para loja 2
+  return SHOPIFY_STORES[storeId] || SHOPIFY_STORES[DEFAULT_STORE_ID]; // Fallback para loja 1
 }
 
 /**
@@ -107,11 +107,11 @@ export function getStore3FallbackUrl(): string {
 }
 
 /**
- * Função de compatibilidade - retorna loja 2 como padrão
+ * Função de compatibilidade - retorna loja 1 como padrão
  */
 export function getStoreConfig(): ShopifyStore {
-  return SHOPIFY_STORES['2'];
+  return SHOPIFY_STORES[DEFAULT_STORE_ID];
 }
 
-// Exporta a configuração da loja 2 como padrão
-export default SHOPIFY_STORES['2'];
+// Exporta a configuração da loja 1 como padrão
+export default SHOPIFY_STORES[DEFAULT_STORE_ID];

@@ -22,7 +22,7 @@ export default function ObsoleteIdTester() {
     const obsoleteItem = {
       id: 31,
       shopifyId: '51243679383839', // ID obsoleto
-      storeId: '2',
+      storeId: '1',
       title: '3-piece-premium-fragrance-collection-set-31',
       subtitle: 'Eau de Parfum Spray - 100ML',
       price: 49.99,

@@ -11,9 +11,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    // Configuração para loja 2 (WIFI MONEY)
-    const domain = process.env.SHOPIFY_STORE_2_DOMAIN || 'tpsfragrances.shop';
-    const token = process.env.SHOPIFY_STORE_2_STOREFRONT_TOKEN;
+    // Configuração para loja 1 (EURO PRIDE)
+    const domain = process.env.SHOPIFY_STORE_1_DOMAIN || 'ton-store-1656.myshopify.com';
+    const token = process.env.SHOPIFY_STORE_1_STOREFRONT_TOKEN;
 
     if (!domain || !token) {
       console.error('❌ Configuração faltando:', { domain: !!domain, token: !!token });

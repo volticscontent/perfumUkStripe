@@ -1,13 +1,13 @@
 /**
  * Sistema de checkout ultra-simples
- * Sempre usa a loja WIFI MONEY (loja 2)
+ * Sempre usa a loja EURO PRIDE (loja 1)
  */
 
-// Configuração fixa da loja 2
+// Configuração fixa da loja 1
 const STORE_CONFIG = {
-  name: 'WIFI MONEY',
-  domain: 'nkgzhm-1d.myshopify.com',
-  storefrontAccessToken: process.env.SHOPIFY_STORE_2_STOREFRONT_TOKEN || 'token_placeholder'
+  name: 'EURO PRIDE',
+  domain: 'ton-store-1656.myshopify.com',
+  storefrontAccessToken: process.env.SHOPIFY_STORE_1_STOREFRONT_TOKEN || 'token_placeholder'
 };
 
 interface CartItem {
@@ -17,7 +17,7 @@ interface CartItem {
 
 /**
  * Cria URL de checkout usando nossa API route (evita CORS)
- * Sempre usa a loja 2 (WIFI MONEY)
+ * Sempre usa a loja 1 (EURO PRIDE)
  */
 export async function createSimpleCheckoutUrl(items: CartItem[]): Promise<string | null> {
   try {
@@ -66,7 +66,7 @@ export async function createSimpleCheckoutUrl(items: CartItem[]): Promise<string
 }
 
 /**
- * Função de compatibilidade - sempre retorna a configuração da loja 2
+ * Função de compatibilidade - sempre retorna a configuração da loja 1
  */
 export function getStoreConfig() {
   return STORE_CONFIG;

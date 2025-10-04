@@ -42,8 +42,8 @@ export function useUTM(): UTMHook {
     setIsLoaded(true);
   }, []);
 
-  // Sistema simplificado: sempre usa loja 2
-  const storeId = '2';
+  // Sistema simplificado: sempre usa loja 1
+  const storeId = '1';
   const storeConfig = getStoreConfig();
 
   return {

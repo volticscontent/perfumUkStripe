@@ -1,4 +1,4 @@
-// Sistema configurado para usar apenas LOJA 2 (WIFI MONEY)
+// Sistema configurado para usar apenas LOJA 1 (EURO PRIDE)
 
 // Tipos para os produtos unificados
 interface UnifiedProduct {
@@ -42,13 +42,13 @@ async function loadVariantMapping(): Promise<ShopifyVariantMapping> {
       const response = await fetch('/data/shopify_variant_mapping.json');
       if (!response.ok) {
         console.warn('Não foi possível carregar o mapeamento de variant IDs');
-        return {};
+        return {} as ShopifyVariantMapping;
       }
       return await response.json();
     }
   } catch (error) {
     console.error('Erro ao carregar mapeamento de variant IDs:', error);
-    return {};
+    return {} as ShopifyVariantMapping;
   }
 }
 
@@ -96,12 +96,12 @@ async function findUnifiedProductById(productId: string): Promise<UnifiedProduct
 }
 
 /**
- * Determina o store ID - sempre retorna loja 2 (WIFI MONEY)
- * Sistema configurado para usar apenas a loja 2
+ * Determina o store ID - sempre retorna loja 1 (EURO PRIDE)
+ * Sistema configurado para usar apenas a loja 1
  */
 function getStoreIdFromUTM(utmCampaign?: string): string {
-  // Sempre retorna loja 2 (WIFI MONEY)
-  return '2';
+  // Sempre retorna loja 1 (EURO PRIDE)
+  return '1';
 }
 
 // FUNÇÃO REMOVIDA - Estava causando erros no sistema

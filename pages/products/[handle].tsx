@@ -49,7 +49,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
       const { getShopifyVariantIdByHandle } = await import('@/lib/shopifyMapping');
       
       const shopifyVariantId = await getShopifyVariantIdByHandle(product.handle);
-      const storeId = "2";
+      const storeId = "1";
       
       if (!shopifyVariantId) {
         throw new Error(`Variant ID não encontrado para o produto: ${product.handle}`);

@@ -10,7 +10,7 @@ interface CartItem {
 
 export default function CartUrlTester() {
   const [items, setItems] = useState<CartItem[]>([
-    { shopifyId: '51141225644344', quantity: 1 } // Variant ID validado da Store 2 (WIFI MONEY) - 3-piece-premium-fragrance-collection-set-44
+    { shopifyId: '50384400482589', quantity: 1 } // Variant ID da Store 1 (EURO PRIDE) - 3-piece-premium-fragrance-collection-set-1
   ]);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
@@ -52,10 +52,10 @@ export default function CartUrlTester() {
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-4">Configuração da Loja</h2>
         <div className="bg-blue-50 p-4 rounded-lg">
-          <p><strong>Loja:</strong> WIFI MONEY (Store 2)</p>
-          <p><strong>Domínio:</strong> nkgzhm-1d.myshopify.com</p>
+          <p><strong>Loja:</strong> EURO PRIDE (Store 1)</p>
+          <p><strong>Domínio:</strong> ton-store-1656.myshopify.com</p>
           <p><strong>Produto Padrão:</strong> 3-Piece Fragrance Set</p>
-          <p><strong>Variant ID:</strong> 51141201199416</p>
+          <p><strong>Variant ID (exemplo):</strong> 50384400482589</p>
         </div>
       </div>
 
@@ -71,7 +71,7 @@ export default function CartUrlTester() {
                 value={item.shopifyId}
                 onChange={(e) => updateItem(index, 'shopifyId', e.target.value)}
                 className="w-full p-2 border rounded"
-                placeholder="Ex: 50377079488797"
+                placeholder="Ex: 50384400482589"
               />
             </div>
             <div className="w-24">
@@ -156,13 +156,13 @@ export default function CartUrlTester() {
       )}
 
       <div className="bg-gray-50 p-4 rounded-lg">
-        <h3 className="font-semibold mb-2">Produtos Disponíveis da Store 2 (WIFI MONEY):</h3>
+        <h3 className="font-semibold mb-2">Exemplos de Produtos da Store 1 (EURO PRIDE):</h3>
         <div className="text-sm space-y-1">
-          <p><strong>3-piece-premium-fragrance-collection-set-28:</strong> 51141198741816</p>
-          <p><strong>3-piece-premium-fragrance-collection-set-29:</strong> 51141199167800</p>
-          <p><strong>3-piece-premium-fragrance-collection-set-30:</strong> 51141199626552</p>
-          <p><strong>3-piece-premium-fragrance-collection-set-31:</strong> 51141200052536</p>
-          <p className="text-gray-600 italic">Total: 44 produtos com variant IDs válidos</p>
+          <p><strong>3-piece-premium-fragrance-collection-set-1:</strong> 50384400482589</p>
+          <p><strong>3-piece-premium-fragrance-collection-set-18:</strong> 50384401465629</p>
+          <p><strong>3-piece-premium-fragrance-collection-set-25:</strong> 50384403398941</p>
+          <p><strong>3-piece-premium-fragrance-collection-set-44:</strong> 50384403562781</p>
+          <p className="text-gray-600 italic">IDs baseados em public/data/shopify_variant_mapping.json</p>
         </div>
       </div>
     </div>
