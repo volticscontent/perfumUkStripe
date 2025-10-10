@@ -1,4 +1,6 @@
-// Sistema configurado para usar apenas LOJA 1 (EURO PRIDE)
+import { DEFAULT_STORE_ID } from './shopifyStores';
+
+// Sistema configurado para usar a LOJA padrão (SOLO NECESSITO)
 
 // Tipos para os produtos unificados
 interface UnifiedProduct {
@@ -96,12 +98,11 @@ async function findUnifiedProductById(productId: string): Promise<UnifiedProduct
 }
 
 /**
- * Determina o store ID - sempre retorna loja 1 (EURO PRIDE)
- * Sistema configurado para usar apenas a loja 1
+ * Determina o store ID - usa a loja padrão configurada
  */
 function getStoreIdFromUTM(utmCampaign?: string): string {
-  // Sempre retorna loja 1 (EURO PRIDE)
-  return '1';
+  // Retorna a loja padrão (DEFAULT_STORE_ID)
+  return DEFAULT_STORE_ID;
 }
 
 // FUNÇÃO REMOVIDA - Estava causando erros no sistema

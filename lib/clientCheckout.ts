@@ -13,8 +13,8 @@ interface CheckoutResponse {
 // Função para criar URL de checkout direto do Shopify
 export function createDirectCheckoutUrl(items: CartItem[]): CheckoutResponse {
   try {
-    // Domínio da loja 1 (EURO PRIDE) - usando domínio myshopify
-    const domain = 'ton-store-1656.myshopify.com';
+    // Domínio da loja 2 (SOLO NECESSITO) - usa env NEXT_PUBLIC, com fallback
+    const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN || process.env.SHOPIFY_STORE_2_DOMAIN || '').trim();
     
     if (!domain) {
       return {
@@ -57,8 +57,8 @@ export function createDirectCheckoutUrl(items: CartItem[]): CheckoutResponse {
 // Função alternativa usando o endpoint /cart/add
 export function createCartAddUrl(items: CartItem[]): CheckoutResponse {
   try {
-    // Domínio da loja 1 (EURO PRIDE) - usando domínio myshopify
-    const domain = 'ton-store-1656.myshopify.com';
+    // Domínio da loja 2 (SOLO NECESSITO) - usa env NEXT_PUBLIC, com fallback
+    const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN || process.env.SHOPIFY_STORE_2_DOMAIN || '').trim();
     
     if (!domain) {
       return {

@@ -1,20 +1,35 @@
 const fs = require('fs');
 const path = require('path');
 
+// Carregar variáveis de ambiente (.env.local)
+try {
+  const dotenv = require('dotenv');
+  const envPath = path.resolve(process.cwd(), '.env.local');
+  if (fs.existsSync(envPath)) {
+    dotenv.config({ path: envPath });
+    console.log('[dotenv] Carregado .env.local');
+  } else {
+    dotenv.config();
+    console.log('[dotenv] Carregado .env padrão');
+  }
+} catch (e) {
+  console.warn('[dotenv] não encontrado, seguindo sem carregar .env');
+}
+
 /**
- * Script para criar mapeamento dos produtos para a Loja 2 (WIFI MONEY)
+ * Script para criar mapeamento dos produtos para a Loja 2 (SOLO NECESSITO)
  * Baseado nos produtos existentes, cria IDs de variantes simulados para a Loja 2
  */
 
-// Configuração da Loja 2
+// Configuração da Loja 2 via ENV com fallback
 const STORE_2_CONFIG = {
   id: '2',
-  name: 'WIFI MONEY (Store 2)',
-  domain: 'nkgzhm-1d.myshopify.com',
-  storeName: 'WIFI MONEY (Store 2)'
+  name: 'SOLO NECESSITO (Store 2)',
+  domain: process.env.SHOPIFY_STORE_2_DOMAIN || process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN || 'sn.theperfumeuk.shop',
+  storeName: 'SOLO NECESSITO (Store 2)'
 };
 
-console.log('🏪 Criando mapeamento para Loja 2 (WIFI MONEY)...');
+console.log('🏪 Criando mapeamento para Loja 2 (SOLO NECESSITO)...');
 console.log(`📍 Domínio: ${STORE_2_CONFIG.domain}`);
 
 // Função para gerar ID de variante simulado para Loja 2

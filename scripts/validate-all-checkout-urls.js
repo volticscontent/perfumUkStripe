@@ -7,11 +7,16 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const http = require('http');
+require('dotenv').config();
 
 // Configurações
 const DELAY_BETWEEN_REQUESTS = 1000; // 1 segundo entre requests para não sobrecarregar
 const TIMEOUT = 10000; // 10 segundos de timeout
 const MAX_RETRIES = 2; // Máximo de tentativas por URL
+
+// Domínios da loja 2 via env
+const STORE_DOMAIN = process.env.SHOPIFY_STORE_2_DOMAIN || process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN || 'nkgzhm-1d.myshopify.com';
+const PUBLIC_DOMAIN = process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN || STORE_DOMAIN;
 
 /**
  * Faz uma requisição HTTP/HTTPS e retorna o status
@@ -118,8 +123,8 @@ function loadProductUrls() {
         handle,
         variantId,
         title: unifiedProduct ? unifiedProduct.title : handle,
-        checkoutUrl: `https://ae888e.myshopify.com/cart/${variantId}:1`,
-        directUrl: `https://tpsperfumeshop.shop/cart/${variantId}:1`
+        checkoutUrl: `https://${STORE_DOMAIN}/cart/${variantId}:1`,
+        directUrl: `https://${PUBLIC_DOMAIN}/cart/${variantId}:1`
       };
       
       productUrls.push(productData);
@@ -145,6 +150,8 @@ async function validateAllUrls() {
     return;
   }
 
+  console.log(`🏪 Loja: ${STORE_DOMAIN}`);
+  console.log(`🌐 Domínio público: ${PUBLIC_DOMAIN}`);
   console.log(`📊 Total de produtos a validar: ${products.length}`);
   console.log(`⏱️  Tempo estimado: ~${Math.ceil(products.length * DELAY_BETWEEN_REQUESTS / 1000 / 60)} minutos\n`);
 
@@ -226,6 +233,8 @@ async function validateAllUrls() {
 RELATÓRIO DE VALIDAÇÃO DE URLs DE CHECKOUT
 ==========================================
 Data: ${new Date().toLocaleString('pt-BR')}
+Loja: ${STORE_DOMAIN}
+Domínio público: ${PUBLIC_DOMAIN}
 Total de produtos: ${results.summary.total}
 
 RESUMO:
@@ -248,34 +257,8 @@ ${results.valid.slice(0, 10).map(p => `✅ ${p.handle}: ${p.checkoutUrl}`).join(
 `;
 
   fs.writeFileSync(summaryPath, summary);
-
-  // Exibe resumo no console
-  console.log('\n' + '='.repeat(60));
-  console.log('📊 RESUMO DA VALIDAÇÃO');
-  console.log('='.repeat(60));
-  console.log(`✅ URLs válidas: ${results.summary.validCount}/${results.summary.total} (${(results.summary.validCount/results.summary.total*100).toFixed(1)}%)`);
-  console.log(`⚠️  URLs inválidas: ${results.summary.invalidCount}/${results.summary.total} (${(results.summary.invalidCount/results.summary.total*100).toFixed(1)}%)`);
-  console.log(`❌ Erros: ${results.summary.errorCount}/${results.summary.total} (${(results.summary.errorCount/results.summary.total*100).toFixed(1)}%)`);
-  
-  console.log(`\n📁 Relatórios salvos:`);
-  console.log(`   • Completo: ${reportPath}`);
-  console.log(`   • Resumo: ${summaryPath}`);
-
-  if (results.invalid.length > 0) {
-    console.log(`\n⚠️  URLs inválidas encontradas:`);
-    results.invalid.slice(0, 5).forEach(p => {
-      console.log(`   • ${p.handle} (${p.variantId})`);
-    });
-    if (results.invalid.length > 5) {
-      console.log(`   • ... e mais ${results.invalid.length - 5} URLs`);
-    }
-  }
-
-  console.log('\n✅ Validação concluída!');
 }
 
-// Executa a validação
 validateAllUrls().catch(error => {
   console.error('❌ Erro na validação:', error);
-  process.exit(1);
 });

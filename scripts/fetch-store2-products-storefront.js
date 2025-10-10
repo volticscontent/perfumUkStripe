@@ -1,16 +1,17 @@
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config({ path: path.resolve(process.cwd(), '.env.local') });
 
-// Configuração da Loja 2 (WIFI MONEY) usando Storefront API
+// Configuração da Loja 2 (SOLO NECESSITO) usando Storefront API
 const STORE_CONFIG = {
-  name: 'WIFI MONEY',
-  domain: 'nkgzhm-1d.myshopify.com', // API sempre usa domínio .myshopify.com
-  customDomain: 'tpsfragrances.shop', // Domínio customizado para checkout
-  storefrontToken: process.env.SHOPIFY_STORE_2_STOREFRONT_TOKEN || '9b421e903c88a8587d1c9130e772c8be',
-  apiVersion: '2023-10'
+  name: 'SOLO NECESSITO',
+  domain: process.env.SHOPIFY_STORE_2_DOMAIN || 'nkgzhm-1d.myshopify.com', // API sempre usa domínio .myshopify.com
+  customDomain: process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN || process.env.SHOPIFY_STORE_2_DOMAIN || 'nkgzhm-1d.myshopify.com', // Domínio customizado (para checkout/redirect)
+  storefrontToken: process.env.SHOPIFY_STORE_2_STOREFRONT_TOKEN,
+  apiVersion: process.env.SHOPIFY_API_VERSION || '2024-07'
 };
 
-console.log('🏪 Buscando produtos da Loja 2 (WIFI MONEY)...');
+console.log('🏪 Buscando produtos da Loja 2 (SOLO NECESSITO)...');
 console.log('📍 Domínio:', STORE_CONFIG.domain);
 
 // Query GraphQL para buscar produtos com variantes
@@ -161,7 +162,7 @@ function processProducts(productsData) {
           variant_id: variants.length > 0 ? parseInt(variants[0].id) : null,
           handle: product.handle,
           domain: STORE_CONFIG.domain,
-          store_name: "LEPISKE (Wifi Money)",
+          store_name: "SOLO NECESSITO",
           sku: variants.length > 0 ? variants[0].sku : null,
           price: variants.length > 0 ? variants[0].price.toString() : "0",
           compare_at_price: variants.length > 0 && variants[0].compareAtPrice ? variants[0].compareAtPrice.toString() : null
@@ -186,7 +187,7 @@ function processProducts(productsData) {
 }
 
 async function main() {
-  console.log('🚀 Iniciando busca de produtos da Loja 2...\n');
+  console.log('🚀 Iniciando busca de produtos da Loja 2 (SOLO NECESSITO)...\n');
 
   const productsData = await fetchProducts();
   

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getStoreConfig } from '@/lib/simpleCheckout';
+import { DEFAULT_STORE_ID } from '@/lib/shopifyStores';
 
 interface UTMParams {
   utm_source?: string;
@@ -42,8 +43,8 @@ export function useUTM(): UTMHook {
     setIsLoaded(true);
   }, []);
 
-  // Sistema simplificado: sempre usa loja 1
-  const storeId = '1';
+  // Sistema ajustado: usa loja padrão configurada (SOLO NECESSITO)
+  const storeId = DEFAULT_STORE_ID;
   const storeConfig = getStoreConfig();
 
   return {

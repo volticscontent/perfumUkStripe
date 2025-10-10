@@ -1,0 +1,452 @@
+{
+  "store": {
+    "id": "2",
+    "name": "SOLO NECESSITO (Store 2)",
+    "domain": "sn.theperfumeuk.shop",
+    "storeName": "SOLO NECESSITO (Store 2)"
+  },
+  "total_products": 44,
+  "products": [
+    {
+      "id": "1",
+      "handle": "3-piece-premium-fragrance-collection-set-28",
+      "title": "3-Piece Fragrance Set: 1 Million Perfume, Sauvage Dior & Invictus Paco Rabanne",
+      "sku": "FRAG-0001-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399001085,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399001085:1"
+    },
+    {
+      "id": "2",
+      "handle": "3-piece-premium-fragrance-collection-set-29",
+      "title": "3-Piece Fragrance Set: 212 VIP Rose, Olympea & Coco Mademoiselle",
+      "sku": "FRAG-0002-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399002081,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399002081:1"
+    },
+    {
+      "id": "3",
+      "handle": "3-piece-premium-fragrance-collection-set-30",
+      "title": "3-Piece Fragrance Set: Boss Bottled Infinite, Boss The Scent & Boss Bottled",
+      "sku": "FRAG-0003-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399003056,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399003056:1"
+    },
+    {
+      "id": "4",
+      "handle": "3-piece-premium-fragrance-collection-set-31",
+      "title": "3-Piece Fragrance Set: Dylan Blue, Phantom & Ultra Male",
+      "sku": "FRAG-0004-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399004091,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399004091:1"
+    },
+    {
+      "id": "5",
+      "handle": "3-piece-premium-fragrance-collection-set-32",
+      "title": "3-Piece Fragrance Set: Scandal, J'adore & La Vie Est Belle",
+      "sku": "FRAG-0005-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399005096,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399005096:1"
+    },
+    {
+      "id": "9",
+      "handle": "3-piece-premium-fragrance-collection-set-33",
+      "title": "3-Piece Fragrance Set: Y by YSL, Sauvage & Versace Eros",
+      "sku": "FRAG-0009-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399006070,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399006070:1"
+    },
+    {
+      "id": "10",
+      "handle": "3-piece-premium-fragrance-collection-set-34",
+      "title": "3-Piece Women's Fragrance Set: Miss 212, La Vie Est Belle & J'adore",
+      "sku": "FRAG-0010-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399007052,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399007052:1"
+    },
+    {
+      "id": "11",
+      "handle": "3-piece-premium-fragrance-collection-set-35",
+      "title": "3-Piece Fragrance Set: Coco Mademoiselle, Libre YSL & Chloé Signature",
+      "sku": "FRAG-0011-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399008065,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399008065:1"
+    },
+    {
+      "id": "12",
+      "handle": "3-piece-premium-fragrance-collection-set-36",
+      "title": "3-Piece Women's Fragrance Set: La Vie Est Belle, Mademoiselle & Light Blue",
+      "sku": "FRAG-0012-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399009095,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399009095:1"
+    },
+    {
+      "id": "13",
+      "handle": "3-piece-premium-fragrance-collection-set-37",
+      "title": "3-Piece Fragrance Set: Hypnotic Poison, Sì Giorgio Armani & Dylan Turquoise",
+      "sku": "FRAG-0013-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399010001,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399010001:1"
+    },
+    {
+      "id": "14",
+      "handle": "3-piece-premium-fragrance-collection-set-38",
+      "title": "3-Piece Men's Fragrance Set: 1 Million, Bleu GB Chanel & 212 VIP Black",
+      "sku": "FRAG-0014-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399011089,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399011089:1"
+    },
+    {
+      "id": "15",
+      "handle": "3-piece-premium-fragrance-collection-set-39",
+      "title": "3-Piece Men's Fragrance Set: 212 Black, 212 Men & 1 Million",
+      "sku": "FRAG-0015-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399012006,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399012006:1"
+    },
+    {
+      "id": "16",
+      "handle": "3-piece-premium-fragrance-collection-set-40",
+      "title": "3-Piece Men's Fragrance Set: Azzaro, 212 Black & Silver Scent",
+      "sku": "FRAG-0016-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399013028,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399013028:1"
+    },
+    {
+      "id": "17",
+      "handle": "3-piece-premium-fragrance-collection-set-41",
+      "title": "3-Piece Men's Fragrance Set: Ferrari Black, 212 VIP & Bulgari In Black",
+      "sku": "FRAG-0017-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399014049,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399014049:1"
+    },
+    {
+      "id": "18",
+      "handle": "3-piece-premium-fragrance-collection-set-42",
+      "title": "3-Piece Men's Fragrance Set: Sauvage, Invictus & 1 Million",
+      "sku": "FRAG-0018-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399015074,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399015074:1"
+    },
+    {
+      "id": "19",
+      "handle": "3-piece-premium-fragrance-collection-set-1",
+      "title": "3-Piece Men's Fragrance Set: Yves Saint Laurent Y, Y Eau GB Perfume, Jean Paul Gaultier Scandal",
+      "sku": "FRAG-0019-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399016061,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399016061:1"
+    },
+    {
+      "id": "20",
+      "handle": "3-piece-premium-fragrance-collection-set-10",
+      "title": "3-Piece Men's Fragrance Set: Armani Eau Pour Homme, Dior Sauvage, Valentino Uomo",
+      "sku": "FRAG-0020-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399017044,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399017044:1"
+    },
+    {
+      "id": "21",
+      "handle": "3-piece-premium-fragrance-collection-set-11",
+      "title": "3-Piece Men's Fragrance Set: Issey Miyake Nuit d’Issey, Prada Luna Rossa Black, Gucci Guilty Pour Homme",
+      "sku": "FRAG-0021-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399018088,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399018088:1"
+    },
+    {
+      "id": "22",
+      "handle": "3-piece-premium-fragrance-collection-set-12",
+      "title": "3-Piece Men's Fragrance Set: Paco Rabanne Pure XS, Givenchy Gentleman, Carolina Herrera Bad Boy",
+      "sku": "FRAG-0022-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399019016,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399019016:1"
+    },
+    {
+      "id": "23",
+      "handle": "3-piece-premium-fragrance-collection-set-13",
+      "title": "3-Piece Women's Fragrance Set: Givenchy L’Interdit, Miss Dior Blooming Bouquet, Prada Candy",
+      "sku": "FRAG-0023-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399020026,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399020026:1"
+    },
+    {
+      "id": "24",
+      "handle": "3-piece-premium-fragrance-collection-set-14",
+      "title": "3-Piece Women's Fragrance Set: Paco Rabanne Olympea, Jean Paul Gaultier Scandal, Mugler Alien",
+      "sku": "FRAG-0024-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399021082,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399021082:1"
+    },
+    {
+      "id": "25",
+      "handle": "3-piece-premium-fragrance-collection-set-15",
+      "title": "3-Piece Women's Fragrance Set: Yves Saint Laurent Black Opium, Gucci Flora Gorgeous Gardenia, Valentino Donna Born in Roma",
+      "sku": "FRAG-0025-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399022024,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399022024:1"
+    },
+    {
+      "id": "26",
+      "handle": "3-piece-premium-fragrance-collection-set-16",
+      "title": "3-Piece Women's Fragrance Set: Mugler Angel, Chanel No. 5, Gucci Flora Gorgeous Gardenia",
+      "sku": "FRAG-0026-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399023036,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399023036:1"
+    },
+    {
+      "id": "27",
+      "handle": "3-piece-premium-fragrance-collection-set-17",
+      "title": "3-Piece Women's Fragrance Set: Giorgio Armani Sí, Lancôme La Nuit Trésor, Narciso Rodriguez For Her",
+      "sku": "FRAG-0027-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399024020,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399024020:1"
+    },
+    {
+      "id": "28",
+      "handle": "3-piece-premium-fragrance-collection-set-18",
+      "title": "3-Piece Women's Fragrance Set: Versace Pour Femme, Givenchy Amarige, Yves Saint Laurent Mon Paris",
+      "sku": "FRAG-0028-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399025087,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399025087:1"
+    },
+    {
+      "id": "29",
+      "handle": "3-piece-premium-fragrance-collection-set-19",
+      "title": "3-Piece Women's Fragrance Set: Marc Jacobs Perfect, Marc Jacobs Daisy Eau So Fresh, Dolce & Gabbana The Only One",
+      "sku": "FRAG-0029-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399026053,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399026053:1"
+    },
+    {
+      "id": "30",
+      "handle": "3-piece-premium-fragrance-collection-set-2",
+      "title": "3-Piece Men's Fragrance Set: Armaf Club GB Nuit Intense Man, Givenchy Gentleman, Carolina Herrera Bad Boy",
+      "sku": "FRAG-0030-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399027083,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399027083:1"
+    },
+    {
+      "id": "31",
+      "handle": "3-piece-premium-fragrance-collection-set-20",
+      "title": "3-Piece Women's Fragrance Set: Laboratorio Olfattivo, Creed Love in White, Byredo Rose of No Man’s Land",
+      "sku": "FRAG-0031-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399028091,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399028091:1"
+    },
+    {
+      "id": "32",
+      "handle": "3-piece-premium-fragrance-collection-set-21",
+      "title": "3-Piece Women's Fragrance Set: Frederic Malle Portrait of a Lady, Creed Love in White, Kilian Angels’ Share",
+      "sku": "FRAG-0032-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399029032,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399029032:1"
+    },
+    {
+      "id": "33",
+      "handle": "3-piece-premium-fragrance-collection-set-22",
+      "title": "3-Piece Women's Fragrance Set: Le Labo Santal 33, Tom Ford Tobacco Vanille, Terre d’Hermès",
+      "sku": "FRAG-0033-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399030059,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399030059:1"
+    },
+    {
+      "id": "34",
+      "handle": "3-piece-premium-fragrance-collection-set-23",
+      "title": "3-Piece Men's Fragrance Set: Le Labo Santal 33, Tom Ford Tobacco Vanille, Creed Aventus",
+      "sku": "FRAG-0034-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399031070,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399031070:1"
+    },
+    {
+      "id": "35",
+      "handle": "3-piece-premium-fragrance-collection-set-24",
+      "title": "3-Piece Men's Fragrance Set: Parfums GB Marly Layton, Xerjoff Erba Pura, Initio Oud for Greatness",
+      "sku": "FRAG-0035-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399032068,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399032068:1"
+    },
+    {
+      "id": "36",
+      "handle": "3-piece-premium-fragrance-collection-set-3",
+      "title": "3-Piece Men's Fragrance Set: Paco Rabanne Phantom, Armani Code, Jean Paul Gaultier Le Male",
+      "sku": "FRAG-0036-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399033064,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399033064:1"
+    },
+    {
+      "id": "37",
+      "handle": "3-piece-premium-fragrance-collection-set-4",
+      "title": "3-Piece Men's Fragrance Set: Armani Code, Bleu GB Chanel, Dior Sauvage",
+      "sku": "FRAG-0037-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399034022,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399034022:1"
+    },
+    {
+      "id": "38",
+      "handle": "3-piece-premium-fragrance-collection-set-5",
+      "title": "3-Piece Men's Fragrance Set: Philipp Plein No Limits, Moschino Toy Boy, Moschino Toy 2",
+      "sku": "FRAG-0038-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399035087,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399035087:1"
+    },
+    {
+      "id": "39",
+      "handle": "3-piece-premium-fragrance-collection-set-6",
+      "title": "3-Piece Men's Fragrance Set: Versace Eros, Giorgio Armani Acqua di Giò Profondo, Versace Dylan Blue",
+      "sku": "FRAG-0039-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399036035,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399036035:1"
+    },
+    {
+      "id": "40",
+      "handle": "3-piece-premium-fragrance-collection-set-7",
+      "title": "3-Piece Men's Fragrance Set: Creed Aventus, Louis Vuitton Imagination, Bleu GB Chanel",
+      "sku": "FRAG-0040-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399037075,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399037075:1"
+    },
+    {
+      "id": "41",
+      "handle": "3-piece-premium-fragrance-collection-set-8",
+      "title": "3-Piece Men's Fragrance Set: Guerlain L'Homme Idéal, Armaf Club GB Nuit Royal Blue, Emporio Armani Stronger With You",
+      "sku": "FRAG-0041-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399038013,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399038013:1"
+    },
+    {
+      "id": "42",
+      "handle": "3-piece-premium-fragrance-collection-set-9",
+      "title": "3-Piece Women's Fragrance Set: Mugler Angel, Thierry Mugler Alien, Thierry Mugler Alien Eau Extraordinaire",
+      "sku": "FRAG-0042-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399039037,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399039037:1"
+    },
+    {
+      "id": "43",
+      "handle": "3-piece-premium-fragrance-collection-set-25",
+      "title": "3-Piece Fragrance Set: Good Girl Carolina Herrera, Nº5 Chanel & Fame Paco Rabanne",
+      "sku": "FRAG-0043-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399040003,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399040003:1"
+    },
+    {
+      "id": "44",
+      "handle": "3-piece-premium-fragrance-collection-set-26",
+      "title": "3-Piece premium Fragrance Collection",
+      "sku": "FRAG-0044-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399041076,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399041076:1"
+    },
+    {
+      "id": "45",
+      "handle": "3-piece-premium-fragrance-collection-set-27",
+      "title": "3-Piece premium Fragrance Collection - Special Edition",
+      "sku": "FRAG-0045-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399042024,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399042024:1"
+    },
+    {
+      "id": "46",
+      "handle": "3-piece-premium-fragrance-collection-set-43",
+      "title": "3-Piece Fragrance Set: Good Girl, La Vie Est Belle & 212 VIP Rose",
+      "sku": "FRAG-0046-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399043051,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399043051:1"
+    },
+    {
+      "id": "47",
+      "handle": "3-piece-premium-fragrance-collection-set-44",
+      "title": "3-Piece Fragrance Set: Invictus Legend, Invictus & Invictus Victory Elixir",
+      "sku": "FRAG-0047-183239",
+      "price": 49.99,
+      "currency": "GBP",
+      "store2_variant_id": 10187399044027,
+      "checkout_url": "https://sn.theperfumeuk.shop/cart/10187399044027:1"
+    }
+  ],
+  "generated_at": "2025-10-09T19:46:21.898Z"
+}

@@ -11,9 +11,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    // Configuração para loja 1 (EURO PRIDE)
-    const domain = process.env.SHOPIFY_STORE_1_DOMAIN || 'ton-store-1656.myshopify.com';
-    const token = process.env.SHOPIFY_STORE_1_STOREFRONT_TOKEN;
+    // Configuração para loja 2 (SOLO NECESSITO)
+    const domain = process.env.SHOPIFY_STORE_2_DOMAIN || process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN;
+    const token = process.env.SHOPIFY_STORE_2_STOREFRONT_TOKEN;
+    const apiVersion = process.env.SHOPIFY_API_VERSION || '2023-10';
 
     if (!domain || !token) {
       console.error('❌ Configuração faltando:', { domain: !!domain, token: !!token });
@@ -52,7 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     `;
 
-    const response = await fetch(`https://${domain}/api/2023-10/graphql.json`, {
+    const response = await fetch(`https://${domain}/api/${apiVersion}/graphql.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

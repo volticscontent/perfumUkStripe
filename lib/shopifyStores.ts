@@ -1,6 +1,6 @@
 /**
  * Configuração das Lojas Shopify
- * Configurado para usar a LOJA 2 (WIFI MONEY) como padrão
+ * Configurado para usar a LOJA 2 (SOLO NECESSITO) como padrão
  */
 
 export interface ShopifyStore {
@@ -24,10 +24,10 @@ export const SHOPIFY_STORES: { [key: string]: ShopifyStore } = {
   },
   '2': {
     id: '2',
-    name: 'LEPISKE (Wifi Money)',
-    domain: 'nkgzhm-1d.myshopify.com',
-    myshopifyDomain: 'nkgzhm-1d.myshopify.com',
-    fallbackUrl: 'https://nkgzhm-1d.myshopify.com',
+    name: 'SOLO NECESSITO',
+    domain: process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN || process.env.SHOPIFY_STORE_2_DOMAIN || 'nkgzhm-1d.myshopify.com',
+    myshopifyDomain: process.env.SHOPIFY_STORE_2_DOMAIN || 'nkgzhm-1d.myshopify.com',
+    fallbackUrl: `https://${process.env.SHOPIFY_STORE_2_DOMAIN || 'nkgzhm-1d.myshopify.com'}`,
     storefrontToken: process.env.SHOPIFY_STORE_2_STOREFRONT_TOKEN
   },
   '3': {
@@ -40,8 +40,8 @@ export const SHOPIFY_STORES: { [key: string]: ShopifyStore } = {
   }
 };
 
-// Configuração padrão agora usa a loja 1 (EURO PRIDE)
-export const DEFAULT_STORE_ID = '1';
+// Configuração padrão agora usa a loja 2 (SOLO NECESSITO)
+export const DEFAULT_STORE_ID = '2';
 
 /**
  * Obtém a configuração da loja 2 (loja padrão ativa)
@@ -61,7 +61,7 @@ export function getStore3Config(): ShopifyStore {
  * Obtém a configuração de uma loja por ID
  */
 export function getStoreById(storeId: string): ShopifyStore {
-  return SHOPIFY_STORES[storeId] || SHOPIFY_STORES[DEFAULT_STORE_ID]; // Fallback para loja 1
+  return SHOPIFY_STORES[storeId] || SHOPIFY_STORES[DEFAULT_STORE_ID]; // Fallback para loja 2
 }
 
 /**
@@ -107,11 +107,11 @@ export function getStore3FallbackUrl(): string {
 }
 
 /**
- * Função de compatibilidade - retorna loja 1 como padrão
+ * Função de compatibilidade - retorna loja padrão
  */
 export function getStoreConfig(): ShopifyStore {
   return SHOPIFY_STORES[DEFAULT_STORE_ID];
 }
 
-// Exporta a configuração da loja 1 como padrão
+// Exporta a configuração da loja padrão
 export default SHOPIFY_STORES[DEFAULT_STORE_ID];

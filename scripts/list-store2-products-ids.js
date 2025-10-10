@@ -1,5 +1,9 @@
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config({ path: path.join(process.cwd(), '.env.local') });
+const { fetchAllProductsLiveOrRest, processProducts } = require('./fetch-all-store2-products.js');
+const argv = process.argv.slice(2);
+const isLive = argv.includes('--live');
 
 // Função para carregar os produtos da Store 2
 function loadStore2Products() {
@@ -14,25 +18,36 @@ function loadStore2Products() {
     return data.products;
 }
 
+// Carregar produtos diretamente da API (live)
+async function loadStore2ProductsLive() {
+    const raw = await fetchAllProductsLiveOrRest();
+    const processed = processProducts(raw);
+    return processed;
+}
+
 // Função para extrair informações dos produtos
 function extractProductInfo(products) {
     const productList = [];
     
     products.forEach((product, index) => {
+        const variants = (product.variants || []).map(variant => ({
+            variantId: variant.id,
+            title: variant.title,
+            sku: variant.sku,
+            price: variant.price,
+            availableForSale: variant.availableForSale
+        }));
+        const prices = variants.map(v => parseFloat(v.price)).filter(p => !isNaN(p));
+        const priceRange = prices.length > 0 ? { min: Math.min(...prices), max: Math.max(...prices) } : { min: 0, max: 0 };
+        
         const productInfo = {
             index: index + 1,
             productId: product.id,
             handle: product.handle,
             title: product.title,
             vendor: product.vendor,
-            variants: product.variants.map(variant => ({
-                variantId: variant.id,
-                title: variant.title,
-                sku: variant.sku,
-                price: variant.price,
-                availableForSale: variant.availableForSale
-            })),
-            priceRange: product.priceRange,
+            variants,
+            priceRange,
             images: product.images,
             tags: product.tags
         };
@@ -117,12 +132,13 @@ function displaySummary(report) {
 }
 
 // Função principal
-function main() {
-    console.log('🔍 Carregando produtos da Store 2...\n');
+async function main() {
+    console.log('🔍 Carregando produtos da Store 2...');
+    console.log(isLive ? '⛓️  Modo LIVE: buscando via Admin API' : '📁 Modo arquivo: lendo store2-products-with-variants.json');
     
     try {
         // Carregar produtos
-        const products = loadStore2Products();
+        const products = isLive ? await loadStore2ProductsLive() : loadStore2Products();
         console.log('✅ Produtos carregados com sucesso');
         
         // Extrair informações
@@ -131,12 +147,12 @@ function main() {
         
         // Gerar relatório
         const report = generateDetailedReport(productList);
-        console.log('✅ Relatório gerado\n');
+        console.log('✅ Relatório gerado');
         
         // Salvar relatório completo
         const reportPath = path.join(__dirname, '..', 'data', 'store2-products-detailed-report.json');
         fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
-        console.log(`✅ Relatório detalhado salvo em: ${reportPath}\n`);
+        console.log(`✅ Relatório detalhado salvo em: ${reportPath}`);
         
         // Exibir resumo
         displaySummary(report);

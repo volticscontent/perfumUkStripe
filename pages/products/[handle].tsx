@@ -13,6 +13,7 @@ import { useCart } from '@/contexts/CartContext'
 import ReviewSection from '@/components/products/ReviewSection'
 import Link from 'next/link'
 import Image from 'next/image'
+import { DEFAULT_STORE_ID } from '@/lib/shopifyStores';
 
 interface ProductPageProps {
   product: Product
@@ -49,7 +50,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
       const { getShopifyVariantIdByHandle } = await import('@/lib/shopifyMapping');
       
       const shopifyVariantId = await getShopifyVariantIdByHandle(product.handle);
-      const storeId = "1";
+      const storeId = DEFAULT_STORE_ID;
       
       if (!shopifyVariantId) {
         throw new Error(`Variant ID não encontrado para o produto: ${product.handle}`);

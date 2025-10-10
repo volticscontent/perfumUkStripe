@@ -1,0 +1,2900 @@
+{
+  "summary": {
+    "totalProducts": 44,
+    "totalVariants": 44,
+    "priceRange": {
+      "min": 49.99,
+      "max": 49.99
+    },
+    "vendors": [
+      "Dior",
+      "Chanel",
+      "Hugo Boss",
+      "Paco Rabanne",
+      "Lancôme",
+      "Yves Saint Laurent",
+      "Giorgio Armani",
+      "Azzaro",
+      "Bulgari",
+      "Gucci",
+      "Dolce & Gabbana",
+      "Givenchy",
+      "Creed",
+      "Tom Ford",
+      "Parfums de Marly",
+      "Philipp Plein",
+      "Versace",
+      "Mugler"
+    ],
+    "tags": [
+      "authentic",
+      "bestseller",
+      "collection",
+      "Dior",
+      "fragrance-set",
+      "gift",
+      "gift-set",
+      "men",
+      "men-fragrances",
+      "offers",
+      "paco-rabanne",
+      "perfume",
+      "premium",
+      "uk",
+      "carolina-herrera",
+      "Chanel",
+      "hugo-boss",
+      "jean-paul-gaultier",
+      "versace",
+      "lancôme",
+      "yves-saint-laurent",
+      "frauen",
+      "women",
+      "women-fragrances",
+      "chloé",
+      "dolce--gabbana",
+      "giorgio-armani",
+      "bulgari",
+      "azzaro",
+      "ferrari",
+      "valentino",
+      "gucci",
+      "issey-miyake",
+      "prada",
+      "givenchy",
+      "mugler",
+      "narciso-rodriguez",
+      "marc-jacobs",
+      "armaf",
+      "byredo",
+      "Creed",
+      "laboratorio-olfattivo",
+      "frederic-malle",
+      "kilian",
+      "le-labo",
+      "tom-ford",
+      "initio",
+      "parfums-de-marly",
+      "xerjoff",
+      "moschino",
+      "philipp-plein",
+      "louis-vuitton",
+      "emporio-armani",
+      "guerlain"
+    ]
+  },
+  "products": [
+    {
+      "index": 1,
+      "productId": "gid://shopify/Product/9907262751018",
+      "handle": "3-piece-premium-fragrance-collection-set-28",
+      "title": "3-piece-premium-fragrance-collection-set-28",
+      "vendor": "Dior",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672013836586",
+          "title": "Default Title",
+          "sku": "FRAG-0001-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177191051562",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos.jpg?v=1760041416",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "Dior",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 2,
+      "productId": "gid://shopify/Product/9907262783786",
+      "handle": "3-piece-premium-fragrance-collection-set-29",
+      "title": "3-piece-premium-fragrance-collection-set-29",
+      "vendor": "Chanel",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672013869354",
+          "title": "Default Title",
+          "sku": "FRAG-0002-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177191608618",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_4f3a29c2-f380-4fd0-bea2-f22258e55174.jpg?v=1760041419",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "carolina-herrera",
+        "Chanel",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 3,
+      "productId": "gid://shopify/Product/9907262849322",
+      "handle": "3-piece-premium-fragrance-collection-set-30",
+      "title": "3-piece-premium-fragrance-collection-set-30",
+      "vendor": "Hugo Boss",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672013967658",
+          "title": "Default Title",
+          "sku": "FRAG-0003-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177192132906",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_2447ec35-d792-4b35-9f62-7d98df7a020a.jpg?v=1760041421",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "hugo-boss",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 4,
+      "productId": "gid://shopify/Product/9907262882090",
+      "handle": "3-piece-premium-fragrance-collection-set-31",
+      "title": "3-piece-premium-fragrance-collection-set-31",
+      "vendor": "Paco Rabanne",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014000426",
+          "title": "Default Title",
+          "sku": "FRAG-0004-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177192362282",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_abdd7da4-d8f8-4f73-8d4b-a795752a7b3b.jpg?v=1760041424",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "jean-paul-gaultier",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk",
+        "versace"
+      ]
+    },
+    {
+      "index": 5,
+      "productId": "gid://shopify/Product/9907262947626",
+      "handle": "3-piece-premium-fragrance-collection-set-32",
+      "title": "3-piece-premium-fragrance-collection-set-32",
+      "vendor": "Lancôme",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014065962",
+          "title": "Default Title",
+          "sku": "FRAG-0005-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177192591658",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_fc3f3420-6a9b-4a15-99c6-16f8ac875796.jpg?v=1760041426",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "Dior",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "jean-paul-gaultier",
+        "lancôme",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 6,
+      "productId": "gid://shopify/Product/9907262980394",
+      "handle": "3-piece-premium-fragrance-collection-set-33",
+      "title": "3-piece-premium-fragrance-collection-set-33",
+      "vendor": "Yves Saint Laurent",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014131498",
+          "title": "Default Title",
+          "sku": "FRAG-0009-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177193083178",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_b7dd0df3-eb41-4b6a-8977-691d635bcc7e.jpg?v=1760041429",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "Dior",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "versace",
+        "yves-saint-laurent"
+      ]
+    },
+    {
+      "index": 7,
+      "productId": "gid://shopify/Product/9907263013162",
+      "handle": "3-piece-premium-fragrance-collection-set-34",
+      "title": "3-piece-premium-fragrance-collection-set-34",
+      "vendor": "Lancôme",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014164266",
+          "title": "Default Title",
+          "sku": "FRAG-0010-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177193312554",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_afe03dc3-9611-4beb-90d0-cd1c9a9e90df.jpg?v=1760041431",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "carolina-herrera",
+        "collection",
+        "Dior",
+        "fragrance-set",
+        "frauen",
+        "gift",
+        "gift-set",
+        "lancôme",
+        "men",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "women",
+        "women-fragrances"
+      ]
+    },
+    {
+      "index": 8,
+      "productId": "gid://shopify/Product/9907263078698",
+      "handle": "3-piece-premium-fragrance-collection-set-35",
+      "title": "3-piece-premium-fragrance-collection-set-35",
+      "vendor": "Yves Saint Laurent",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014262570",
+          "title": "Default Title",
+          "sku": "FRAG-0011-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177193836842",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_c60930ae-c214-4e92-a233-35f3097e8ef4.jpg?v=1760041434",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "Chanel",
+        "chloé",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "yves-saint-laurent"
+      ]
+    },
+    {
+      "index": 9,
+      "productId": "gid://shopify/Product/9907263111466",
+      "handle": "3-piece-premium-fragrance-collection-set-36",
+      "title": "3-piece-premium-fragrance-collection-set-36",
+      "vendor": "Lancôme",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014295338",
+          "title": "Default Title",
+          "sku": "FRAG-0012-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177194262826",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_44cc4ed9-ba8e-4e65-a79b-7c80c64b14a9.jpg?v=1760041436",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "dolce--gabbana",
+        "fragrance-set",
+        "frauen",
+        "gift",
+        "gift-set",
+        "lancôme",
+        "men",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "women",
+        "women-fragrances"
+      ]
+    },
+    {
+      "index": 10,
+      "productId": "gid://shopify/Product/9907263209770",
+      "handle": "3-piece-premium-fragrance-collection-set-37",
+      "title": "3-piece-premium-fragrance-collection-set-37",
+      "vendor": "Giorgio Armani",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014393642",
+          "title": "Default Title",
+          "sku": "FRAG-0013-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177194590506",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_46cefa51-0703-4ce6-ba9e-5da9265361a9.jpg?v=1760041439",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "Dior",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "giorgio-armani",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "versace"
+      ]
+    },
+    {
+      "index": 11,
+      "productId": "gid://shopify/Product/9907263242538",
+      "handle": "3-piece-premium-fragrance-collection-set-38",
+      "title": "3-piece-premium-fragrance-collection-set-38",
+      "vendor": "Chanel",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014688554",
+          "title": "Default Title",
+          "sku": "FRAG-0014-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177195049258",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_23e37b37-8a90-4f77-aba7-e7af2ecdc4c3.jpg?v=1760041441",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "bulgari",
+        "carolina-herrera",
+        "Chanel",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 12,
+      "productId": "gid://shopify/Product/9907263275306",
+      "handle": "3-piece-premium-fragrance-collection-set-39",
+      "title": "3-piece-premium-fragrance-collection-set-39",
+      "vendor": "Paco Rabanne",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014721322",
+          "title": "Default Title",
+          "sku": "FRAG-0015-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177195311402",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_a5738765-fd72-4c34-b510-d39edbb6c33a.jpg?v=1760041444",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "bulgari",
+        "carolina-herrera",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 13,
+      "productId": "gid://shopify/Product/9907263373610",
+      "handle": "3-piece-premium-fragrance-collection-set-40",
+      "title": "3-piece-premium-fragrance-collection-set-40",
+      "vendor": "Azzaro",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014852394",
+          "title": "Default Title",
+          "sku": "FRAG-0016-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177196654890",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_ec1e3e4b-1384-4862-adf2-b4591877824d.jpg?v=1760041447",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "azzaro",
+        "bestseller",
+        "bulgari",
+        "carolina-herrera",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 14,
+      "productId": "gid://shopify/Product/9907263406378",
+      "handle": "3-piece-premium-fragrance-collection-set-41",
+      "title": "3-piece-premium-fragrance-collection-set-41",
+      "vendor": "Bulgari",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014917930",
+          "title": "Default Title",
+          "sku": "FRAG-0017-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177196884266",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_889dcab1-5846-46bd-bf38-a6da5004603e.jpg?v=1760041449",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "bulgari",
+        "carolina-herrera",
+        "collection",
+        "ferrari",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 15,
+      "productId": "gid://shopify/Product/9907263471914",
+      "handle": "3-piece-premium-fragrance-collection-set-42",
+      "title": "3-piece-premium-fragrance-collection-set-42",
+      "vendor": "Paco Rabanne",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014983466",
+          "title": "Default Title",
+          "sku": "FRAG-0018-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177197343018",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_75886fad-da49-46a7-931d-58be8b1e0233.jpg?v=1760041452",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "Dior",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 16,
+      "productId": "gid://shopify/Product/9907263504682",
+      "handle": "3-piece-premium-fragrance-collection-set-1",
+      "title": "3-piece-premium-fragrance-collection-set-1",
+      "vendor": "Yves Saint Laurent",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015016234",
+          "title": "Default Title",
+          "sku": "FRAG-0019-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177197637930",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_158f9d17-20c3-4452-8695-ab828948f4b8.jpg?v=1760041454",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "jean-paul-gaultier",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "yves-saint-laurent"
+      ]
+    },
+    {
+      "index": 17,
+      "productId": "gid://shopify/Product/9907263537450",
+      "handle": "3-piece-premium-fragrance-collection-set-10",
+      "title": "3-piece-premium-fragrance-collection-set-10",
+      "vendor": "Dior",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015049002",
+          "title": "Default Title",
+          "sku": "FRAG-0020-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177198162218",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_04e3036d-0819-4d6f-85cb-28c83d5760b4.jpg?v=1760041457",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "Dior",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "giorgio-armani",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "valentino"
+      ]
+    },
+    {
+      "index": 18,
+      "productId": "gid://shopify/Product/9907263602986",
+      "handle": "3-piece-premium-fragrance-collection-set-11",
+      "title": "3-piece-premium-fragrance-collection-set-11",
+      "vendor": "Gucci",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015147306",
+          "title": "Default Title",
+          "sku": "FRAG-0021-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177198883114",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_61575ac6-3d35-4cc4-b6e9-7b97ea64f26b.jpg?v=1760041460",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "bulgari",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "gucci",
+        "issey-miyake",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "prada",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 19,
+      "productId": "gid://shopify/Product/9907263668522",
+      "handle": "3-piece-premium-fragrance-collection-set-12",
+      "title": "3-piece-premium-fragrance-collection-set-12",
+      "vendor": "Paco Rabanne",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015245610",
+          "title": "Default Title",
+          "sku": "FRAG-0022-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177199079722",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_a179bf24-9030-4ee8-8914-ec6b67f89fac.jpg?v=1760041462",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "carolina-herrera",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "givenchy",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 20,
+      "productId": "gid://shopify/Product/9907263701290",
+      "handle": "3-piece-premium-fragrance-collection-set-13",
+      "title": "3-piece-premium-fragrance-collection-set-13",
+      "vendor": "Dior",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015278378",
+          "title": "Default Title",
+          "sku": "FRAG-0023-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177199702314",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_32528f11-7872-4df7-a740-ffe2d9536ad3.jpg?v=1760041465",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "Dior",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "givenchy",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "prada",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 21,
+      "productId": "gid://shopify/Product/9907263766826",
+      "handle": "3-piece-premium-fragrance-collection-set-14",
+      "title": "3-piece-premium-fragrance-collection-set-14",
+      "vendor": "Paco Rabanne",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015376682",
+          "title": "Default Title",
+          "sku": "FRAG-0024-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177200226602",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_983b17ec-45c4-43c7-b3ef-4d1a76f50071.jpg?v=1760041467",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "jean-paul-gaultier",
+        "men",
+        "men-fragrances",
+        "mugler",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 22,
+      "productId": "gid://shopify/Product/9907263799594",
+      "handle": "3-piece-premium-fragrance-collection-set-15",
+      "title": "3-piece-premium-fragrance-collection-set-15",
+      "vendor": "Yves Saint Laurent",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015409450",
+          "title": "Default Title",
+          "sku": "FRAG-0025-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177200390442",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_33cbc2c1-70c8-44a9-843f-c0f98a962b75.jpg?v=1760041470",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "bulgari",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "gucci",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "valentino",
+        "yves-saint-laurent"
+      ]
+    },
+    {
+      "index": 23,
+      "productId": "gid://shopify/Product/9907263897898",
+      "handle": "3-piece-premium-fragrance-collection-set-16",
+      "title": "3-piece-premium-fragrance-collection-set-16",
+      "vendor": "Chanel",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015540522",
+          "title": "Default Title",
+          "sku": "FRAG-0026-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177200816426",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_18820265-27d0-41ea-9e04-7577fd75d2c4.jpg?v=1760041472",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "Chanel",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "gucci",
+        "men",
+        "men-fragrances",
+        "mugler",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 24,
+      "productId": "gid://shopify/Product/9907263996202",
+      "handle": "3-piece-premium-fragrance-collection-set-17",
+      "title": "3-piece-premium-fragrance-collection-set-17",
+      "vendor": "Giorgio Armani",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015769898",
+          "title": "Default Title",
+          "sku": "FRAG-0027-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177200881962",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_dd484399-f26b-44e0-9e9f-37a874508d24.jpg?v=1760041475",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "giorgio-armani",
+        "lancôme",
+        "men",
+        "men-fragrances",
+        "narciso-rodriguez",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 25,
+      "productId": "gid://shopify/Product/9907264061738",
+      "handle": "3-piece-premium-fragrance-collection-set-18",
+      "title": "3-piece-premium-fragrance-collection-set-18",
+      "vendor": "Yves Saint Laurent",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015868202",
+          "title": "Default Title",
+          "sku": "FRAG-0028-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177200947498",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_71ff21d2-b047-47b9-9138-d58a9b172d15.jpg?v=1760041477",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "givenchy",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "versace",
+        "yves-saint-laurent"
+      ]
+    },
+    {
+      "index": 26,
+      "productId": "gid://shopify/Product/9907264127274",
+      "handle": "3-piece-premium-fragrance-collection-set-19",
+      "title": "3-piece-premium-fragrance-collection-set-19",
+      "vendor": "Dolce & Gabbana",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015999274",
+          "title": "Default Title",
+          "sku": "FRAG-0029-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177201439018",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_f1b02090-139f-43d4-8166-2e39df60bcbb.jpg?v=1760041480",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "dolce--gabbana",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "marc-jacobs",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 27,
+      "productId": "gid://shopify/Product/9907264192810",
+      "handle": "3-piece-premium-fragrance-collection-set-2",
+      "title": "3-piece-premium-fragrance-collection-set-2",
+      "vendor": "Givenchy",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016097578",
+          "title": "Default Title",
+          "sku": "FRAG-0030-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177201504554",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_a5c7d104-ae3d-4b03-91e0-1f1f411aee20.jpg?v=1760041483",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "armaf",
+        "authentic",
+        "bestseller",
+        "carolina-herrera",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "givenchy",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 28,
+      "productId": "gid://shopify/Product/9907264225578",
+      "handle": "3-piece-premium-fragrance-collection-set-20",
+      "title": "3-piece-premium-fragrance-collection-set-20",
+      "vendor": "Creed",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016130346",
+          "title": "Default Title",
+          "sku": "FRAG-0031-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177201537322",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_f1c96e8d-9f26-4332-803f-fdd2f1722942.jpg?v=1760041485",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "byredo",
+        "collection",
+        "Creed",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "laboratorio-olfattivo",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 29,
+      "productId": "gid://shopify/Product/9907264258346",
+      "handle": "3-piece-premium-fragrance-collection-set-21",
+      "title": "3-piece-premium-fragrance-collection-set-21",
+      "vendor": "Creed",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016163114",
+          "title": "Default Title",
+          "sku": "FRAG-0032-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177201635626",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_6b0e4abd-0c13-4a11-8d5c-1e3100d7a6cc.jpg?v=1760041488",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "Creed",
+        "fragrance-set",
+        "frederic-malle",
+        "gift",
+        "gift-set",
+        "kilian",
+        "men",
+        "men-fragrances",
+        "mugler",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 30,
+      "productId": "gid://shopify/Product/9907264323882",
+      "handle": "3-piece-premium-fragrance-collection-set-22",
+      "title": "3-piece-premium-fragrance-collection-set-22",
+      "vendor": "Tom Ford",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016261418",
+          "title": "Default Title",
+          "sku": "FRAG-0033-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177202290986",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_50e336e9-b091-43f0-a63a-34cfe05b82c2.jpg?v=1760041490",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "le-labo",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "tom-ford",
+        "uk"
+      ]
+    },
+    {
+      "index": 31,
+      "productId": "gid://shopify/Product/9907264389418",
+      "handle": "3-piece-premium-fragrance-collection-set-23",
+      "title": "3-piece-premium-fragrance-collection-set-23",
+      "vendor": "Creed",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016359722",
+          "title": "Default Title",
+          "sku": "FRAG-0034-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177202684202",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_efc64cf3-41ae-418e-9654-2596ee5c99b6.jpg?v=1760041493",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "Creed",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "le-labo",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "tom-ford",
+        "uk"
+      ]
+    },
+    {
+      "index": 32,
+      "productId": "gid://shopify/Product/9907264454954",
+      "handle": "3-piece-premium-fragrance-collection-set-24",
+      "title": "3-piece-premium-fragrance-collection-set-24",
+      "vendor": "Parfums de Marly",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016458026",
+          "title": "Default Title",
+          "sku": "FRAG-0035-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177202913578",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_e21ec53b-0fda-4deb-9591-c0c11ff0d176.jpg?v=1760041495",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "initio",
+        "men",
+        "men-fragrances",
+        "offers",
+        "parfums-de-marly",
+        "perfume",
+        "premium",
+        "uk",
+        "xerjoff"
+      ]
+    },
+    {
+      "index": 33,
+      "productId": "gid://shopify/Product/9907264487722",
+      "handle": "3-piece-premium-fragrance-collection-set-3",
+      "title": "3-piece-premium-fragrance-collection-set-3",
+      "vendor": "Paco Rabanne",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016490794",
+          "title": "Default Title",
+          "sku": "FRAG-0036-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177202979114",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_2986087e-74a1-4f5d-91bd-ebd927511405.jpg?v=1760041498",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "giorgio-armani",
+        "jean-paul-gaultier",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 34,
+      "productId": "gid://shopify/Product/9907264520490",
+      "handle": "3-piece-premium-fragrance-collection-set-4",
+      "title": "3-piece-premium-fragrance-collection-set-4",
+      "vendor": "Dior",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016523562",
+          "title": "Default Title",
+          "sku": "FRAG-0037-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177203077418",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_bb867211-252f-407f-b151-11ee8f135fe1.jpg?v=1760041500",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "Chanel",
+        "collection",
+        "Dior",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "giorgio-armani",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 35,
+      "productId": "gid://shopify/Product/9907264553258",
+      "handle": "3-piece-premium-fragrance-collection-set-5",
+      "title": "3-piece-premium-fragrance-collection-set-5",
+      "vendor": "Philipp Plein",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016556330",
+          "title": "Default Title",
+          "sku": "FRAG-0038-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177203405098",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_839ee87f-29ea-463b-93d6-a427ad3adecd.jpg?v=1760041503",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "moschino",
+        "offers",
+        "perfume",
+        "philipp-plein",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 36,
+      "productId": "gid://shopify/Product/9907264651562",
+      "handle": "3-piece-premium-fragrance-collection-set-6",
+      "title": "3-piece-premium-fragrance-collection-set-6",
+      "vendor": "Versace",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016687402",
+          "title": "Default Title",
+          "sku": "FRAG-0039-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177204551978",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_f77a4046-d033-40d0-ac3d-245cd0d4cc70.jpg?v=1760041505",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "giorgio-armani",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "versace"
+      ]
+    },
+    {
+      "index": 37,
+      "productId": "gid://shopify/Product/9907264684330",
+      "handle": "3-piece-premium-fragrance-collection-set-7",
+      "title": "3-piece-premium-fragrance-collection-set-7",
+      "vendor": "Chanel",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016752938",
+          "title": "Default Title",
+          "sku": "FRAG-0040-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177204683050",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_9ba8bb1e-13c3-45de-9246-da16f3d49983.jpg?v=1760041508",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "Chanel",
+        "collection",
+        "Creed",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "louis-vuitton",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 38,
+      "productId": "gid://shopify/Product/9907264782634",
+      "handle": "3-piece-premium-fragrance-collection-set-8",
+      "title": "3-piece-premium-fragrance-collection-set-8",
+      "vendor": "Giorgio Armani",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017146154",
+          "title": "Default Title",
+          "sku": "FRAG-0041-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177205141802",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_2bc345eb-3196-41ff-98b8-7e91679da6ae.jpg?v=1760041510",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "armaf",
+        "authentic",
+        "bestseller",
+        "collection",
+        "emporio-armani",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "giorgio-armani",
+        "guerlain",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 39,
+      "productId": "gid://shopify/Product/9907264815402",
+      "handle": "3-piece-premium-fragrance-collection-set-9",
+      "title": "3-piece-premium-fragrance-collection-set-9",
+      "vendor": "Mugler",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017178922",
+          "title": "Default Title",
+          "sku": "FRAG-0042-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177205469482",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_2dc26f36-f8f3-4754-9753-3f83f831e07e.jpg?v=1760041513",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "mugler",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 40,
+      "productId": "gid://shopify/Product/9907264880938",
+      "handle": "3-piece-premium-fragrance-collection-set-25",
+      "title": "3-piece-premium-fragrance-collection-set-25",
+      "vendor": "Chanel",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017277226",
+          "title": "Default Title",
+          "sku": "FRAG-0043-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177205731626",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_cd4b7798-768e-4d09-96c3-5cc7d0c55258.jpg?v=1760041516",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "carolina-herrera",
+        "Chanel",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 41,
+      "productId": "gid://shopify/Product/9907264913706",
+      "handle": "3-piece-premium-fragrance-collection-set-26",
+      "title": "3-piece-premium-fragrance-collection-set-26",
+      "vendor": "Yves Saint Laurent",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017309994",
+          "title": "Default Title",
+          "sku": "FRAG-0044-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177205797162",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_0e40f589-d665-4321-ab47-f2f6736160c5.jpg?v=1760041518",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "yves-saint-laurent"
+      ]
+    },
+    {
+      "index": 42,
+      "productId": "gid://shopify/Product/9907265012010",
+      "handle": "3-piece-premium-fragrance-collection-set-27",
+      "title": "3-piece-premium-fragrance-collection-set-27",
+      "vendor": "Chanel",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017473834",
+          "title": "Default Title",
+          "sku": "FRAG-0045-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177206190378",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_dc1b08a5-1d9e-43b1-886e-baa00cb27aeb.jpg?v=1760041521",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "Chanel",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "giorgio-armani",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk",
+        "yves-saint-laurent"
+      ]
+    },
+    {
+      "index": 43,
+      "productId": "gid://shopify/Product/9907265044778",
+      "handle": "3-piece-premium-fragrance-collection-set-43",
+      "title": "3-piece-premium-fragrance-collection-set-43",
+      "vendor": "Lancôme",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017506602",
+          "title": "Default Title",
+          "sku": "FRAG-0046-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177206714666",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_21f32743-00de-4b72-a98e-e95e1d85e910.jpg?v=1760041523",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "carolina-herrera",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "lancôme",
+        "men",
+        "men-fragrances",
+        "offers",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    },
+    {
+      "index": 44,
+      "productId": "gid://shopify/Product/9907265110314",
+      "handle": "3-piece-premium-fragrance-collection-set-44",
+      "title": "3-piece-premium-fragrance-collection-set-44",
+      "vendor": "Paco Rabanne",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017604906",
+          "title": "Default Title",
+          "sku": "FRAG-0047-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ],
+      "priceRange": {
+        "min": 49.99,
+        "max": 49.99
+      },
+      "images": [
+        {
+          "id": "gid://shopify/ProductImage/50177207697706",
+          "url": "https://cdn.shopify.com/s/files/1/0900/8644/1258/files/imagem_dos_produtos_c44ca1ef-6dd5-4100-be85-8d4aa06562e4.jpg?v=1760041525",
+          "altText": ""
+        }
+      ],
+      "tags": [
+        "authentic",
+        "bestseller",
+        "collection",
+        "fragrance-set",
+        "gift",
+        "gift-set",
+        "men",
+        "men-fragrances",
+        "offers",
+        "paco-rabanne",
+        "perfume",
+        "premium",
+        "uk"
+      ]
+    }
+  ],
+  "variantMapping": {
+    "gid://shopify/ProductVariant/50672013836586": {
+      "productId": "gid://shopify/Product/9907262751018",
+      "handle": "3-piece-premium-fragrance-collection-set-28",
+      "title": "3-piece-premium-fragrance-collection-set-28",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0001-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672013869354": {
+      "productId": "gid://shopify/Product/9907262783786",
+      "handle": "3-piece-premium-fragrance-collection-set-29",
+      "title": "3-piece-premium-fragrance-collection-set-29",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0002-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672013967658": {
+      "productId": "gid://shopify/Product/9907262849322",
+      "handle": "3-piece-premium-fragrance-collection-set-30",
+      "title": "3-piece-premium-fragrance-collection-set-30",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0003-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014000426": {
+      "productId": "gid://shopify/Product/9907262882090",
+      "handle": "3-piece-premium-fragrance-collection-set-31",
+      "title": "3-piece-premium-fragrance-collection-set-31",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0004-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014065962": {
+      "productId": "gid://shopify/Product/9907262947626",
+      "handle": "3-piece-premium-fragrance-collection-set-32",
+      "title": "3-piece-premium-fragrance-collection-set-32",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0005-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014131498": {
+      "productId": "gid://shopify/Product/9907262980394",
+      "handle": "3-piece-premium-fragrance-collection-set-33",
+      "title": "3-piece-premium-fragrance-collection-set-33",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0009-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014164266": {
+      "productId": "gid://shopify/Product/9907263013162",
+      "handle": "3-piece-premium-fragrance-collection-set-34",
+      "title": "3-piece-premium-fragrance-collection-set-34",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0010-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014262570": {
+      "productId": "gid://shopify/Product/9907263078698",
+      "handle": "3-piece-premium-fragrance-collection-set-35",
+      "title": "3-piece-premium-fragrance-collection-set-35",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0011-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014295338": {
+      "productId": "gid://shopify/Product/9907263111466",
+      "handle": "3-piece-premium-fragrance-collection-set-36",
+      "title": "3-piece-premium-fragrance-collection-set-36",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0012-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014393642": {
+      "productId": "gid://shopify/Product/9907263209770",
+      "handle": "3-piece-premium-fragrance-collection-set-37",
+      "title": "3-piece-premium-fragrance-collection-set-37",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0013-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014688554": {
+      "productId": "gid://shopify/Product/9907263242538",
+      "handle": "3-piece-premium-fragrance-collection-set-38",
+      "title": "3-piece-premium-fragrance-collection-set-38",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0014-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014721322": {
+      "productId": "gid://shopify/Product/9907263275306",
+      "handle": "3-piece-premium-fragrance-collection-set-39",
+      "title": "3-piece-premium-fragrance-collection-set-39",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0015-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014852394": {
+      "productId": "gid://shopify/Product/9907263373610",
+      "handle": "3-piece-premium-fragrance-collection-set-40",
+      "title": "3-piece-premium-fragrance-collection-set-40",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0016-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014917930": {
+      "productId": "gid://shopify/Product/9907263406378",
+      "handle": "3-piece-premium-fragrance-collection-set-41",
+      "title": "3-piece-premium-fragrance-collection-set-41",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0017-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672014983466": {
+      "productId": "gid://shopify/Product/9907263471914",
+      "handle": "3-piece-premium-fragrance-collection-set-42",
+      "title": "3-piece-premium-fragrance-collection-set-42",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0018-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015016234": {
+      "productId": "gid://shopify/Product/9907263504682",
+      "handle": "3-piece-premium-fragrance-collection-set-1",
+      "title": "3-piece-premium-fragrance-collection-set-1",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0019-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015049002": {
+      "productId": "gid://shopify/Product/9907263537450",
+      "handle": "3-piece-premium-fragrance-collection-set-10",
+      "title": "3-piece-premium-fragrance-collection-set-10",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0020-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015147306": {
+      "productId": "gid://shopify/Product/9907263602986",
+      "handle": "3-piece-premium-fragrance-collection-set-11",
+      "title": "3-piece-premium-fragrance-collection-set-11",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0021-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015245610": {
+      "productId": "gid://shopify/Product/9907263668522",
+      "handle": "3-piece-premium-fragrance-collection-set-12",
+      "title": "3-piece-premium-fragrance-collection-set-12",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0022-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015278378": {
+      "productId": "gid://shopify/Product/9907263701290",
+      "handle": "3-piece-premium-fragrance-collection-set-13",
+      "title": "3-piece-premium-fragrance-collection-set-13",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0023-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015376682": {
+      "productId": "gid://shopify/Product/9907263766826",
+      "handle": "3-piece-premium-fragrance-collection-set-14",
+      "title": "3-piece-premium-fragrance-collection-set-14",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0024-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015409450": {
+      "productId": "gid://shopify/Product/9907263799594",
+      "handle": "3-piece-premium-fragrance-collection-set-15",
+      "title": "3-piece-premium-fragrance-collection-set-15",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0025-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015540522": {
+      "productId": "gid://shopify/Product/9907263897898",
+      "handle": "3-piece-premium-fragrance-collection-set-16",
+      "title": "3-piece-premium-fragrance-collection-set-16",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0026-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015769898": {
+      "productId": "gid://shopify/Product/9907263996202",
+      "handle": "3-piece-premium-fragrance-collection-set-17",
+      "title": "3-piece-premium-fragrance-collection-set-17",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0027-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015868202": {
+      "productId": "gid://shopify/Product/9907264061738",
+      "handle": "3-piece-premium-fragrance-collection-set-18",
+      "title": "3-piece-premium-fragrance-collection-set-18",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0028-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672015999274": {
+      "productId": "gid://shopify/Product/9907264127274",
+      "handle": "3-piece-premium-fragrance-collection-set-19",
+      "title": "3-piece-premium-fragrance-collection-set-19",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0029-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016097578": {
+      "productId": "gid://shopify/Product/9907264192810",
+      "handle": "3-piece-premium-fragrance-collection-set-2",
+      "title": "3-piece-premium-fragrance-collection-set-2",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0030-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016130346": {
+      "productId": "gid://shopify/Product/9907264225578",
+      "handle": "3-piece-premium-fragrance-collection-set-20",
+      "title": "3-piece-premium-fragrance-collection-set-20",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0031-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016163114": {
+      "productId": "gid://shopify/Product/9907264258346",
+      "handle": "3-piece-premium-fragrance-collection-set-21",
+      "title": "3-piece-premium-fragrance-collection-set-21",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0032-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016261418": {
+      "productId": "gid://shopify/Product/9907264323882",
+      "handle": "3-piece-premium-fragrance-collection-set-22",
+      "title": "3-piece-premium-fragrance-collection-set-22",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0033-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016359722": {
+      "productId": "gid://shopify/Product/9907264389418",
+      "handle": "3-piece-premium-fragrance-collection-set-23",
+      "title": "3-piece-premium-fragrance-collection-set-23",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0034-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016458026": {
+      "productId": "gid://shopify/Product/9907264454954",
+      "handle": "3-piece-premium-fragrance-collection-set-24",
+      "title": "3-piece-premium-fragrance-collection-set-24",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0035-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016490794": {
+      "productId": "gid://shopify/Product/9907264487722",
+      "handle": "3-piece-premium-fragrance-collection-set-3",
+      "title": "3-piece-premium-fragrance-collection-set-3",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0036-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016523562": {
+      "productId": "gid://shopify/Product/9907264520490",
+      "handle": "3-piece-premium-fragrance-collection-set-4",
+      "title": "3-piece-premium-fragrance-collection-set-4",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0037-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016556330": {
+      "productId": "gid://shopify/Product/9907264553258",
+      "handle": "3-piece-premium-fragrance-collection-set-5",
+      "title": "3-piece-premium-fragrance-collection-set-5",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0038-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016687402": {
+      "productId": "gid://shopify/Product/9907264651562",
+      "handle": "3-piece-premium-fragrance-collection-set-6",
+      "title": "3-piece-premium-fragrance-collection-set-6",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0039-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672016752938": {
+      "productId": "gid://shopify/Product/9907264684330",
+      "handle": "3-piece-premium-fragrance-collection-set-7",
+      "title": "3-piece-premium-fragrance-collection-set-7",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0040-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672017146154": {
+      "productId": "gid://shopify/Product/9907264782634",
+      "handle": "3-piece-premium-fragrance-collection-set-8",
+      "title": "3-piece-premium-fragrance-collection-set-8",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0041-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672017178922": {
+      "productId": "gid://shopify/Product/9907264815402",
+      "handle": "3-piece-premium-fragrance-collection-set-9",
+      "title": "3-piece-premium-fragrance-collection-set-9",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0042-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672017277226": {
+      "productId": "gid://shopify/Product/9907264880938",
+      "handle": "3-piece-premium-fragrance-collection-set-25",
+      "title": "3-piece-premium-fragrance-collection-set-25",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0043-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672017309994": {
+      "productId": "gid://shopify/Product/9907264913706",
+      "handle": "3-piece-premium-fragrance-collection-set-26",
+      "title": "3-piece-premium-fragrance-collection-set-26",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0044-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672017473834": {
+      "productId": "gid://shopify/Product/9907265012010",
+      "handle": "3-piece-premium-fragrance-collection-set-27",
+      "title": "3-piece-premium-fragrance-collection-set-27",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0045-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672017506602": {
+      "productId": "gid://shopify/Product/9907265044778",
+      "handle": "3-piece-premium-fragrance-collection-set-43",
+      "title": "3-piece-premium-fragrance-collection-set-43",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0046-183239",
+      "price": "49.99"
+    },
+    "gid://shopify/ProductVariant/50672017604906": {
+      "productId": "gid://shopify/Product/9907265110314",
+      "handle": "3-piece-premium-fragrance-collection-set-44",
+      "title": "3-piece-premium-fragrance-collection-set-44",
+      "variantTitle": "Default Title",
+      "sku": "FRAG-0047-183239",
+      "price": "49.99"
+    }
+  },
+  "handleMapping": {
+    "3-piece-premium-fragrance-collection-set-28": {
+      "productId": "gid://shopify/Product/9907262751018",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672013836586",
+          "title": "Default Title",
+          "sku": "FRAG-0001-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-29": {
+      "productId": "gid://shopify/Product/9907262783786",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672013869354",
+          "title": "Default Title",
+          "sku": "FRAG-0002-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-30": {
+      "productId": "gid://shopify/Product/9907262849322",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672013967658",
+          "title": "Default Title",
+          "sku": "FRAG-0003-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-31": {
+      "productId": "gid://shopify/Product/9907262882090",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014000426",
+          "title": "Default Title",
+          "sku": "FRAG-0004-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-32": {
+      "productId": "gid://shopify/Product/9907262947626",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014065962",
+          "title": "Default Title",
+          "sku": "FRAG-0005-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-33": {
+      "productId": "gid://shopify/Product/9907262980394",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014131498",
+          "title": "Default Title",
+          "sku": "FRAG-0009-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-34": {
+      "productId": "gid://shopify/Product/9907263013162",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014164266",
+          "title": "Default Title",
+          "sku": "FRAG-0010-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-35": {
+      "productId": "gid://shopify/Product/9907263078698",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014262570",
+          "title": "Default Title",
+          "sku": "FRAG-0011-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-36": {
+      "productId": "gid://shopify/Product/9907263111466",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014295338",
+          "title": "Default Title",
+          "sku": "FRAG-0012-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-37": {
+      "productId": "gid://shopify/Product/9907263209770",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014393642",
+          "title": "Default Title",
+          "sku": "FRAG-0013-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-38": {
+      "productId": "gid://shopify/Product/9907263242538",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014688554",
+          "title": "Default Title",
+          "sku": "FRAG-0014-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-39": {
+      "productId": "gid://shopify/Product/9907263275306",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014721322",
+          "title": "Default Title",
+          "sku": "FRAG-0015-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-40": {
+      "productId": "gid://shopify/Product/9907263373610",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014852394",
+          "title": "Default Title",
+          "sku": "FRAG-0016-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-41": {
+      "productId": "gid://shopify/Product/9907263406378",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014917930",
+          "title": "Default Title",
+          "sku": "FRAG-0017-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-42": {
+      "productId": "gid://shopify/Product/9907263471914",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672014983466",
+          "title": "Default Title",
+          "sku": "FRAG-0018-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-1": {
+      "productId": "gid://shopify/Product/9907263504682",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015016234",
+          "title": "Default Title",
+          "sku": "FRAG-0019-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-10": {
+      "productId": "gid://shopify/Product/9907263537450",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015049002",
+          "title": "Default Title",
+          "sku": "FRAG-0020-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-11": {
+      "productId": "gid://shopify/Product/9907263602986",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015147306",
+          "title": "Default Title",
+          "sku": "FRAG-0021-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-12": {
+      "productId": "gid://shopify/Product/9907263668522",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015245610",
+          "title": "Default Title",
+          "sku": "FRAG-0022-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-13": {
+      "productId": "gid://shopify/Product/9907263701290",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015278378",
+          "title": "Default Title",
+          "sku": "FRAG-0023-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-14": {
+      "productId": "gid://shopify/Product/9907263766826",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015376682",
+          "title": "Default Title",
+          "sku": "FRAG-0024-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-15": {
+      "productId": "gid://shopify/Product/9907263799594",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015409450",
+          "title": "Default Title",
+          "sku": "FRAG-0025-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-16": {
+      "productId": "gid://shopify/Product/9907263897898",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015540522",
+          "title": "Default Title",
+          "sku": "FRAG-0026-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-17": {
+      "productId": "gid://shopify/Product/9907263996202",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015769898",
+          "title": "Default Title",
+          "sku": "FRAG-0027-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-18": {
+      "productId": "gid://shopify/Product/9907264061738",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015868202",
+          "title": "Default Title",
+          "sku": "FRAG-0028-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-19": {
+      "productId": "gid://shopify/Product/9907264127274",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672015999274",
+          "title": "Default Title",
+          "sku": "FRAG-0029-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-2": {
+      "productId": "gid://shopify/Product/9907264192810",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016097578",
+          "title": "Default Title",
+          "sku": "FRAG-0030-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-20": {
+      "productId": "gid://shopify/Product/9907264225578",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016130346",
+          "title": "Default Title",
+          "sku": "FRAG-0031-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-21": {
+      "productId": "gid://shopify/Product/9907264258346",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016163114",
+          "title": "Default Title",
+          "sku": "FRAG-0032-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-22": {
+      "productId": "gid://shopify/Product/9907264323882",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016261418",
+          "title": "Default Title",
+          "sku": "FRAG-0033-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-23": {
+      "productId": "gid://shopify/Product/9907264389418",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016359722",
+          "title": "Default Title",
+          "sku": "FRAG-0034-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-24": {
+      "productId": "gid://shopify/Product/9907264454954",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016458026",
+          "title": "Default Title",
+          "sku": "FRAG-0035-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-3": {
+      "productId": "gid://shopify/Product/9907264487722",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016490794",
+          "title": "Default Title",
+          "sku": "FRAG-0036-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-4": {
+      "productId": "gid://shopify/Product/9907264520490",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016523562",
+          "title": "Default Title",
+          "sku": "FRAG-0037-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-5": {
+      "productId": "gid://shopify/Product/9907264553258",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016556330",
+          "title": "Default Title",
+          "sku": "FRAG-0038-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-6": {
+      "productId": "gid://shopify/Product/9907264651562",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016687402",
+          "title": "Default Title",
+          "sku": "FRAG-0039-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-7": {
+      "productId": "gid://shopify/Product/9907264684330",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672016752938",
+          "title": "Default Title",
+          "sku": "FRAG-0040-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-8": {
+      "productId": "gid://shopify/Product/9907264782634",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017146154",
+          "title": "Default Title",
+          "sku": "FRAG-0041-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-9": {
+      "productId": "gid://shopify/Product/9907264815402",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017178922",
+          "title": "Default Title",
+          "sku": "FRAG-0042-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-25": {
+      "productId": "gid://shopify/Product/9907264880938",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017277226",
+          "title": "Default Title",
+          "sku": "FRAG-0043-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-26": {
+      "productId": "gid://shopify/Product/9907264913706",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017309994",
+          "title": "Default Title",
+          "sku": "FRAG-0044-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-27": {
+      "productId": "gid://shopify/Product/9907265012010",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017473834",
+          "title": "Default Title",
+          "sku": "FRAG-0045-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-43": {
+      "productId": "gid://shopify/Product/9907265044778",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017506602",
+          "title": "Default Title",
+          "sku": "FRAG-0046-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    },
+    "3-piece-premium-fragrance-collection-set-44": {
+      "productId": "gid://shopify/Product/9907265110314",
+      "variants": [
+        {
+          "variantId": "gid://shopify/ProductVariant/50672017604906",
+          "title": "Default Title",
+          "sku": "FRAG-0047-183239",
+          "price": "49.99",
+          "availableForSale": true
+        }
+      ]
+    }
+  }
+}
