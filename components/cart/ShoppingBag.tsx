@@ -27,7 +27,7 @@ export default function ShoppingBag({ isOpen, onClose }: ShoppingBagProps) {
         return;
       }
 
-      console.log('🛒 Iniciando checkout direto por URL...');
+      console.log('🛒 Iniciando checkout...');
       
       // Validar e corrigir IDs obsoletos antes do checkout
       const validatedItems = items
@@ -48,7 +48,7 @@ export default function ShoppingBag({ isOpen, onClose }: ShoppingBagProps) {
       
       console.log('📦 Itens validados do carrinho:', checkoutItems);
       
-      // Redirecionar direto para o checkout (sem API!)
+      // Redirecionar para o checkout (Stripe ou Shopify)
       redirectToCheckout(checkoutItems);
       
     } catch (error) {

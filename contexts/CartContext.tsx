@@ -2,11 +2,15 @@ import { createContext, useContext, useState, ReactNode, useEffect } from 'react
 import { usePixel } from '@/hooks/usePixel'
 import { useUTM } from '@/hooks/useUTM'
 import { validateAndFixCartItem, initializeAutoCleanup } from '@/lib/cacheCleanup'
+import stripeVariantMapping from '../data/stripe_variant_mapping.json'
+import stripeProductMapping from '../data/stripe_product_mapping.json'
+import { stripe } from '@/lib/stripe'
 
 interface CartItem {
   id: number
   shopifyId: string
   storeId?: string // CORREÇÃO: Store ID usado para obter o variant ID
+  stripeId?: string // ID do preço no Stripe
   title: string
   subtitle: string
   price: number
@@ -48,23 +52,43 @@ export function CartProvider({ children }: { children: ReactNode }) {
       return
     }
 
+    // Obter o ID do Stripe para este item
+    const storeId = validatedItem.storeId || ''
+    
+    // Verificar primeiro no mapeamento de variantes (que é um objeto simples)
+    let stripeId = stripeVariantMapping[storeId as keyof typeof stripeVariantMapping] || ''
+    
+    // Se não encontrar, verificar no mapeamento de produtos (que tem estrutura diferente)
+    if (!stripeId && storeId in stripeProductMapping) {
+      const productMapping = stripeProductMapping[storeId as keyof typeof stripeProductMapping]
+      if (typeof productMapping === 'object' && productMapping !== null && 'price_id' in productMapping) {
+        stripeId = productMapping.price_id
+      }
+    }
+    
+    // Item com ID do Stripe
+    const itemWithStripeId = {
+      ...validatedItem,
+      stripeId
+    }
+
     setItems(prevItems => {
-      const existingItem = prevItems.find(item => item.id === validatedItem.id)
+      const existingItem = prevItems.find(item => item.id === itemWithStripeId.id)
       
       if (existingItem) {
         // Atualizar quantidade
         const updatedItems = prevItems.map(item =>
-          item.id === validatedItem.id
+          item.id === itemWithStripeId.id
             ? { ...item, quantity: item.quantity + quantity }
             : item
         )
         
         // Rastrear evento AddToCart
         pixel.addToCart({
-          value: validatedItem.price * quantity,
+          value: itemWithStripeId.price * quantity,
           currency: 'GBP',
-          content_name: validatedItem.title,
-          content_ids: [validatedItem.id]
+          content_name: itemWithStripeId.title,
+          content_ids: [itemWithStripeId.id]
         })
 
         return updatedItems
@@ -72,13 +96,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
       // Adicionar novo item
       pixel.addToCart({
-        value: validatedItem.price * quantity,
+        value: itemWithStripeId.price * quantity,
         currency: 'GBP',
-        content_name: validatedItem.title,
-        content_ids: [validatedItem.id]
+        content_name: itemWithStripeId.title,
+        content_ids: [itemWithStripeId.id]
       })
 
-      return [...prevItems, { ...validatedItem, quantity }]
+      return [...prevItems, { ...itemWithStripeId, quantity }]
     })
     setIsOpen(true)
   }
@@ -101,14 +125,43 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems([])
   }
 
-  const initiateCheckout = () => {
-    // Rastrear evento InitiateCheckout antes de redirecionar para Shopify
+  const initiateCheckout = async () => {
+    // Rastrear evento InitiateCheckout antes de redirecionar para Stripe
     pixel.initiateCheckout({
       value: total,
       currency: 'GBP',
       content_ids: items.map(item => item.id),
       num_items: items.length
     })
+
+    try {
+      // Criar checkout no Stripe
+      const response = await fetch('/api/stripe/create-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: items.map(item => ({
+            stripeId: item.stripeId,
+            quantity: item.quantity
+          })),
+          utm_campaign: utmParams.utm_campaign || null
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Erro ao criar checkout')
+      }
+
+      const { checkoutUrl } = await response.json()
+      
+      // Redirecionar para o checkout do Stripe
+      window.location.href = checkoutUrl
+    } catch (error) {
+      console.error('Erro ao iniciar checkout:', error)
+      alert('Ocorreu um erro ao iniciar o checkout. Por favor, tente novamente.')
+    }
   }
 
   const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)

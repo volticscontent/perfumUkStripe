@@ -1,125 +1,65 @@
-// Checkout direto por URL - sem necessidade de API!
+// Checkout com Stripe
 interface CartItem {
-  shopifyId: string;
+  shopifyId: string; // Mantemos o nome para compatibilidade, mas agora é o ID do Stripe
   quantity: number;
-}
-
-interface CheckoutResponse {
-  checkoutUrl?: string;
-  error?: string;
-  details?: any;
-}
-
-// Função para criar URL de checkout direto do Shopify
-export function createDirectCheckoutUrl(items: CartItem[]): CheckoutResponse {
-  try {
-    // Domínio da loja 2 (SOLO NECESSITO) - usa env NEXT_PUBLIC, com fallback
-    const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN || process.env.SHOPIFY_STORE_2_DOMAIN || '').trim();
-    
-    if (!domain) {
-      return {
-        error: 'Domínio da loja não configurado',
-        details: { domain: !!domain }
-      };
-    }
-
-    if (items.length === 0) {
-      return {
-        error: 'Carrinho vazio',
-        details: { itemCount: items.length }
-      };
-    }
-
-    // Construir URL de checkout direto do Shopify
-    // Formato: https://loja.myshopify.com/cart/add?id=VARIANT_ID:QUANTITY&id=VARIANT_ID2:QUANTITY2
-    const cartParams = items
-      .map(item => `${item.shopifyId}:${item.quantity}`)
-      .join(',');
-
-    // URL de checkout direto que adiciona itens ao carrinho e redireciona
-    const checkoutUrl = `https://${domain}/cart/${cartParams}`;
-
-    console.log('🛒 URL de checkout criada:', checkoutUrl);
-    console.log('📦 Itens:', items);
-
-    return {
-      checkoutUrl
-    };
-
-  } catch (error) {
-    return {
-      error: 'Erro ao criar URL de checkout',
-      details: error instanceof Error ? error.message : 'Erro desconhecido'
-    };
-  }
-}
-
-// Função alternativa usando o endpoint /cart/add
-export function createCartAddUrl(items: CartItem[]): CheckoutResponse {
-  try {
-    // Domínio da loja 2 (SOLO NECESSITO) - usa env NEXT_PUBLIC, com fallback
-    const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_2_DOMAIN || process.env.SHOPIFY_STORE_2_DOMAIN || '').trim();
-    
-    if (!domain) {
-      return {
-        error: 'Domínio da loja não configurado',
-        details: { domain: !!domain }
-      };
-    }
-
-    if (items.length === 0) {
-      return {
-        error: 'Carrinho vazio',
-        details: { itemCount: items.length }
-      };
-    }
-
-    // Para múltiplos itens, usar formato de array
-    const formData = new URLSearchParams();
-    
-    items.forEach((item, index) => {
-      formData.append(`items[${index}][id]`, item.shopifyId);
-      formData.append(`items[${index}][quantity]`, item.quantity.toString());
-    });
-
-    // URL que adiciona itens e redireciona para checkout
-    const checkoutUrl = `https://${domain}/cart/add?${formData.toString()}&return_to=/checkout`;
-
-    console.log('🛒 URL de checkout (cart/add):', checkoutUrl);
-    console.log('📦 Itens:', items);
-
-    return {
-      checkoutUrl
-    };
-
-  } catch (error) {
-    return {
-      error: 'Erro ao criar URL de checkout',
-      details: error instanceof Error ? error.message : 'Erro desconhecido'
-    };
-  }
 }
 
 // Função principal para redirecionar direto para o checkout
 export function redirectToCheckout(items: CartItem[]): void {
   try {
-    // Tentar primeiro método (URL direta)
-    let result = createDirectCheckoutUrl(items);
-    
-    // Se falhar, tentar método alternativo
-    if (!result.checkoutUrl) {
-      result = createCartAddUrl(items);
-    }
-    
-    if (result.checkoutUrl) {
-      console.log('✅ Redirecionando para checkout:', result.checkoutUrl);
-      window.location.href = result.checkoutUrl;
-    } else {
-      console.error('❌ Erro no checkout:', result.error, result.details);
-      alert('Erro ao processar checkout. Tente novamente.');
-    }
+    // Usar sempre Stripe Checkout (não precisamos mais verificar useStripe)
+    redirectToStripeCheckout(items);
   } catch (error) {
     console.error('❌ Erro crítico no checkout:', error);
+    alert('Erro ao processar checkout. Tente novamente.');
+  }
+}
+
+// Função para checkout com Stripe
+export async function redirectToStripeCheckout(items: CartItem[]): Promise<void> {
+  try {
+    if (items.length === 0) {
+      console.error('Carrinho vazio');
+      alert('Seu carrinho está vazio.');
+      return;
+    }
+
+    console.log('📦 Itens validados do carrinho:', items);
+
+    // Formatar itens para o formato esperado pela API
+    const formattedItems = items.map(item => ({
+      price_id: item.shopifyId, // ID do preço no Stripe
+      quantity: item.quantity
+    }));
+
+    // Chamar a API para criar a sessão de checkout
+    const response = await fetch('/api/stripe/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        items: formattedItems,
+        success_url: `${window.location.origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${window.location.origin}/checkout/cancel`,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Erro ao criar sessão de checkout');
+    }
+
+    const { url } = await response.json();
+    
+    if (url) {
+      console.log('✅ Redirecionando para Stripe Checkout:', url);
+      window.location.href = url;
+    } else {
+      throw new Error('Não foi possível obter a URL de checkout');
+    }
+  } catch (error) {
+    console.error('❌ Erro no checkout:', error);
     alert('Erro ao processar checkout. Tente novamente.');
   }
 }
