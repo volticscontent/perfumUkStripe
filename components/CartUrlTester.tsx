@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { createDirectCheckoutUrl } from '@/lib/clientCheckout';
+import { redirectToStripeCheckout } from '@/lib/clientCheckout';
 
 interface CartItem {
   shopifyId: string;
@@ -34,8 +34,9 @@ export default function CartUrlTester() {
     setResult(null);
 
     try {
-      const response = createDirectCheckoutUrl(items);
-      setResult(response);
+      // Redirecionar diretamente para o checkout do Stripe
+      await redirectToStripeCheckout(items);
+      setResult({ success: true, message: 'Redirecionando para o Stripe Checkout...' });
     } catch (error) {
       setResult({ error: 'Erro na requisição', details: error });
     } finally {
