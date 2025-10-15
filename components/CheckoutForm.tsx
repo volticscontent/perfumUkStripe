@@ -4,6 +4,7 @@ import {
   EmbeddedCheckout
 } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import { useUTM } from '@/hooks/useUTM';
 
 // Make sure to call loadStripe outside of a component's render to avoid
 // recreating the Stripe object on every render.
@@ -17,16 +18,18 @@ interface CheckoutFormProps {
 export default function CheckoutForm({ items }: CheckoutFormProps) {
   const [clientSecret, setClientSecret] = useState('');
   const [error, setError] = useState('');
+  const { utmParams } = useUTM();
 
   useEffect(() => {
     console.log('🔄 CheckoutForm: Starting request to create session');
     console.log('📦 Items sent:', items);
+    console.log('🎯 UTMs sent:', utmParams);
     
     // Create PaymentIntent as soon as the page loads
     fetch('/api/create-checkout-session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items }),
+      body: JSON.stringify({ items, utmParams }),
     })
       .then((res) => {
         console.log('📡 Response received:', res.status);

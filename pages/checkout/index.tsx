@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useCart } from '@/contexts/CartContext'
+import { useUTM } from '@/hooks/useUTM'
 import CheckoutForm from '@/components/CheckoutForm'
 
 export default function CheckoutPage() {
   const { items, total } = useCart()
+  const { utmParams } = useUTM() // Garantir que as UTMs sejam carregadas na página de checkout
 
   if (items.length === 0) {
     return (
@@ -35,7 +37,7 @@ export default function CheckoutPage() {
         
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Order Summary */}
-          <div className="bg-white px-8 pb-8 shadow-sm">
+          <div className="bg-white px-4 pb-8 shadow-sm">
             <h2 className="text-xl text-[#1b1b1b] font-semibold mb-6 mt-10">Order Summary</h2>
             <div className="space-y-4">
               {items.map((item) => (
@@ -43,10 +45,10 @@ export default function CheckoutPage() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-16 h-16 object-cover rounded"
+                    className="w-20 h-20 object-cover rounded"
                   />
                   <div className="flex-1">
-                    <h3 className="font-medium">{item.title.replace(/3-Piece Fragrance\s*/gi, '')}</h3>
+                    <h3 className="font-medium line-clamp-2">{item.title.replace(/3-Piece Fragrance\s*/gi, '')}</h3>
                     <p className="text-sm">Quantity: {item.quantity}</p>
                   </div>
                   <div className="text-right">

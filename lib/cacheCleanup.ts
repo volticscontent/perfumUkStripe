@@ -89,6 +89,11 @@ export function cleanObsoleteIdsFromSessionStorage(): void {
     const keysToCheck = Object.keys(sessionStorage);
     
     keysToCheck.forEach(key => {
+      // Não limpar UTMs - elas são importantes para tracking
+      if (key === 'utm_params') {
+        return;
+      }
+      
       try {
         const value = sessionStorage.getItem(key);
         if (value) {

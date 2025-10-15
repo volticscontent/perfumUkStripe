@@ -4,6 +4,20 @@ interface CartItem {
   quantity: number;
 }
 
+// Função para extrair parâmetros UTM da URL atual
+function getUtmParamsFromUrl() {
+  if (typeof window === 'undefined') return {};
+  
+  const urlParams = new URLSearchParams(window.location.search);
+  return {
+    utm_source: urlParams.get('utm_source') || undefined,
+    utm_medium: urlParams.get('utm_medium') || undefined,
+    utm_campaign: urlParams.get('utm_campaign') || undefined,
+    utm_term: urlParams.get('utm_term') || undefined,
+    utm_content: urlParams.get('utm_content') || undefined,
+  };
+}
+
 // Função principal para redirecionar direto para o checkout
 export function redirectToCheckout(items: CartItem[]): void {
   try {
@@ -29,7 +43,14 @@ export async function redirectToStripeCheckout(
       requireAddress?: boolean
     },
     customerEmail?: string,
-    promocode?: string
+    promocode?: string,
+    utmParams?: {
+      utm_source?: string,
+      utm_medium?: string,
+      utm_campaign?: string,
+      utm_term?: string,
+      utm_content?: string
+    }
   }
 ): Promise<void> {
   try {
@@ -67,7 +88,9 @@ export async function redirectToStripeCheckout(
           requireAddress: true
         },
         customerEmail: options?.customerEmail || '',
-        promocode: options?.promocode || ''
+        promocode: options?.promocode || '',
+        // Adicionar parâmetros UTM se fornecidos
+        utmParams: options?.utmParams || getUtmParamsFromUrl()
       }),
     });
 

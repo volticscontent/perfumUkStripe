@@ -27,6 +27,19 @@ export function useUTM(): UTMHook {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      // Primeiro, tenta carregar UTMs salvos no sessionStorage
+      const savedUtms = sessionStorage.getItem('utm_params');
+      let utmsFromStorage: UTMParams = {};
+      
+      if (savedUtms) {
+        try {
+          utmsFromStorage = JSON.parse(savedUtms);
+        } catch (error) {
+          console.warn('Erro ao parsear UTMs do sessionStorage:', error);
+        }
+      }
+      
+      // Captura UTMs da URL atual
       const urlParams = new URLSearchParams(window.location.search);
       const newUtmParams: UTMParams = {};
       
@@ -37,7 +50,16 @@ export function useUTM(): UTMHook {
         }
       });
       
-      setUtmParams(newUtmParams);
+      // Se há novos UTMs na URL, eles têm prioridade
+      const finalUtmParams = Object.keys(newUtmParams).length > 0 ? newUtmParams : utmsFromStorage;
+      
+      // Salva os UTMs no sessionStorage se houver algum
+      if (Object.keys(finalUtmParams).length > 0) {
+        sessionStorage.setItem('utm_params', JSON.stringify(finalUtmParams));
+        console.log('🎯 UTMs capturados e salvos:', finalUtmParams);
+      }
+      
+      setUtmParams(finalUtmParams);
     }
     
     setIsLoaded(true);

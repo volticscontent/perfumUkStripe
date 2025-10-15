@@ -17,7 +17,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       customAppearance,
       shipping,
       customerEmail,
-      promocode
+      promocode,
+      utmParams
     } = req.body;
 
     if (!items || !items.length) {
@@ -67,16 +68,38 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Configurações para a sessão de checkout
     const sessionConfig: any = {
-      payment_method_types: ['card'],
+      payment_method_types: [
+        'card',           // Cartões de crédito/débito
+        'bacs_debit',     // Débito direto BACS (popular no Reino Unido)
+        'bancontact',     // Bancontact (aceito no Reino Unido)
+        'giropay',        // Giropay
+        'ideal',          // iDEAL
+        'sofort',         // Sofort
+        'p24',            // Przelewy24
+        'eps',            // EPS
+        'fpx',            // FPX
+        'grabpay',        // GrabPay
+        'afterpay_clearpay' // Afterpay/Clearpay (muito popular no Reino Unido)
+      ],
       line_items,
       mode: 'payment',
       success_url: success_url || `${req.headers.origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: cancel_url || `${req.headers.origin}/checkout/cancel`,
       shipping_address_collection: {
-        allowed_countries: shipping?.allowedCountries || ['GB'], // Países permitidos para entrega
+        allowed_countries: ['GB'], // Países permitidos para entrega
       },
       shipping_options: shipping_options || [],
-      metadata: metadata || {},
+      metadata: {
+        ...metadata,
+        // Adicionar parâmetros UTM aos metadados para rastreamento
+        ...(utmParams && {
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+          utm_term: utmParams.utm_term,
+          utm_content: utmParams.utm_content,
+        })
+      },
       // Configuração para checkout com redirecionamento
       ui_mode: 'hosted',
       client_reference_id: metadata?.orderId || undefined,

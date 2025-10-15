@@ -43,6 +43,11 @@ export default function CartCacheCleaner() {
       let sessionStorageCleared = 0;
       
       sessionStorageKeys.forEach(key => {
+        // Não limpar UTMs - elas são importantes para tracking
+        if (key === 'utm_params') {
+          return;
+        }
+        
         const value = sessionStorage.getItem(key);
         if (value) {
           // Verificar se contém IDs obsoletos

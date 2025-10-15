@@ -39,7 +39,7 @@ export default function Document() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Store",
-              "name": "Perfumes UK",
+              "name": "TPS UK",
               "description": "Premium fragrances and perfumes for the UK market",
               "url": process.env.NEXT_PUBLIC_SITE_URL,
               "currenciesAccepted": "GBP",
