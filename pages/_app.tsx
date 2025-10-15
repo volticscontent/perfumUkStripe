@@ -12,6 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
   
   const router = useRouter()
   const isQuizPage = router.pathname === '/quiz'
+  const isCheckoutPage = router.pathname.startsWith('/checkout')
 
   return (
     <CartProvider>
@@ -20,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#ee7d1b" />
         <link rel="icon" href="/images/logo.avif" />
       </Head>
-      <AppLayout hideBottomNavigation={isQuizPage}>
+      <AppLayout hideBottomNavigation={isQuizPage || isCheckoutPage}>
         <Component {...pageProps} />
       </AppLayout>
     </CartProvider>

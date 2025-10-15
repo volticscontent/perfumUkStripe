@@ -16,7 +16,22 @@ export function redirectToCheckout(items: CartItem[]): void {
 }
 
 // Função para checkout com Stripe
-export async function redirectToStripeCheckout(items: CartItem[]): Promise<void> {
+export async function redirectToStripeCheckout(
+  items: CartItem[], 
+  options?: {
+    customAppearance?: {
+      theme?: 'stripe' | 'night' | 'flat',
+      buttonColor?: string,
+      primaryColor?: string
+    },
+    shipping?: {
+      allowedCountries?: string[],
+      requireAddress?: boolean
+    },
+    customerEmail?: string,
+    promocode?: string
+  }
+): Promise<void> {
   try {
     if (items.length === 0) {
       console.error('Carrinho vazio');
@@ -42,12 +57,28 @@ export async function redirectToStripeCheckout(items: CartItem[]): Promise<void>
         items: formattedItems,
         success_url: `${window.location.origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${window.location.origin}/checkout/cancel`,
+        // Opções de personalização
+        customAppearance: options?.customAppearance || {
+          theme: 'stripe',
+          primaryColor: '#6772e5'
+        },
+        shipping: options?.shipping || {
+          allowedCountries: ['GB'],
+          requireAddress: true
+        },
+        customerEmail: options?.customerEmail || '',
+        promocode: options?.promocode || ''
       }),
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || 'Erro ao criar sessão de checkout');
+      try {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro ao criar sessão de checkout');
+      } catch (jsonError) {
+        // Se não conseguir processar como JSON, usa o status text
+        throw new Error(`Erro ao criar sessão de checkout: ${response.status} ${response.statusText}`);
+      }
     }
 
     const { url } = await response.json();

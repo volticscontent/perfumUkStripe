@@ -46,20 +46,29 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
 
   const handleAddToCart = async () => {
     try {
-      // Sistema dinâmico - obtém variant ID específico para cada produto
-      const { getShopifyVariantIdByHandle } = await import('@/lib/shopifyMapping');
+      // Importar os mapeamentos do Stripe
+      const stripeVariantMapping = await import('@/data/stripe_variant_mapping.json');
+      const stripeProductMapping = await import('@/data/stripe_product_mapping.json');
       
-      const shopifyVariantId = await getShopifyVariantIdByHandle(product.handle);
-      const storeId = DEFAULT_STORE_ID;
+      // Buscar o ID do Stripe para este produto com type assertion
+      const variantMapping = stripeVariantMapping.default as Record<string, string>;
+      const productMapping = stripeProductMapping.default as Record<string, { price_id: string }>;
       
-      if (!shopifyVariantId) {
-        throw new Error(`Variant ID não encontrado para o produto: ${product.handle}`);
+      let stripeId = variantMapping[product.handle];
+      
+      // Se não encontrar no mapeamento de variantes, tentar no mapeamento de produtos
+      if (!stripeId && productMapping[product.handle]) {
+        stripeId = productMapping[product.handle].price_id;
+      }
+      
+      if (!stripeId) {
+        throw new Error(`Stripe ID not found for product: ${product.handle}`);
       }
       
       const cartItem = {
         id: product.id,
-        shopifyId: shopifyVariantId,
-        storeId: storeId,
+        shopifyId: product.handle, // Usar o handle como identificador
+        stripeId: stripeId, // ID do preço no Stripe
         title: product.title,
         subtitle: `Eau de Parfum Spray - 100ML`,
         price: typeof product.price.regular === 'string' ? parseFloat(product.price.regular) : product.price.regular,
@@ -67,10 +76,8 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
       };
       
       addItem(cartItem, quantity);
-      // Produto adicionado ao carrinho
     } catch (error) {
-      console.error('Erro ao adicionar produto ao carrinho:', error);
-      alert('Erro: Não foi possível adicionar o produto ao carrinho.');
+      console.error('Error adding product to cart:', error);
     }
   }
 

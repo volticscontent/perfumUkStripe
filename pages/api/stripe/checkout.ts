@@ -8,7 +8,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { items, success_url, cancel_url, shipping_options, metadata } = req.body;
+    const { 
+      items, 
+      success_url, 
+      cancel_url, 
+      shipping_options, 
+      metadata,
+      customAppearance,
+      shipping,
+      customerEmail,
+      promocode
+    } = req.body;
 
     if (!items || !items.length) {
       return res.status(400).json({ error: 'Pelo menos um item é necessário' });
@@ -55,21 +65,62 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       };
     });
 
-    // Cria a sessão de checkout
-    const session = await stripe.checkout.sessions.create({
+    // Configurações para a sessão de checkout
+    const sessionConfig: any = {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
       success_url: success_url || `${req.headers.origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: cancel_url || `${req.headers.origin}/checkout/cancel`,
       shipping_address_collection: {
-        allowed_countries: ['GB'], // Países permitidos para entrega
+        allowed_countries: shipping?.allowedCountries || ['GB'], // Países permitidos para entrega
       },
       shipping_options: shipping_options || [],
       metadata: metadata || {},
-    });
+      // Configuração para checkout com redirecionamento
+      ui_mode: 'hosted',
+      client_reference_id: metadata?.orderId || undefined,
+      custom_text: customAppearance?.customText || undefined
+    };
 
-    return res.status(200).json({ sessionId: session.id, url: session.url });
+    // Adicionar configurações personalizadas se fornecidas
+    if (customerEmail) {
+      sessionConfig.customer_email = customerEmail;
+    }
+
+    if (promocode) {
+      sessionConfig.allow_promotion_codes = true;
+    }
+
+    // Configurações de aparência personalizada
+    if (customAppearance) {
+      sessionConfig.custom_appearance = {
+        theme: customAppearance.theme || 'stripe',
+        variables: {
+          colorPrimary: customAppearance.primaryColor || '#6772e5',
+          colorBackground: '#ffffff',
+          colorText: '#1A1A1A',
+          colorDanger: '#df1b41',
+          fontFamily: 'Ideal Sans, system-ui, sans-serif',
+          spacingUnit: '4px',
+          borderRadius: '4px',
+        },
+        buttons: {
+          color: customAppearance.buttonColor || 'black',
+          style: 'filled',
+        },
+      };
+    }
+
+    // Cria a sessão de checkout
+    const session = await stripe.checkout.sessions.create(sessionConfig);
+
+    // Retornar o client_secret para checkout incorporado
+    return res.status(200).json({ 
+      sessionId: session.id,
+      client_secret: session.client_secret,
+      url: session.url 
+    });
   } catch (error: any) {
     console.error('Erro ao criar sessão de checkout:', error);
     return res.status(500).json({ error: error.message });

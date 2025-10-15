@@ -52,17 +52,22 @@ export function CartProvider({ children }: { children: ReactNode }) {
       return
     }
 
-    // Obter o ID do Stripe para este item
-    const storeId = validatedItem.storeId || ''
+    // Se o item já tem stripeId, usar ele diretamente
+    let stripeId = validatedItem.stripeId || ''
     
-    // Verificar primeiro no mapeamento de variantes (que é um objeto simples)
-    let stripeId = stripeVariantMapping[storeId as keyof typeof stripeVariantMapping] || ''
-    
-    // Se não encontrar, verificar no mapeamento de produtos (que tem estrutura diferente)
-    if (!stripeId && storeId in stripeProductMapping) {
-      const productMapping = stripeProductMapping[storeId as keyof typeof stripeProductMapping]
-      if (typeof productMapping === 'object' && productMapping !== null && 'price_id' in productMapping) {
-        stripeId = productMapping.price_id
+    // Se não tem stripeId, tentar obter do mapeamento
+    if (!stripeId) {
+      const storeId = validatedItem.storeId || validatedItem.shopifyId || ''
+      
+      // Verificar primeiro no mapeamento de variantes (que é um objeto simples)
+      stripeId = stripeVariantMapping[storeId as keyof typeof stripeVariantMapping] || ''
+      
+      // Se não encontrar, verificar no mapeamento de produtos (que tem estrutura diferente)
+      if (!stripeId && storeId in stripeProductMapping) {
+        const productMapping = stripeProductMapping[storeId as keyof typeof stripeProductMapping]
+        if (typeof productMapping === 'object' && productMapping !== null && 'price_id' in productMapping) {
+          stripeId = productMapping.price_id
+        }
       }
     }
     
@@ -71,6 +76,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       ...validatedItem,
       stripeId
     }
+
+    console.log('🛒 Adicionando item ao carrinho:', itemWithStripeId);
 
     setItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === itemWithStripeId.id)

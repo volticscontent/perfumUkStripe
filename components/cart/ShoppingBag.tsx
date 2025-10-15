@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { X, Minus, Plus } from 'lucide-react'
 import { useCart } from '@/contexts/CartContext'
-import { redirectToCheckout } from '@/lib/clientCheckout'
+import { useRouter } from 'next/router'
 import { validateAndFixCartItem } from '@/lib/cacheCleanup'
 
 interface ShoppingBagProps {
@@ -11,6 +11,7 @@ interface ShoppingBagProps {
 
 export default function ShoppingBag({ isOpen, onClose }: ShoppingBagProps) {
   const { items, removeItem, updateQuantity, clearCart, total } = useCart()
+  const router = useRouter()
 
   const panelClasses = `fixed bottom-0 left-0 right-0 max-h-[85vh] bg-white shadow-xl rounded-t-2xl transform transition-transform duration-300 ease-in-out ${
     isOpen ? 'translate-y-0' : 'translate-y-full'
@@ -40,16 +41,9 @@ export default function ShoppingBag({ isOpen, onClose }: ShoppingBagProps) {
         return;
       }
       
-      // Converter itens validados para o formato esperado
-      const checkoutItems = validatedItems.map(item => ({
-        shopifyId: item.shopifyId,
-        quantity: item.quantity
-      }));
-      
-      console.log('📦 Itens validados do carrinho:', checkoutItems);
-      
-      // Redirecionar para o checkout (Stripe ou Shopify)
-      redirectToCheckout(checkoutItems);
+      // Redirecionar para a página de checkout personalizada
+      onClose(); // Fechar o carrinho
+      router.push('/checkout');
       
     } catch (error) {
       console.error('❌ Erro no checkout:', error);
