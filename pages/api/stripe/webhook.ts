@@ -35,6 +35,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       console.log('🧪 Modo de teste ativado - pulando validação de assinatura');
     } else {
       // Verifica a assinatura do webhook
+      if (!webhookSecret) {
+        throw new Error('Webhook secret não configurado');
+      }
       event = stripe.webhooks.constructEvent(buf, sig, webhookSecret);
     }
   } catch (err: any) {

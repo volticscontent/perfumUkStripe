@@ -60,7 +60,7 @@ export async function sendConversionToUtmfy(data: UtmfyConversionData): Promise<
     });
 
     if (response.ok) {
-      console.log('✅ Conversão enviada para Utmfy com sucesso:', data.transaction_id);
+      console.log('✅ Conversão enviada para Utmfy com sucesso:', data.orderId);
       return true;
     } else {
       const errorText = await response.text();
