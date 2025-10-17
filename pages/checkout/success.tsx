@@ -1,20 +1,124 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { CheckCircle } from 'lucide-react'
-import { useCart } from '@/contexts/CartContext'
+import { CheckCircle, Loader2, AlertCircle } from 'lucide-react'
+import { useCart } from '../../hooks/useCart'
+
+interface ProcessingStatus {
+  stripe_data: 'loading' | 'success' | 'error';
+  shopify_order: 'loading' | 'success' | 'error';
+  utm_tracking: 'loading' | 'success' | 'error';
+}
 
 export default function CheckoutSuccess() {
   const router = useRouter()
   const { clearCart } = useCart()
   const { session_id } = router.query
+  const [processing, setProcessing] = useState(false)
+  const [processingStatus, setProcessingStatus] = useState<ProcessingStatus>({
+    stripe_data: 'loading',
+    shopify_order: 'loading',
+    utm_tracking: 'loading'
+  })
+  const [orderDetails, setOrderDetails] = useState<any>(null)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    // Limpar o carrinho quando a página de sucesso é carregada
-    if (session_id) {
+    // Limpar o carrinho e processar pedido quando session_id estiver disponível
+    if (session_id && typeof session_id === 'string') {
       clearCart()
+      processOrder(session_id)
     }
   }, [session_id, clearCart])
+
+  const processOrder = async (sessionId: string) => {
+    setProcessing(true)
+    setError(null)
+
+    try {
+      // 1. Buscar dados da sessão do Stripe
+      console.log('🔍 Buscando dados da sessão Stripe:', sessionId)
+      setProcessingStatus(prev => ({ ...prev, stripe_data: 'loading' }))
+      
+      const stripeResponse = await fetch(`/api/stripe/session-details?session_id=${sessionId}`)
+      
+      if (!stripeResponse.ok) {
+        throw new Error('Falha ao buscar dados da sessão Stripe')
+      }
+      
+      const stripeData = await stripeResponse.json()
+      setOrderDetails(stripeData.data)
+      setProcessingStatus(prev => ({ ...prev, stripe_data: 'success' }))
+      
+      console.log('✅ Dados do Stripe recuperados:', stripeData.data)
+
+      // 2. Enviar pedido para Shopify
+      console.log('📦 Enviando pedido para Shopify...')
+      setProcessingStatus(prev => ({ ...prev, shopify_order: 'loading' }))
+      
+      const shopifyResponse = await fetch('/api/shopify/create-order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ orderData: stripeData.data }),
+      })
+
+      if (shopifyResponse.ok) {
+        const shopifyData = await shopifyResponse.json()
+        console.log('✅ Pedido criado no Shopify:', shopifyData)
+        setProcessingStatus(prev => ({ ...prev, shopify_order: 'success' }))
+      } else {
+        console.warn('⚠️ Falha ao criar pedido no Shopify (continuando...)')
+        setProcessingStatus(prev => ({ ...prev, shopify_order: 'error' }))
+      }
+
+      // 3. Processar tracking UTM (se disponível)
+      setProcessingStatus(prev => ({ ...prev, utm_tracking: 'loading' }))
+      
+      if (stripeData.data.utm_params && Object.values(stripeData.data.utm_params).some(v => v)) {
+        console.log('📊 Processando tracking UTM:', stripeData.data.utm_params)
+        // Aqui você pode adicionar lógica adicional de tracking se necessário
+        setProcessingStatus(prev => ({ ...prev, utm_tracking: 'success' }))
+      } else {
+        console.log('ℹ️ Nenhum UTM encontrado')
+        setProcessingStatus(prev => ({ ...prev, utm_tracking: 'success' }))
+      }
+
+    } catch (error: any) {
+      console.error('❌ Erro ao processar pedido:', error)
+      setError(error.message)
+      setProcessingStatus({
+        stripe_data: 'error',
+        shopify_order: 'error',
+        utm_tracking: 'error'
+      })
+    } finally {
+      setProcessing(false)
+    }
+  }
+
+  const getStatusIcon = (status: 'loading' | 'success' | 'error') => {
+    switch (status) {
+      case 'loading':
+        return <Loader2 className="w-4 h-4 animate-spin text-blue-500" />
+      case 'success':
+        return <CheckCircle className="w-4 h-4 text-green-500" />
+      case 'error':
+        return <AlertCircle className="w-4 h-4 text-red-500" />
+    }
+  }
+
+  const getStatusText = (status: 'loading' | 'success' | 'error') => {
+    switch (status) {
+      case 'loading':
+        return 'Processando...'
+      case 'success':
+        return 'Concluído'
+      case 'error':
+        return 'Erro'
+    }
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
@@ -30,6 +134,59 @@ export default function CheckoutSuccess() {
           <div className="bg-gray-50 p-4 rounded-md mb-6">
             <p className="text-sm text-gray-500">ID da transação:</p>
             <p className="text-xs font-mono break-all">{session_id}</p>
+          </div>
+        )}
+
+        {/* Status do processamento */}
+        {processing || Object.values(processingStatus).some(status => status === 'loading') ? (
+          <div className="bg-blue-50 border border-blue-200 p-4 rounded-md mb-6">
+            <h3 className="text-sm font-medium text-blue-800 mb-3">Processando seu pedido...</h3>
+            <div className="space-y-2 text-left">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-blue-700">Dados do Stripe</span>
+                <div className="flex items-center gap-2">
+                  {getStatusIcon(processingStatus.stripe_data)}
+                  <span className="text-xs text-blue-600">{getStatusText(processingStatus.stripe_data)}</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-blue-700">Criação no Shopify</span>
+                <div className="flex items-center gap-2">
+                  {getStatusIcon(processingStatus.shopify_order)}
+                  <span className="text-xs text-blue-600">{getStatusText(processingStatus.shopify_order)}</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-blue-700">Tracking UTM</span>
+                <div className="flex items-center gap-2">
+                  {getStatusIcon(processingStatus.utm_tracking)}
+                  <span className="text-xs text-blue-600">{getStatusText(processingStatus.utm_tracking)}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
+        {/* Detalhes do pedido */}
+        {orderDetails && (
+          <div className="bg-green-50 border border-green-200 p-4 rounded-md mb-6 text-left">
+            <h3 className="text-sm font-medium text-green-800 mb-3">Detalhes do Pedido</h3>
+            <div className="space-y-1 text-xs text-green-700">
+              <div>Email: {orderDetails.customer.email}</div>
+              <div>Total: {orderDetails.currency.toUpperCase()} {(orderDetails.amount_total / 100).toFixed(2)}</div>
+              <div>Itens: {orderDetails.line_items.length}</div>
+              {orderDetails.utm_params.utm_source && (
+                <div>UTM Source: {orderDetails.utm_params.utm_source}</div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Erro */}
+        {error && (
+          <div className="bg-red-50 border border-red-200 p-4 rounded-md mb-6">
+            <h3 className="text-sm font-medium text-red-800 mb-2">Erro no processamento</h3>
+            <p className="text-xs text-red-600">{error}</p>
           </div>
         )}
         

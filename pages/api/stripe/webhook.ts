@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { buffer } from 'micro';
 import Stripe from 'stripe';
 import { stripe } from '../../../lib/stripe';
-import { sendConversionToUtmfy, formatStripeToUtmfy } from '../../../utils/utmfy';
 
 // Desabilita o parser de corpo padrão do Next.js
 export const config = {
@@ -20,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const buf = await buffer(req);
   const sig = req.headers['stripe-signature'] as string;
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-  const isTestMode = process.env.NODE_ENV === 'development' && req.headers['x-test-webhook'] === 'true';
+  const isTestMode = process.env.NODE_ENV === 'development' || !webhookSecret;
 
   if (!webhookSecret && !isTestMode) {
     return res.status(500).json({ error: 'Webhook secret não configurado' });
@@ -54,11 +53,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // Aqui você pode atualizar seu banco de dados, enviar emails, etc.
         console.log('Pagamento bem-sucedido:', session);
         
-        // Enviar conversão para Utmfy
-        if (session.payment_status === 'paid') {
-          const conversionData = formatStripeToUtmfy(session, 'purchase');
-          await sendConversionToUtmfy(conversionData);
+        // Enviar conversão para UTMify via server-side
+        try {
+          const { formatStripeToUtmfy, sendConversionToUtmfy } = await import('@/utils/utmfy');
+          const utmfyData = formatStripeToUtmfy(session);
+          const utmfySuccess = await sendConversionToUtmfy(utmfyData);
+          
+          if (utmfySuccess) {
+            console.log('✅ Conversão enviada para UTMify com sucesso (server-side):', session.id);
+          } else {
+            console.warn('⚠️ Falha ao enviar conversão para UTMify (server-side):', session.id);
+          }
+        } catch (error) {
+          console.error('❌ Erro ao processar UTMify (server-side):', error);
         }
+        
+        console.log('✅ Checkout session completed - client-side tracking ativo');
         
         // Exemplo: Atualizar status do pedido no banco de dados
         // await updateOrderStatus(session.metadata.orderId, 'paid');

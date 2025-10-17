@@ -5,6 +5,8 @@ import {
 } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useUTM } from '@/hooks/useUTM';
+import { trackEvent } from '@/lib/utils';
+import { sendClientSideConversionToUtmfy, retryFailedUtmfyConversions } from '@/lib/clientSideUtmfy';
 
 // Make sure to call loadStripe outside of a component's render to avoid
 // recreating the Stripe object on every render.
@@ -18,9 +20,59 @@ interface CheckoutFormProps {
 export default function CheckoutForm({ items }: CheckoutFormProps) {
   const [clientSecret, setClientSecret] = useState('');
   const [error, setError] = useState('');
-  const { utmParams } = useUTM();
+  const [isComplete, setIsComplete] = useState(false);
+  const { utmParams, isLoaded } = useUTM();
+
+  // Função para lidar com a conclusão do checkout
+  const handleCheckoutComplete = async () => {
+    console.log('🎉 Pagamento concluído com sucesso!');
+    setIsComplete(true);
+    
+    // Calcular valor total dos itens
+    const totalValue = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    // Preparar dados da compra
+    const purchaseData = {
+      value: totalValue,
+      currency: 'GBP',
+      content_ids: items.map(item => item.id),
+      content_type: 'product',
+      contents: items.map(item => ({
+        id: item.id,
+        quantity: item.quantity,
+        item_price: item.price
+      })),
+      num_items: items.reduce((sum, item) => sum + item.quantity, 0),
+      // Incluir UTM parameters
+      ...utmParams
+    };
+    
+    // Disparar evento Purchase para Meta Ads e TikTok
+    trackEvent('Purchase', purchaseData);
+    
+    // Enviar conversão para UTMify via client-side como backup
+    try {
+      await sendClientSideConversionToUtmfy(items, totalValue, utmParams);
+      console.log('✅ Conversão enviada para UTMify (client-side)');
+    } catch (error) {
+      console.error('❌ Erro ao enviar conversão para UTMify (client-side):', error);
+    }
+    
+    // Tentar reenviar conversões anteriores que falharam
+    try {
+      await retryFailedUtmfyConversions();
+    } catch (error) {
+      console.error('❌ Erro ao tentar reenviar conversões UTMify:', error);
+    }
+  };
 
   useEffect(() => {
+    // Aguarda os UTMs serem carregados antes de fazer a requisição
+    if (!isLoaded) {
+      console.log('⏳ Aguardando UTMs serem carregados...');
+      return;
+    }
+    
     console.log('🔄 CheckoutForm: Starting request to create session');
     console.log('📦 Items sent:', items);
     console.log('🎯 UTMs sent:', utmParams);
@@ -47,7 +99,7 @@ export default function CheckoutForm({ items }: CheckoutFormProps) {
         console.error('❌ Request error:', err);
         setError('Error connecting to server');
       });
-  }, [items]);
+  }, [items, isLoaded, utmParams]);
 
   if (error) {
     return (
@@ -57,12 +109,26 @@ export default function CheckoutForm({ items }: CheckoutFormProps) {
     );
   }
 
+  // Se o checkout foi concluído, mostrar mensagem de sucesso
+  if (isComplete) {
+    return (
+      <div className="p-8 text-center bg-green-50 border border-green-200 rounded-md">
+        <div className="text-green-600 text-6xl mb-4">✅</div>
+        <h2 className="text-2xl font-bold text-green-800 mb-2">Pagamento Confirmado!</h2>
+        <p className="text-green-700">Seu pedido foi processado com sucesso.</p>
+      </div>
+    );
+  }
+
   return (
     <div id="checkout">
       {clientSecret ? (
         <EmbeddedCheckoutProvider
           stripe={stripePromise}
-          options={{clientSecret}}
+          options={{
+            clientSecret,
+            onComplete: handleCheckoutComplete
+          }}
         >
           <EmbeddedCheckout />
         </EmbeddedCheckoutProvider>
