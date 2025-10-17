@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST!, {
-  apiVersion: '2023-10-16',
+  apiVersion: '2025-09-30.clover',
 });
 
 export default async function handler(
@@ -45,7 +45,7 @@ export default async function handler(
       line_items: lineItems.data.map(item => ({
         price_id: item.price?.id,
         product_id: typeof item.price?.product === 'object' ? item.price.product.id : item.price?.product,
-        product_name: typeof item.price?.product === 'object' ? item.price.product.name : 'Unknown Product',
+        product_name: typeof item.price?.product === 'object' && 'name' in item.price.product ? item.price.product.name : 'Unknown Product',
         quantity: item.quantity,
         amount_total: item.amount_total,
       })),
