@@ -836,7 +836,7 @@ export default function WWESummerSlamQuiz() {
     trackQuizStep('go_to_store'); // Evento final - ir para a loja
     // Links dos produtos baseados no kit selecionado
     const productLinks = {
-      "john-cena": "https://sn.theperfumeuk.shop/",
+      "john-cena": "https://www.theperfumeuk.shop/",
     };
     
     const url = productLinks[selectedKit as keyof typeof productLinks] || productLinks["john-cena"];
