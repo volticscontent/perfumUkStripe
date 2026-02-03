@@ -11,8 +11,8 @@ export default function Home({ products }: HomeProps) {
   return (
     <BaseCollection 
       products={products}
-      title="Premium Fragrance Collections | £49.90 Each"
-      description="Shop premium fragrance collections from top brands. All combos £49.90 with fast UK delivery."
+      title="Premium Fragrance Collections | £79.90 Each"
+      description="Shop premium fragrance collections from top brands. All combos £79.90 with fast UK delivery."
     />
   )
 }

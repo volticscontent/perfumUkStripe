@@ -8,8 +8,7 @@ import { stripe } from '@/lib/stripe'
 
 interface CartItem {
   id: number
-  shopifyId: string
-  storeId?: string // CORREÇÃO: Store ID usado para obter o variant ID
+  handle: string
   stripeId?: string // ID do preço no Stripe
   title: string
   subtitle: string
@@ -57,14 +56,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     
     // Se não tem stripeId, tentar obter do mapeamento
     if (!stripeId) {
-      const storeId = validatedItem.storeId || validatedItem.shopifyId || ''
+      const handle = validatedItem.handle || ''
       
       // Verificar primeiro no mapeamento de variantes (que é um objeto simples)
-      stripeId = stripeVariantMapping[storeId as keyof typeof stripeVariantMapping] || ''
+      stripeId = stripeVariantMapping[handle as keyof typeof stripeVariantMapping] || ''
       
       // Se não encontrar, verificar no mapeamento de produtos (que tem estrutura diferente)
-      if (!stripeId && storeId in stripeProductMapping) {
-        const productMapping = stripeProductMapping[storeId as keyof typeof stripeProductMapping]
+      if (!stripeId && handle in stripeProductMapping) {
+        const productMapping = stripeProductMapping[handle as keyof typeof stripeProductMapping]
         if (typeof productMapping === 'object' && productMapping !== null && 'price_id' in productMapping) {
           stripeId = productMapping.price_id
         }
@@ -76,8 +75,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
       ...validatedItem,
       stripeId
     }
-
-    console.log('🛒 Adicionando item ao carrinho:', itemWithStripeId);
 
     setItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === itemWithStripeId.id)

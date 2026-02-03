@@ -8,7 +8,9 @@ import { Trophy, DollarSign } from "lucide-react"
 import Image from "next/image"
 import PriceAnchoring from "@/components/price-anchoring"
 import styles from '@/styles/animations.module.css'
-import { trackQuizStep, useTikTokClickIdCapture } from "@/lib/utils"
+import { trackQuizStep } from "@/lib/utils"
+import { useRouter } from 'next/router'
+import { useCart } from '@/contexts/CartContext'
 
 // Add animated border keyframes for progress
 const progressBarStyles = `
@@ -726,6 +728,8 @@ Take the perfume quiz and get up to £120 off
 
 // Remover o MinimalHeader e USPHeader antigos e usar apenas o CompleteHeader
 export default function WWESummerSlamQuiz() {
+  const router = useRouter()
+  const { addItem } = useCart()
   const [gameStarted, setGameStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
@@ -746,11 +750,6 @@ export default function WWESummerSlamQuiz() {
       document.head.removeChild(styleElement);
     };
   }, []);
-
-  // Usar o hook de captura do ttclid
-  console.log('[WWESummerSlamQuiz] Calling useTikTokClickIdCapture...')
-  useTikTokClickIdCapture();
-  console.log('[WWESummerSlamQuiz] useTikTokClickIdCapture called')
 
   const isPixelsReady = usePixelLoader()
   const { playSound, isInitialized: audioInitialized } = useAudioSystem();
@@ -834,14 +833,19 @@ export default function WWESummerSlamQuiz() {
   // Função para lidar com o clique no botão de compra
   const handleBuyNowClick = (selectedKit: string) => {
     trackQuizStep('go_to_store'); // Evento final - ir para a loja
-    // Links dos produtos baseados no kit selecionado
-    const productLinks = {
-      "john-cena": "https://www.theperfumeuk.shop/",
-    };
     
-    const url = productLinks[selectedKit as keyof typeof productLinks] || productLinks["john-cena"];
-    const newWindow = window.open(url, "_blank");
-    if (newWindow) newWindow.opener = null;
+    // Adicionar item ao carrinho
+    addItem({
+      id: 999, // ID especial para o kit do quiz
+      handle: 'luxury-perfumes-kit',
+      title: '3 Luxury Perfumes – Exclusive Online Kit',
+      subtitle: 'Premium Collection',
+      price: 79.00,
+      image: '/3-caixas.png'
+    });
+    
+    // Redirecionar para o checkout
+    router.push('/checkout');
   }
 
   // Modificar a função de resposta com loading e scroll automático
@@ -930,8 +934,8 @@ export default function WWESummerSlamQuiz() {
   };
 
   const discount = correctAnswers * 20
-  const originalPrice = 147.0
-  const finalPrice = Math.max(originalPrice - discount, 47.0)
+  const originalPrice = 199.0
+  const finalPrice = Math.max(originalPrice - discount, 79.0)
 
   useTrackVSLView(); // Comentado junto com o VSL
 

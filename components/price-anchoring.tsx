@@ -21,8 +21,8 @@ const kits: Kit[] = [
     id: "luxury-perfumes",
     name: "3 Luxury Perfumes – Exclusive Online Kit",
     wrestler: "Premium",
-    price: 49.99,
-    originalPrice: 169.99,
+    price: 79.00,
+    originalPrice: 199.00,
     savings: 120,
     description: "3 Premium Fragrance Collection",
     items: [
@@ -113,15 +113,15 @@ export default function PriceAnchoring({ correctAnswers, onBuyClick }: PriceAnch
         </div>
         <div className="text-right mr-4">
           <p className="text-sm text-black">Original Price</p>
-          <p className="text-lg line-through font-bold text-[#f73e3e]">£169.99</p>
+          <p className="text-lg line-through font-bold text-[#f73e3e]">£{selectedKitData.originalPrice.toFixed(2)}</p>
         </div>
       </div>
 
       <div className="flex justify-between items-center py-2">
         <span className="text-sm text-gray-900 uppercase tracking-wide font-medium">FINAL PRICE</span>
         <div className="text-right">
-          <span className="block text-3xl font-semibold text-gray-900">£49.99</span>
-          <span className="text-sm text-[#ca0d0d]">You save £120</span>
+          <span className="block text-3xl font-semibold text-gray-900">£{finalPrice.toFixed(2)}</span>
+          <span className="text-sm text-[#ca0d0d]">You save £{discount}</span>
         </div>
       </div>
 

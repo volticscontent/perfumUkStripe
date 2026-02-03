@@ -13,8 +13,6 @@ import { useCart } from '@/contexts/CartContext'
 import ReviewSection from '@/components/products/ReviewSection'
 import Link from 'next/link'
 import Image from 'next/image'
-import { DEFAULT_STORE_ID } from '@/lib/shopifyStores';
-
 interface ProductPageProps {
   product: Product
   relatedProducts: Product[]
@@ -67,7 +65,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
       
       const cartItem = {
         id: product.id,
-        shopifyId: product.handle, // Usar o handle como identificador
+        handle: product.handle, // Usar o handle como identificador
         stripeId: stripeId, // ID do preço no Stripe
         title: product.title,
         subtitle: `Eau de Parfum Spray - 100ML`,
@@ -187,7 +185,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                   <span>RRP £{product.price.regular}</span>
                   <span>|</span>
                 </div>
-                <span className="text-[#666666]">£ 49.90 PER 100ml</span>
+                <span className="text-[#666666]">£ 79.00 PER 100ml</span>
               </div>
             </div>
 
@@ -259,7 +257,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                 <div className="font-bold mb-4 text-lg">Product Description</div>
                 <div className="space-y-4 text-sm text-gray-700">
                   <p>
-                    Experience luxury at an exceptional value with our exclusive Multi-Brand Promotion. These carefully curated fragrance sets, originally priced at <span className="font-bold text-black line-through">£170.00</span>, are now available for just <span className="font-bold text-black">£49.90</span>, offering you a remarkable 70% savings.
+                    Experience luxury at an exceptional value with our exclusive Multi-Brand Promotion. These carefully curated fragrance sets, originally priced at <span className="font-bold text-black line-through">£199.00</span>, are now available for just <span className="font-bold text-black">£79.00</span>, offering you a remarkable 60% savings.
                   </p>
                   
                   <p>

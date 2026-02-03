@@ -96,7 +96,8 @@ export default function CartCacheCleaner() {
     try {
       // Testar URLs corretas
       for (const [handle, variantId] of Object.entries(correctMappings)) {
-        const testUrl = `https://tpsfragrances.shop/cart/${variantId}:1`;
+        const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+        const testUrl = `${siteUrl}/cart/${variantId}:1`;
         
         try {
           const response = await fetch(testUrl, { method: 'HEAD' });

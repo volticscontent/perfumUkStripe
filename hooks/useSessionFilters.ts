@@ -27,7 +27,7 @@ const DEFAULT_FILTERS: SessionFilters = {
  * Cada campanha UTM mantém seus próprios filtros persistidos
  */
 export function useSessionFilters(): UseSessionFiltersReturn {
-  const { utmParams, storeId, isLoaded: utmLoaded } = useUTM();
+  const { utmParams, isLoaded: utmLoaded } = useUTM();
   const [sessionFilters, setSessionFilters] = useState<SessionFilters>(DEFAULT_FILTERS);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -35,8 +35,7 @@ export function useSessionFilters(): UseSessionFiltersReturn {
   const getSessionKey = () => {
     const campaign = utmParams.utm_campaign || 'default';
     const source = utmParams.utm_source || 'direct';
-    const store = storeId || 'unknown';
-    return `session_filters_${store}_${campaign}_${source}`;
+    return `session_filters_${campaign}_${source}`;
   };
 
   // Carrega filtros da sessão quando UTM estiver pronto
@@ -62,7 +61,7 @@ export function useSessionFilters(): UseSessionFiltersReturn {
       setSessionFilters(DEFAULT_FILTERS);
       setIsLoaded(true);
     }
-  }, [utmLoaded, utmParams.utm_campaign, utmParams.utm_source, storeId]);
+  }, [utmLoaded, utmParams.utm_campaign, utmParams.utm_source]);
 
   // Salva filtros na sessão
   const saveToSession = (filters: SessionFilters) => {

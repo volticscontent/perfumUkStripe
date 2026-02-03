@@ -38,7 +38,8 @@ export default function CartDebugger({ isOpen, onClose }: CartDebuggerProps) {
     const results = [];
 
     for (const item of WORKING_IDS) {
-      const url = `https://tpsfragrances.shop/cart/${item.id}:1`;
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+      const url = `${siteUrl}/cart/${item.id}:1`;
       
       try {
         const response = await fetch(url, { method: 'HEAD' });
@@ -108,7 +109,7 @@ export default function CartDebugger({ isOpen, onClose }: CartDebuggerProps) {
               <div className="space-y-2">
                 {items.map((item, index) => (
                   <div key={index} className="text-sm">
-                    <strong>{item.title}</strong> - ID: <code>{item.shopifyId}</code>
+                    <strong>{item.title}</strong> - Handle: <code>{item.handle}</code>
                   </div>
                 ))}
               </div>

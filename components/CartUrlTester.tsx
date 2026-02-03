@@ -32,7 +32,8 @@ export default function CartUrlTester() {
 
     for (const handle of selectedProducts) {
       const variantId = (stripeVariantMapping as Record<string, string>)[handle];
-      const url = `https://tpsfragrances.shop/cart/${variantId}:1`;
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+      const url = `${siteUrl}/cart/${variantId}:1`;
       
       try {
         const response = await fetch(url, { method: 'HEAD' });
@@ -66,7 +67,8 @@ export default function CartUrlTester() {
 
     for (const handle of availableProducts) {
       const variantId = (stripeVariantMapping as Record<string, string>)[handle];
-      const url = `https://tpsfragrances.shop/cart/${variantId}:1`;
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+      const url = `${siteUrl}/cart/${variantId}:1`;
       
       try {
         const response = await fetch(url, { method: 'HEAD' });

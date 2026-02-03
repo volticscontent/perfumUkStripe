@@ -13,7 +13,7 @@ interface ProcessingStatus {
 export default function CheckoutSuccess() {
   const router = useRouter()
   const { clearCart } = useCart()
-  const { session_id } = router.query
+  const { session_id, payment_intent } = router.query
   const [processing, setProcessing] = useState(false)
   const [processingStatus, setProcessingStatus] = useState<ProcessingStatus>({
     stripe_data: 'loading',
@@ -24,26 +24,33 @@ export default function CheckoutSuccess() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    // Limpar o carrinho e processar pedido quando session_id estiver disponível
+    // Limpar o carrinho e processar pedido quando session_id ou payment_intent estiver disponível
     if (session_id && typeof session_id === 'string') {
       clearCart()
-      processOrder(session_id)
+      processOrder(session_id, 'session')
+    } else if (payment_intent && typeof payment_intent === 'string') {
+      clearCart()
+      processOrder(payment_intent, 'payment_intent')
     }
-  }, [session_id, clearCart])
+  }, [session_id, payment_intent, clearCart])
 
-  const processOrder = async (sessionId: string) => {
+  const processOrder = async (id: string, type: 'session' | 'payment_intent') => {
     setProcessing(true)
     setError(null)
 
     try {
-      // 1. Buscar dados da sessão do Stripe
-      console.log('🔍 Buscando dados da sessão Stripe:', sessionId)
+      // 1. Buscar dados da sessão/intent do Stripe
+      console.log(`🔍 Buscando dados do Stripe (${type}):`, id)
       setProcessingStatus(prev => ({ ...prev, stripe_data: 'loading' }))
       
-      const stripeResponse = await fetch(`/api/stripe/session-details?session_id=${sessionId}`)
+      const endpoint = type === 'session' 
+        ? `/api/stripe/session-details?session_id=${id}`
+        : `/api/stripe/payment-intent-details?payment_intent_id=${id}`
+
+      const stripeResponse = await fetch(endpoint)
       
       if (!stripeResponse.ok) {
-        throw new Error('Falha ao buscar dados da sessão Stripe')
+        throw new Error(`Falha ao buscar dados (${type}) do Stripe`)
       }
       
       const stripeData = await stripeResponse.json()

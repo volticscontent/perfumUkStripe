@@ -8,8 +8,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const conversionData = req.body;
     
-    const utmfyWebhookUrl = process.env.UTMFY_WEBHOOK_URL;
-    const utmfyApiKey = process.env.UTMFY_API_KEY;
+    const utmfyWebhookUrl = process.env.UTMIFY_WEBHOOK_URL;
+    const utmfyApiKey = process.env.UTMIFY_API_KEY;
     
     if (!utmfyWebhookUrl) {
       console.warn('UTMFY_WEBHOOK_URL não configurada');
