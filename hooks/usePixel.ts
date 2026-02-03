@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-export const FB_PIXEL_ID = '1091597259811889';
+export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID_1 || '1201843863809192';
 
 const track = (type: string, params = {}) => {
   if (typeof window !== 'undefined') {
