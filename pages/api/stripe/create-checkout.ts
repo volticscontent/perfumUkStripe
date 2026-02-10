@@ -26,13 +26,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Criar linha de itens para o Stripe usando price_data
     const lineItems = items.map(item => {
-      // Validar preço - Forçar 59.90 para todos os itens conforme regra de negócio (rollback)
-      const price = 59.90;
+      // Validar preço - Forçar 49.90 para todos os itens conforme regra de negócio (rollback)
+      const price = 49.90;
       // const price = Number(item.price);
       // if (isNaN(price) || price <= 0) {
-      //   console.warn(`Preço inválido para o item ${item.title}: ${item.price}. Usando fallback 59.90`);
+      //   console.warn(`Preço inválido para o item ${item.title}: ${item.price}. Usando fallback 49.90`);
       // }
-      const finalPrice = 59.90;
+      const finalPrice = 49.90;
 
       // Garantir URL absoluta para imagem
       let imageUrl = item.image;

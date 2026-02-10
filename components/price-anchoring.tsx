@@ -21,7 +21,7 @@ const kits: Kit[] = [
     id: "luxury-perfumes",
     name: "3 Luxury Perfumes – Exclusive Online Kit",
     wrestler: "Premium",
-    price: 59.90,
+    price: 49.90,
     originalPrice: 179.90,
     savings: 120,
     description: "3 Premium Fragrance Collection",
