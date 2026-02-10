@@ -87,7 +87,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
   return (
     <Layout hidePromoBanner={false} hideMagentaBanner={true}>
       <Head>
-        <title>{product.seo?.title || product.title} | Perfumes UK</title>
+        <title>{`${product.seo?.title || product.title} | Perfumes UK`}</title>
         <meta 
           name="description" 
           content={product.seo?.description || product.description} 
@@ -185,7 +185,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                   <span>RRP £{product.price.regular}</span>
                   <span>|</span>
                 </div>
-                <span className="text-[#666666]">£ 79.00 PER 100ml</span>
+                <span className="text-[#666666]">£ 59.90 PER 100ml</span>
               </div>
             </div>
 
@@ -212,9 +212,9 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
 
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex border border-gray-300">
-                  <button className="px-4 py-2 text-xl">-</button>
-                  <div className="px-4 py-2 border-x border-gray-300">1</div>
-                  <button className="px-4 py-2 text-xl">+</button>
+                  <button onClick={() => handleQuantityChange(-1)} className="px-4 py-2 text-xl">-</button>
+                  <div className="px-4 py-2 border-x border-gray-300">{quantity}</div>
+                  <button onClick={() => handleQuantityChange(1)} className="px-4 py-2 text-xl">+</button>
                 </div>
                 <button className="flex items-center gap-2">
                   <Heart size={20} />
@@ -257,7 +257,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                 <div className="font-bold mb-4 text-lg">Product Description</div>
                 <div className="space-y-4 text-sm text-gray-700">
                   <p>
-                    Experience luxury at an exceptional value with our exclusive Multi-Brand Promotion. These carefully curated fragrance sets, originally priced at <span className="font-bold text-black line-through">£199.00</span>, are now available for just <span className="font-bold text-black">£79.00</span>, offering you a remarkable 60% savings.
+                    Experience luxury at an exceptional value with our exclusive Multi-Brand Promotion. These carefully curated fragrance sets, originally priced at <span className="font-bold text-black line-through">£179.90</span>, are now available for just <span className="font-bold text-black">£59.90</span>, offering you a remarkable savings.
                   </p>
                   
                   <p>
@@ -431,7 +431,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: 'blocking' // Alterado de false para blocking para suportar novos produtos sem rebuild completo
   }
 }
 

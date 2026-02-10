@@ -15,9 +15,9 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Items are required' });
     }
 
-    // Calculate total amount based on fixed price of £79
+    // Calculate total amount based on fixed price of £59.90
     const totalAmount = items.reduce((sum, item) => {
-      return sum + ((item.quantity || 1) * 7900); // 7900 cents = £79.00
+      return sum + ((item.quantity || 1) * 5990); // 5990 cents = £59.90
     }, 0);
 
     console.log('💰 Total amount calculated:', totalAmount);

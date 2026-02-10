@@ -32,7 +32,7 @@ export default function PromotionalCarousel({ className = '' }: PromotionalCarou
     {
       text: 'LAST WEEK TO SAVE',
       subtext: 'ON PERFUME PROMISE',
-      href: '/offers/all-offers/perfume-promise/c/W30063'
+      href: '/offers'
     }
   ]
 

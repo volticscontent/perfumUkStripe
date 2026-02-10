@@ -2,8 +2,12 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { stripe } from '@/lib/stripe';
 
 interface CartItem {
-  stripeId: string;
+  stripeId?: string;
   quantity: number;
+  title: string;
+  image: string;
+  price: number;
+  handle: string;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -18,32 +22,64 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: 'Items são obrigatórios' });
     }
 
-    // Verificar se todos os itens têm stripeId
-    const invalidItems = items.filter(item => !item.stripeId);
-    if (invalidItems.length > 0) {
-      return res.status(400).json({ 
-        error: 'Alguns itens não têm ID do Stripe',
-        details: invalidItems
-      });
-    }
+    const origin = req.headers.origin || 'https://theperfumeuk.shop';
 
-    // Criar linha de itens para o Stripe
-    const lineItems = items.map(item => ({
-      price: item.stripeId,
-      quantity: item.quantity
-    }));
+    // Criar linha de itens para o Stripe usando price_data
+    const lineItems = items.map(item => {
+      // Validar preço - Forçar 59.90 para todos os itens conforme regra de negócio (rollback)
+      const price = 59.90;
+      // const price = Number(item.price);
+      // if (isNaN(price) || price <= 0) {
+      //   console.warn(`Preço inválido para o item ${item.title}: ${item.price}. Usando fallback 59.90`);
+      // }
+      const finalPrice = 59.90;
+
+      // Garantir URL absoluta para imagem
+      let imageUrl = item.image;
+      if (imageUrl && !imageUrl.startsWith('http')) {
+        // Se for localhost, não enviar imagem para evitar erro do Stripe
+        if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
+          imageUrl = '';
+        } else {
+          imageUrl = `${origin}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+        }
+      }
+
+      return {
+        price_data: {
+          currency: 'gbp',
+          product_data: {
+            name: '3 Luxury Perfumes – Exclusive Online Kit',
+            description: 'Elegant Rose & Bergamot, Mysterious Oud & Vanilla, Fresh Citrus & Cedar',
+            images: imageUrl ? [imageUrl] : [],
+            metadata: {
+              handle: item.handle,
+              originalStripeId: item.stripeId || ''
+            }
+          },
+          unit_amount: Math.round(finalPrice * 100), // Converter para centavos
+        },
+        quantity: item.quantity
+      };
+    });
 
     // Criar sessão de checkout
+    // @ts-ignore - automatic_payment_methods existe na API mas o TS pode estar desatualizado
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
-      success_url: `${req.headers.origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin}/checkout/cancel`,
+      success_url: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/checkout/cancel`,
+      shipping_address_collection: {
+        allowed_countries: ['GB'],
+      },
+      automatic_payment_methods: {
+        enabled: true,
+      },
       metadata: {
         utm_campaign: utm_campaign || ''
       }
-    });
+    } as any);
 
     return res.status(200).json({ checkoutUrl: session.url });
 

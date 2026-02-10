@@ -148,7 +148,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({
           items: items.map(item => ({
             stripeId: item.stripeId,
-            quantity: item.quantity
+            quantity: item.quantity,
+            title: item.title,
+            image: item.image,
+            price: item.price,
+            handle: item.handle
           })),
           utm_campaign: utmParams.utm_campaign || null
         }),

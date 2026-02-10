@@ -729,7 +729,7 @@ Take the perfume quiz and get up to £120 off
 // Remover o MinimalHeader e USPHeader antigos e usar apenas o CompleteHeader
 export default function WWESummerSlamQuiz() {
   const router = useRouter()
-  const { addItem } = useCart()
+  const { addItem, setIsOpen } = useCart()
   const [gameStarted, setGameStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
@@ -840,12 +840,15 @@ export default function WWESummerSlamQuiz() {
       handle: 'luxury-perfumes-kit',
       title: '3 Luxury Perfumes – Exclusive Online Kit',
       subtitle: 'Premium Collection',
-      price: 79.00,
+      price: 59.90,
       image: '/3-caixas.png'
     });
     
-    // Redirecionar para o checkout
-    router.push('/checkout');
+    // Garantir que o carrinho esteja fechado para não atrapalhar a navegação
+    setIsOpen(false);
+    
+    // Redirecionar para a loja
+    router.push('/');
   }
 
   // Modificar a função de resposta com loading e scroll automático
@@ -934,8 +937,8 @@ export default function WWESummerSlamQuiz() {
   };
 
   const discount = correctAnswers * 20
-  const originalPrice = 199.0
-  const finalPrice = Math.max(originalPrice - discount, 79.0)
+  const originalPrice = 179.90
+  const finalPrice = Math.max(originalPrice - discount, 59.90)
 
   useTrackVSLView(); // Comentado junto com o VSL
 

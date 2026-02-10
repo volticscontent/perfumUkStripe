@@ -10,7 +10,7 @@ interface ShoppingBagProps {
 }
 
 export default function ShoppingBag({ isOpen, onClose }: ShoppingBagProps) {
-  const { items, removeItem, updateQuantity, clearCart, total } = useCart()
+  const { items, removeItem, updateQuantity, clearCart, total, initiateCheckout } = useCart()
   const router = useRouter()
 
   const panelClasses = `fixed bottom-0 left-0 right-0 max-h-[85vh] bg-white shadow-xl rounded-t-2xl transform transition-transform duration-300 ease-in-out ${
@@ -41,9 +41,9 @@ export default function ShoppingBag({ isOpen, onClose }: ShoppingBagProps) {
         return;
       }
       
-      // Redirecionar para a página de checkout personalizada
+      // Redirecionar para o checkout do Stripe (Hosted Checkout)
       onClose(); // Fechar o carrinho
-      router.push('/checkout');
+      initiateCheckout();
       
     } catch (error) {
       console.error('❌ Erro no checkout:', error);
