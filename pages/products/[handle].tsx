@@ -257,7 +257,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                 <div className="font-bold mb-4 text-lg">Product Description</div>
                 <div className="space-y-4 text-sm text-gray-700">
                   <p>
-                    Experience luxury at an exceptional value with our exclusive Multi-Brand Promotion. These carefully curated fragrance sets, originally priced at <span className="font-bold text-black line-through">£179.90</span>, are now available for just <span className="font-bold text-black">£49.90</span>, offering you a remarkable savings.
+                    Experience luxury at an exceptional value with our exclusive Multi-Brand Promotion. These carefully curated fragrance sets, originally priced at <span className="font-bold text-black line-through">£179.90</span>, are now available for just <span className="font-bold text-black">£59.90</span>, offering you a remarkable savings.
                   </p>
                   
                   <p>
