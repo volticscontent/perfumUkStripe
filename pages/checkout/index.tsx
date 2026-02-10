@@ -81,7 +81,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div id="checkout" className="min-h-screen bg-gray-50 py-12">
+    <div id="checkout" className="min-h-screen bg-gray-50">
       <Head>
         <title>Checkout | Perfumes UK</title>
       </Head>
