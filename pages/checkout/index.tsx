@@ -87,6 +87,35 @@ export default function CheckoutPage() {
       </Head>
       
       <div className="max-w-4xl mx-auto px-4">
+        {/* Order Summary */}
+        <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 className="text-xl font-bold mb-4">Order Summary</h2>
+            <div className="space-y-4">
+                {items.map((item) => (
+                    <div key={item.id} className="flex items-center space-x-4 border-b pb-4 last:border-0 last:pb-0">
+                        <div className="relative w-20 h-20 flex-shrink-0">
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <div className="flex-1">
+                            <h3 className="font-medium text-gray-900">{item.title}</h3>
+                            <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
+                        </div>
+                        <div className="text-right">
+                            <p className="font-bold text-gray-900">£{item.price.toFixed(2)}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className="border-t mt-4 pt-4 flex justify-between items-center">
+                <span className="font-bold text-lg">Total</span>
+                <span className="font-bold text-lg">£{total.toFixed(2)}</span>
+            </div>
+        </div>
+
         {error && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
                 <p>Error: {error}</p>

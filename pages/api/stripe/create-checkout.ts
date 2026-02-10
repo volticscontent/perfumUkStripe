@@ -34,14 +34,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // }
       const finalPrice = 49.90;
 
-      // Garantir URL absoluta para imagem
-      let imageUrl = item.image;
-      if (imageUrl && !imageUrl.startsWith('http')) {
-        // Se for localhost, não enviar imagem para evitar erro do Stripe
-        if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
-          imageUrl = '';
-        } else {
-          imageUrl = `${origin}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+      // Extrair número do set do handle
+      let setName = 'Set';
+      const match = item.handle.match(/set-(\d+)/i);
+      if (match && match[1]) {
+        setName = `Set-${match[1]}`;
+      } else {
+        // Fallback para tentar extrair qualquer número do final
+        const numMatch = item.handle.match(/(\d+)$/);
+        if (numMatch) {
+            setName = `Set-${numMatch[1]}`;
         }
       }
 
@@ -49,9 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         price_data: {
           currency: 'gbp',
           product_data: {
-            name: '3 Luxury Perfumes – Exclusive Online Kit',
-            description: 'Elegant Rose & Bergamot, Mysterious Oud & Vanilla, Fresh Citrus & Cedar',
-            images: imageUrl ? [imageUrl] : [],
+            name: setName,
             metadata: {
               handle: item.handle,
               originalStripeId: item.stripeId || ''
