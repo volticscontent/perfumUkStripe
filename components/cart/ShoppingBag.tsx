@@ -41,9 +41,9 @@ export default function ShoppingBag({ isOpen, onClose }: ShoppingBagProps) {
         return;
       }
       
-      // Redirecionar para o checkout do Stripe (Hosted Checkout)
+      // Redirecionar para a página de checkout (Embedded Checkout)
       onClose(); // Fechar o carrinho
-      initiateCheckout();
+      router.push('/checkout');
       
     } catch (error) {
       console.error('❌ Erro no checkout:', error);

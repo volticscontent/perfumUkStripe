@@ -51,7 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const session = event.data.object as Stripe.Checkout.Session;
         
         // Aqui você pode atualizar seu banco de dados, enviar emails, etc.
-        console.log('Pagamento bem-sucedido:', session);
+        console.log('Payment Succeeded:', session);
         
         // Enviar conversão para UTMify via server-side
         try {
@@ -82,7 +82,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         
       case 'payment_intent.payment_failed':
         const failedPaymentIntent = event.data.object as Stripe.PaymentIntent;
-        console.log('Falha no pagamento:', failedPaymentIntent);
+        console.log('PaymentIntent failed:', failedPaymentIntent);
         break;
         
       // Adicione outros eventos conforme necessário

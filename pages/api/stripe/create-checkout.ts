@@ -68,8 +68,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
       mode: 'payment',
-      success_url: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/checkout/cancel`,
+      ui_mode: 'embedded',
+      return_url: `${origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
       shipping_address_collection: {
         allowed_countries: ['GB'],
       },
@@ -79,7 +79,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     } as any);
 
-    return res.status(200).json({ checkoutUrl: session.url });
+    return res.status(200).json({ clientSecret: session.client_secret });
 
   } catch (error) {
     console.error('❌ Erro:', error);

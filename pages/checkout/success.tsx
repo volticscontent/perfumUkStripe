@@ -132,9 +132,9 @@ export default function CheckoutSuccess() {
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg text-center">
         <CheckCircle className="w-16 h-16 mx-auto text-green-500 mb-4" />
         
-        <h1 className="text-2xl font-bold mb-2">Pagamento Confirmado!</h1>
+        <h1 className="text-2xl font-bold mb-2">Payment Confirmed!</h1>
         <p className="text-gray-600 mb-6">
-          Seu pedido foi processado com sucesso. Você receberá um email com os detalhes da sua compra.
+          Your order has been processed successfully. You will receive an email with the details of your purchase.
         </p>
         
         {session_id && (

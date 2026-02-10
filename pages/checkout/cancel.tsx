@@ -7,14 +7,14 @@ export default function CheckoutCancel() {
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg text-center">
         <XCircle className="w-16 h-16 mx-auto text-red-500 mb-4" />
         
-        <h1 className="text-2xl font-bold mb-2">Pagamento Cancelado</h1>
+        <h1 className="text-2xl font-bold mb-2">Payment Canceled</h1>
         <p className="text-gray-600 mb-6">
-          Seu pagamento foi cancelado. Nenhuma cobrança foi realizada.
+          Your payment was canceled. No charges were made.
         </p>
         
         <div className="space-y-4">
           <Link href="/" className="block w-full bg-black text-white py-3 rounded-full font-medium hover:bg-gray-900">
-            Voltar para a loja
+            Return to Store
           </Link>
         </div>
       </div>
