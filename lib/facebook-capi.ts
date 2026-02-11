@@ -12,6 +12,8 @@ export interface CapiEventData {
   clientIp?: string;
   userAgent?: string;
   externalId?: string;
+  fbp?: string;
+  fbc?: string;
   value?: number;
   currency?: string;
   sourceUrl?: string;
@@ -41,6 +43,8 @@ export async function sendCapiEvent(data: CapiEventData) {
     client_ip_address: data.clientIp,
     client_user_agent: data.userAgent,
     external_id: data.externalId ? hash(data.externalId) : undefined,
+    fbp: data.fbp,
+    fbc: data.fbc,
   };
 
   if (data.email) userData.em = hash(data.email);

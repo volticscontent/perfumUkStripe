@@ -14,6 +14,34 @@ export const TIKTOK_PIXEL_ID_1 = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID_1 || 'D
 export const TIKTOK_PIXEL_ID_2 = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID_2
 export const UTMIFY_PIXEL_ID = process.env.NEXT_PUBLIC_UTMIFY_PIXEL_ID
 
+// Armazenamento global de dados do usuário para CAPI
+let globalUserData: Record<string, any> = {};
+
+export function setGlobalUserData(data: Record<string, any>) {
+  globalUserData = { ...globalUserData, ...data };
+  console.log('[Pixel Tracking] Updated global user data:', globalUserData);
+}
+
+// Helper para gerar ID de evento único
+function generateEventId(): string {
+  return 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+}
+
+// Enviar evento para o servidor (CAPI)
+async function sendServerEvent(eventName: string, eventId: string, parameters?: Record<string, any>, userData?: Record<string, any>) {
+  try {
+    await axios.post('/api/tracking/v1/events', {
+      eventName,
+      eventId,
+      parameters,
+      userData
+    });
+    console.log(`[CAPI] Event sent to server: ${eventName} (${eventId})`);
+  } catch (error) {
+    console.error(`[CAPI] Error sending event to server:`, error);
+  }
+}
+
 // Controle global de eventos já disparados
 const trackedEvents = new Set<string>()
 
@@ -25,15 +53,19 @@ export function trackEvent(eventName: string, parameters?: Record<string, any>, 
   }
 
   if (typeof window !== 'undefined') {
+    // Gerar ou usar EventID existente para deduplicação
+    const eventID = options?.eventID || generateEventId();
+    const finalOptions = { ...options, eventID };
+
     // Facebook Pixels usando track simples
     if ((window as any).fbq) {
       try {
-        if (options && Object.keys(options).length > 0) {
-          (window as any).fbq('track', eventName, parameters, options)
+        if (finalOptions && Object.keys(finalOptions).length > 0) {
+          (window as any).fbq('track', eventName, parameters, finalOptions)
         } else {
           (window as any).fbq('track', eventName, parameters)
         }
-        console.log(`[Meta Pixels] Tracked event:`, eventName, parameters, options)
+        console.log(`[Meta Pixels] Tracked event:`, eventName, parameters, finalOptions)
       } catch (error) {
         console.error('[Meta Pixel] Error tracking event:', error)
       }
@@ -42,7 +74,7 @@ export function trackEvent(eventName: string, parameters?: Record<string, any>, 
     // TikTok Pixel 1
     if (typeof (window as any).ttq !== 'undefined' && (window as any).ttq && typeof (window as any).ttq.track === 'function' && TIKTOK_PIXEL_ID_1) {
       try {
-        (window as any).ttq.track(eventName, parameters)
+        (window as any).ttq.track(eventName, parameters, { event_id: eventID }) // TikTok suporta event_id? Verificar doc, mas mal não faz
         console.log(`[TikTok Pixel ${TIKTOK_PIXEL_ID_1}] Tracked event:`, eventName, parameters)
       } catch (error) {
         console.error('[TikTok Pixel 1] Error tracking event:', error)
@@ -60,6 +92,9 @@ export function trackEvent(eventName: string, parameters?: Record<string, any>, 
         console.error('[UTMify Pixel] Error tracking event:', error)
       }
     }
+
+    // Enviar para CAPI (Server-Side)
+    sendServerEvent(eventName, eventID, parameters, globalUserData);
 
     // Marca o evento como disparado
     if (!allowDuplicates) {
