@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { items, utm_campaign }: { items: CartItem[], utm_campaign: string | null } = req.body;
+    const { items, utm_campaign, customerEmail }: { items: CartItem[], utm_campaign: string | null, customerEmail?: string } = req.body;
 
     if (!items || !Array.isArray(items) || items.length === 0) {
       return res.status(400).json({ error: 'Items são obrigatórios' });
@@ -26,13 +26,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Criar linha de itens para o Stripe usando price_data
     const lineItems = items.map(item => {
-      // Validar preço - Forçar 49.90 para todos os itens conforme regra de negócio (rollback)
-      const price = 49.90;
+      // Validar preço - Forçar 59.90 para todos os itens conforme regra de negócio (rollback)
+      const price = 59.90;
       // const price = Number(item.price);
       // if (isNaN(price) || price <= 0) {
-      //   console.warn(`Preço inválido para o item ${item.title}: ${item.price}. Usando fallback 49.90`);
+      //   console.warn(`Preço inválido para o item ${item.title}: ${item.price}. Usando fallback 59.90`);
       // }
-      const finalPrice = 49.90;
+      const finalPrice = 59.90;
 
       // Extrair número do set do handle
       let setName = 'Set';
@@ -69,6 +69,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       line_items: lineItems,
       mode: 'payment',
       ui_mode: 'embedded',
+      customer_email: customerEmail, // Pre-fill email se fornecido
       return_url: `${origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
       shipping_address_collection: {
         allowed_countries: ['GB'],

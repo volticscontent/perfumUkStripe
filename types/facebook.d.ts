@@ -14,6 +14,9 @@ interface Window {
       num_items?: number;
       value?: number;
       currency?: string;
+    },
+    options?: {
+      eventID?: string;
     }
   ) => void;
   _fbq: any;

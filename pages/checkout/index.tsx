@@ -3,6 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js';
 import { useCart } from '@/contexts/CartContext';
 import { useUTM } from '@/hooks/useUTM';
+import { usePixel } from '@/hooks/usePixel';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -13,14 +14,22 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY 
 export default function CheckoutPage() {
   const { items, total } = useCart();
   const { utmParams } = useUTM();
+  const pixel = usePixel();
   const [clientSecret, setClientSecret] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [step, setStep] = useState<'contact' | 'payment'>('contact');
+  const [contactForm, setContactForm] = useState({
+    email: '',
+    firstName: '',
+    lastName: '',
+    phone: ''
+  });
   const router = useRouter();
 
   useEffect(() => {
-    // Create a Checkout Session as soon as the page loads
-    if (items.length > 0 && !clientSecret && !loading) {
+    // Create a Checkout Session only when step is payment
+    if (items.length > 0 && !clientSecret && !loading && step === 'payment') {
       setLoading(true);
       fetch("/api/stripe/create-checkout", {
         method: "POST",
@@ -36,7 +45,8 @@ export default function CheckoutPage() {
               price: item.price,
               handle: item.handle
             })),
-            utm_campaign: utmParams.utm_campaign || null
+            utm_campaign: utmParams.utm_campaign || null,
+            customerEmail: contactForm.email
         }),
       })
         .then((res) => res.json())
@@ -54,7 +64,35 @@ export default function CheckoutPage() {
         })
         .finally(() => setLoading(false));
     }
-  }, [items, utmParams]);
+  }, [items, utmParams, step]);
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Atualizar dados do usuário no Pixel (Advanced Matching)
+    pixel.setUserData({
+      em: contactForm.email,
+      fn: contactForm.firstName,
+      ln: contactForm.lastName,
+      ph: contactForm.phone
+    });
+
+    // Rastrear InitiateCheckout com dados enriquecidos
+    pixel.initiateCheckout({
+      value: total,
+      currency: 'GBP',
+      content_ids: items.map(item => item.id.toString()),
+      num_items: items.length,
+      content_type: 'product',
+      // Dados do usuário para UTMify e outros pixels que suportam enrichment no evento
+      email: contactForm.email,
+      phone: contactForm.phone,
+      first_name: contactForm.firstName,
+      last_name: contactForm.lastName
+    });
+
+    setStep('payment');
+  };
 
   if (items.length === 0) {
     return (
@@ -123,17 +161,91 @@ export default function CheckoutPage() {
             </div>
         )}
 
-        {clientSecret ? (
-            <EmbeddedCheckoutProvider
-            stripe={stripePromise}
-            options={{ clientSecret }}
-            >
-            <EmbeddedCheckout />
-            </EmbeddedCheckoutProvider>
-        ) : (
-            <div className="flex justify-center items-center h-64">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
+        {step === 'contact' ? (
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h2 className="text-xl font-bold mb-6">Contact Information</h2>
+                <form onSubmit={handleContactSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                            <input 
+                                type="text" 
+                                name="first_name"
+                                required 
+                                className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm p-3 border"
+                                placeholder="John"
+                                value={contactForm.firstName}
+                                onChange={e => setContactForm({...contactForm, firstName: e.target.value})}
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                            <input 
+                                type="text" 
+                                name="last_name"
+                                required 
+                                className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm p-3 border"
+                                placeholder="Doe"
+                                value={contactForm.lastName}
+                                onChange={e => setContactForm({...contactForm, lastName: e.target.value})}
+                            />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input 
+                            type="email" 
+                            name="email"
+                            required 
+                            className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm p-3 border"
+                            placeholder="john.doe@example.com"
+                            value={contactForm.email}
+                            onChange={e => setContactForm({...contactForm, email: e.target.value})}
+                        />
+                        <p className="mt-1 text-xs text-gray-500">We'll use this to send your order confirmation.</p>
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                        <input 
+                            type="tel" 
+                            name="phone"
+                            required 
+                            className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm p-3 border"
+                            placeholder="+44 7123 456789"
+                            value={contactForm.phone}
+                            onChange={e => setContactForm({...contactForm, phone: e.target.value})}
+                        />
+                    </div>
+
+                    <button 
+                        type="submit"
+                        className="w-full bg-black text-white py-4 px-4 rounded-md hover:bg-gray-800 transition-colors font-bold text-lg mt-6 flex justify-center items-center gap-2"
+                    >
+                        Continue to Payment
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                    </button>
+                </form>
             </div>
+        ) : (
+            <>
+                {clientSecret ? (
+                    <EmbeddedCheckoutProvider
+                    stripe={stripePromise}
+                    options={{ clientSecret }}
+                    >
+                    <EmbeddedCheckout />
+                    </EmbeddedCheckoutProvider>
+                ) : (
+                    <div className="flex flex-col justify-center items-center h-64 bg-white rounded-lg shadow-sm">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black mb-4"></div>
+                        <p className="text-gray-500 font-medium">Preparing secure checkout...</p>
+                    </div>
+                )}
+            </>
         )}
       </div>
     </div>

@@ -17,7 +17,7 @@ export const UTMIFY_PIXEL_ID = process.env.NEXT_PUBLIC_UTMIFY_PIXEL_ID
 // Controle global de eventos já disparados
 const trackedEvents = new Set<string>()
 
-export function trackEvent(eventName: string, parameters?: Record<string, any>, allowDuplicates: boolean = true) {
+export function trackEvent(eventName: string, parameters?: Record<string, any>, options?: Record<string, any>, allowDuplicates: boolean = true) {
   // Se o evento já foi disparado e não permite duplicatas, não dispara novamente
   if (!allowDuplicates && trackedEvents.has(eventName)) {
     console.log(`[Pixel Tracking] Event already tracked:`, eventName)
@@ -28,8 +28,12 @@ export function trackEvent(eventName: string, parameters?: Record<string, any>, 
     // Facebook Pixels usando track simples
     if ((window as any).fbq) {
       try {
-        (window as any).fbq('track', eventName, parameters)
-        console.log(`[Meta Pixels] Tracked event:`, eventName, parameters)
+        if (options && Object.keys(options).length > 0) {
+          (window as any).fbq('track', eventName, parameters, options)
+        } else {
+          (window as any).fbq('track', eventName, parameters)
+        }
+        console.log(`[Meta Pixels] Tracked event:`, eventName, parameters, options)
       } catch (error) {
         console.error('[Meta Pixel] Error tracking event:', error)
       }
@@ -82,5 +86,5 @@ export function trackQuizStep(step: string, questionNumber?: number, isCorrect?:
   console.log(`[Quiz Step Tracking] ${stepKey}:`, parameters)
   console.log(`[Pixels] Meta 1: ${FACEBOOK_PIXEL_ID_1 || 'Not configured'}, Meta 2: ${FACEBOOK_PIXEL_ID_2 || 'Not configured'}, TikTok 1: ${TIKTOK_PIXEL_ID_1 || 'Not configured'}, TikTok 2: ${TIKTOK_PIXEL_ID_2 || 'Not configured'}`)
   
-  trackEvent(stepKey, parameters, false) // Não permite duplicatas por padrão
+  trackEvent(stepKey, parameters, undefined, false) // Não permite duplicatas por padrão
 }

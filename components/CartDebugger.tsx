@@ -38,7 +38,7 @@ export default function CartDebugger({ isOpen, onClose }: CartDebuggerProps) {
     const results = [];
 
     for (const item of WORKING_IDS) {
-      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001';
       const url = `${siteUrl}/cart/${item.id}:1`;
       
       try {

@@ -32,7 +32,7 @@ export default function CartUrlTester() {
 
     for (const handle of selectedProducts) {
       const variantId = (stripeVariantMapping as Record<string, string>)[handle];
-      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001';
       const url = `${siteUrl}/cart/${variantId}:1`;
       
       try {

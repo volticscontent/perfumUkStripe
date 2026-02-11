@@ -10,7 +10,7 @@ interface ShoppingBagProps {
 }
 
 export default function ShoppingBag({ isOpen, onClose }: ShoppingBagProps) {
-  const { items, removeItem, updateQuantity, clearCart, total, initiateCheckout } = useCart()
+  const { items, removeItem, updateQuantity, total } = useCart()
   const router = useRouter()
 
   const panelClasses = `fixed bottom-0 left-0 right-0 max-h-[85vh] bg-white shadow-xl rounded-t-2xl transform transition-transform duration-300 ease-in-out ${
@@ -42,6 +42,7 @@ export default function ShoppingBag({ isOpen, onClose }: ShoppingBagProps) {
       }
       
       // Redirecionar para a página de checkout (Embedded Checkout)
+      // O evento InitiateCheckout será disparado lá após a coleta de dados
       onClose(); // Fechar o carrinho
       router.push('/checkout');
       

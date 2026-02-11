@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useCart } from '@/contexts/CartContext';
 import Head from 'next/head';
+import { usePixel } from '@/hooks/usePixel';
 
 export default function CheckoutReturn() {
   const router = useRouter();
@@ -9,20 +10,41 @@ export default function CheckoutReturn() {
   const { clearCart } = useCart();
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState('');
+  const pixel = usePixel();
+  const [purchaseTracked, setPurchaseTracked] = useState(false);
 
   useEffect(() => {
     if (session_id) {
       fetch(`/api/stripe/session-details?session_id=${session_id}`)
         .then((res) => res.json())
-        .then((data) => {
-          setStatus(data.status);
-          setCustomerEmail(data.customer_email);
-          if (data.status === 'complete') {
-             clearCart();
+        .then((response) => {
+          if (response.success && response.data) {
+            const data = response.data;
+            setStatus(data.status);
+            setCustomerEmail(data.customer.email);
+            
+            if (data.status === 'complete') {
+               clearCart();
+               
+               // Track Purchase if not already tracked
+               if (!purchaseTracked) {
+                 pixel.purchase({
+                   value: data.amount_total / 100, // Stripe amount is in cents
+                   currency: data.currency.toUpperCase(),
+                   content_ids: data.line_items.map((item: any) => item.product_id),
+                   content_type: 'product',
+                   num_items: data.line_items.reduce((acc: number, item: any) => acc + item.quantity, 0)
+                 }, {
+                   eventID: Array.isArray(session_id) ? session_id[0] : session_id // Deduplication Key (must match Server-Side)
+                 });
+                 setPurchaseTracked(true);
+               }
+            }
           }
-        });
+        })
+        .catch(err => console.error("Error fetching session details:", err));
     }
-  }, [session_id]);
+  }, [session_id, purchaseTracked]);
 
   if (status === 'open') {
     return (

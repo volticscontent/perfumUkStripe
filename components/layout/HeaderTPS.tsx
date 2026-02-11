@@ -131,7 +131,7 @@ export default function HeaderTPS({ className = '', hidePromoBanner = false, hid
             
             {/* Special Offers */}
             <Link
-              href="/offers"
+              href="/"
               className="flex-shrink-0 px-6 py-4 text-white text-sm font-medium uppercase tracking-wider
                        hover:bg-white hover:bg-opacity-10 transition-colors whitespace-nowrap"
               suppressHydrationWarning

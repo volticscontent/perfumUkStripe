@@ -64,6 +64,10 @@ const nextConfig = {
       {
         source: '/collections/:category',
         destination: '/api/collections/:category'
+      },
+      {
+        source: '/tracking/v1/events',
+        destination: '/api/tracking/v1/events'
       }
     ]
   },

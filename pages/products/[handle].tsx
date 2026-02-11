@@ -39,7 +39,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
   })().filter(Boolean)
 
   const handleQuantityChange = (delta: number) => {
-    setQuantity(Math.max(1, quantity + delta))
+    setQuantity(prev => Math.max(1, prev + delta))
   }
 
   const handleAddToCart = async () => {

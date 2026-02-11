@@ -67,6 +67,47 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         } catch (error) {
           console.error('❌ Erro ao processar UTMify (server-side):', error);
         }
+
+        // Enviar conversão para Facebook CAPI (Redundância + Deduplicação)
+        try {
+          const { sendCapiEvent } = await import('@/lib/facebook-capi');
+          
+          // Extrair dados do cliente
+          const customerEmail = session.customer_details?.email || session.customer_email || undefined;
+          const customerName = session.customer_details?.name || undefined;
+          const customerPhone = session.customer_details?.phone || undefined;
+          
+          let firstName = undefined;
+          let lastName = undefined;
+          
+          if (customerName) {
+            const parts = customerName.split(' ');
+            firstName = parts[0];
+            lastName = parts.length > 1 ? parts.slice(1).join(' ') : undefined;
+          }
+
+          // Extrair IDs dos produtos (se disponíveis na sessão ou metadata)
+          // Nota: Session objects nem sempre têm line_items expandidos no webhook, 
+          // a menos que expandidos explicitamente. Mas podemos tentar usar metadata.
+          // Para simplificar, usamos um ID genérico se não tivermos os itens, ou buscamos via API se crítico.
+          // Aqui usamos o ID da sessão como EventID para deduplicação com o Client-Side.
+          
+          await sendCapiEvent({
+            eventName: 'Purchase',
+            eventId: session.id, // Chave de deduplicação
+            email: customerEmail,
+            phone: customerPhone,
+            firstName: firstName,
+            lastName: lastName,
+            value: session.amount_total ? session.amount_total / 100 : 0,
+            currency: session.currency?.toUpperCase() || 'GBP',
+            sourceUrl: session.success_url || 'https://theperfumeuk.shop',
+            clientIp: undefined, // Difícil obter IP original do cliente via webhook assíncrono do Stripe
+            userAgent: undefined, // Stripe não passa o UA do cliente
+          });
+        } catch (error) {
+          console.error('❌ Erro ao processar Facebook CAPI:', error);
+        }
         
         console.log('✅ Checkout session completed - client-side tracking ativo');
         

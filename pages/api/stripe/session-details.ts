@@ -33,6 +33,7 @@ export default async function handler(
     // Estruturar dados para envio ao Shopify
     const orderData = {
       stripe_session_id: session.id,
+      status: session.status,
       payment_status: session.payment_status,
       amount_total: session.amount_total,
       currency: session.currency,

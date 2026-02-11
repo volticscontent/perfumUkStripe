@@ -130,7 +130,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   const initiateCheckout = async () => {
-    // Rastrear evento InitiateCheckout antes de redirecionar para Stripe
+    // Rastrear evento InitiateCheckout antes de redirecionar para a página de Checkout Embedded
     pixel.initiateCheckout({
       value: total,
       currency: 'GBP',
@@ -138,38 +138,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       num_items: items.length
     })
 
-    try {
-      // Criar checkout no Stripe
-      const response = await fetch('/api/stripe/create-checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          items: items.map(item => ({
-            stripeId: item.stripeId,
-            quantity: item.quantity,
-            title: item.title,
-            image: item.image,
-            price: item.price,
-            handle: item.handle
-          })),
-          utm_campaign: utmParams.utm_campaign || null
-        }),
-      })
-
-      if (!response.ok) {
-        throw new Error('Erro ao criar checkout')
-      }
-
-      const { checkoutUrl } = await response.json()
-      
-      // Redirecionar para o checkout do Stripe
-      window.location.href = checkoutUrl
-    } catch (error) {
-      console.error('Erro ao iniciar checkout:', error)
-      alert('Ocorreu um erro ao iniciar o checkout. Por favor, tente novamente.')
-    }
+    // Redirecionar para a página interna de checkout
+    window.location.href = '/checkout'
   }
 
   const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)

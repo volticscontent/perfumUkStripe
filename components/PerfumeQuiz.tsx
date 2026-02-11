@@ -848,7 +848,7 @@ export default function WWESummerSlamQuiz() {
     setIsOpen(false);
     
     // Redirecionar para a loja
-    router.push('/');
+    router.push('/offers');
   }
 
   // Modificar a função de resposta com loading e scroll automático

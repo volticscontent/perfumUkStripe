@@ -141,7 +141,8 @@ export async function getStaticPaths() {
     { params: { slug: ['mens', 'premium'] } },
     { params: { slug: ['womens', 'new'] } },
     { params: { slug: ['womens', 'bestsellers'] } },
-    { params: { slug: ['womens', 'premium'] } }
+    { params: { slug: ['womens', 'premium'] } },
+    { params: { slug: ['offers'] } }
   ]
 
   return {
