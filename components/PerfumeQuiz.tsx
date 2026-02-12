@@ -840,7 +840,7 @@ export default function WWESummerSlamQuiz() {
       handle: 'luxury-perfumes-kit',
       title: '3 Luxury Perfumes – Exclusive Online Kit',
       subtitle: 'Premium Collection',
-      price: 49.90,
+      price: 49.99,
       image: '/3-caixas.png'
     });
     
@@ -937,8 +937,8 @@ export default function WWESummerSlamQuiz() {
   };
 
   const discount = correctAnswers * 20
-  const originalPrice = 179.90
-  const finalPrice = Math.max(originalPrice - discount, 49.90)
+  const originalPrice = 170.00
+  const finalPrice = Math.max(originalPrice - discount, 49.99)
 
   useTrackVSLView(); // Comentado junto com o VSL
 

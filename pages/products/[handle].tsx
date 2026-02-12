@@ -182,10 +182,10 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                 <div className="flex items-center gap-2 whitespace-nowrap">
                   <span>Product code: {product.sku}</span>
                   <span>|</span>
-                  <span>RRP £{product.price.regular}</span>
+                  <span>RRP £170.00</span>
                   <span>|</span>
                 </div>
-                <span className="text-[#666666]">£ 49.90 PER 100ml</span>
+                <span className="text-[#666666]">£ {product.price.regular} PER 100ml</span>
               </div>
             </div>
 
@@ -199,7 +199,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-[20px] text-gray-500">50ML - </span>
                 <span className="text-[25px] font-medium text-[#e0001b]">£{product.price.regular}</span>
-                <span className="text-[15px] text-black">Save £120,00</span>
+                <span className="text-[15px] text-black">Save £{(170 - parseFloat(product.price.regular.toString())).toFixed(2)}</span>
                 <div className="flex ml-2">
                   {[1, 2, 3, 4, 4.5].map((star, idx) => (
                     <Star 
@@ -257,7 +257,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                 <div className="font-bold mb-4 text-lg">Product Description</div>
                 <div className="space-y-4 text-sm text-gray-700">
                   <p>
-                    Experience luxury at an exceptional value with our exclusive Multi-Brand Promotion. These carefully curated fragrance sets, originally priced at <span className="font-bold text-black line-through">£179.90</span>, are now available for just <span className="font-bold text-black">£59.90</span>, offering you a remarkable savings.
+                    Experience luxury at an exceptional value with our exclusive Multi-Brand Promotion. These carefully curated fragrance sets, originally priced at <span className="font-bold text-black line-through">£170.00</span>, are now available for just <span className="font-bold text-black">£{product.price.regular}</span>, offering you a remarkable savings.
                   </p>
                   
                   <p>

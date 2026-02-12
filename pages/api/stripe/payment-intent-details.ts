@@ -33,7 +33,7 @@ export default async function handler(
         const [id, qtyStr] = itemStr.split(':');
         const quantity = parseInt(qtyStr) || 1;
         // Since we have a fixed price strategy now
-        const price = 5990; // 59.90 GBP
+        const price = 4999; // 49.99 GBP
         
         let productName = 'Unknown Product';
         if (id === 'luxury-perfumes' || id === 'luxury-perfumes-kit' || id === '999') {

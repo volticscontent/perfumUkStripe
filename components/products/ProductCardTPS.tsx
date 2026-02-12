@@ -165,8 +165,8 @@ export default function ProductCardTPS({ product, className = '', priority = fal
             {/* Price Range */}
             <div className="flex flex-col">
               <div className="flex items-center gap-2 text-sm mt-1">
-                <span className="text-gray-500">RRP £49.90</span>
-                <span className="text-vetps-red font-bold">Save £120.00</span>
+                <span className="text-gray-500">£{formatPrice(product.price.regular)}</span>
+                <span className="text-vetps-red font-bold">Save £{(170 - parseFloat(product.price.regular.toString())).toFixed(2)}</span>
               </div>
             </div>
             
