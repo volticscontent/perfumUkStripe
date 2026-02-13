@@ -5,7 +5,7 @@ const filePath = path.join(__dirname, '../data/unified_products_en_gbp.json');
 const rawData = fs.readFileSync(filePath, 'utf8');
 const data = JSON.parse(rawData);
 
-const NEW_PRICE = 49.99;
+const NEW_PRICE = 59.99;
 const REGULAR_VALUE = 170.00;
 
 let updatedCount = 0;
