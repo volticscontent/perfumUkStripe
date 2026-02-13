@@ -9,9 +9,15 @@ interface HeaderTPSProps {
   className?: string
   hidePromoBanner?: boolean
   hideMagentaBanner?: boolean
+  sticky?: boolean
 }
 
-export default function HeaderTPS({ className = '', hidePromoBanner = false, hideMagentaBanner = false }: HeaderTPSProps) {
+export default function HeaderTPS({ 
+  className = '', 
+  hidePromoBanner = false, 
+  hideMagentaBanner = false,
+  sticky = false
+}: HeaderTPSProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [products, setProducts] = useState<Product[]>([])
@@ -29,7 +35,7 @@ export default function HeaderTPS({ className = '', hidePromoBanner = false, hid
   ]
 
   return (
-    <header className={`sticky top-0 z-50 ${className}`}>
+    <header className={`${sticky ? 'sticky top-0 z-50' : 'relative'} ${className}`}>
       {/* Promotional Banner */}
       {!hidePromoBanner && (
         <div className="bg-tps-red text-white text-center p-5 text-[15px] font-normal">

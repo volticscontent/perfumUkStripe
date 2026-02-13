@@ -102,7 +102,7 @@ export default function CheckoutPage() {
         <Head>
             <title>Empty Basket | Perfumes UK</title>
         </Head>
-        <HeaderTPS />
+        <HeaderTPS sticky={true} />
         <div className="flex-grow flex items-center justify-center">
             <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-4">
@@ -132,9 +132,9 @@ export default function CheckoutPage() {
       
       <HeaderTPS />
 
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto">
         {/* Order Summary */}
-        <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
+        <div className="bg-white p-6 rounded-lg shadow-sm">
             <h2 className="text-xl font-bold mb-4">Order Summary</h2>
             <div className="space-y-4">
                 {items.map((item) => (
@@ -256,8 +256,6 @@ export default function CheckoutPage() {
             </>
         )}
       </div>
-      
-      <FooterTPS />
     </div>
   );
 }
