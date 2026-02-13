@@ -69,7 +69,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       line_items: lineItems,
       mode: 'payment',
       ui_mode: 'embedded',
-      customer_email: customerEmail, // Pre-fill email se fornecido
+      customer_email: customerEmail && customerEmail.trim() !== '' ? customerEmail : undefined, // Pre-fill email se fornecido
       return_url: `${origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
       shipping_address_collection: {
         allowed_countries: ['GB'],

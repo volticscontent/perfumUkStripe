@@ -6,6 +6,8 @@ import { useUTM } from '@/hooks/useUTM';
 import { usePixel } from '@/hooks/usePixel';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import HeaderTPS from '@/components/layout/HeaderTPS';
+import FooterTPS from '@/components/layout/FooterTPS';
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -46,7 +48,7 @@ export default function CheckoutPage() {
               handle: item.handle
             })),
             utm_campaign: utmParams.utm_campaign || null,
-            customerEmail: contactForm.email
+            customerEmail: contactForm.email || undefined
         }),
       })
         .then((res) => res.json())
@@ -96,24 +98,28 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex flex-col">
         <Head>
             <title>Empty Basket | Perfumes UK</title>
         </Head>
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
-            Your basket is empty
-          </h1>
-          <p className="text-gray-600 mb-8 px-2">
-            Add some products to your basket to continue with checkout.
-          </p>
-          <a
-            href="/"
-            className="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition-colors"
-          >
-            Back to shop
-          </a>
+        <HeaderTPS />
+        <div className="flex-grow flex items-center justify-center">
+            <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">
+                Your basket is empty
+            </h1>
+            <p className="text-gray-600 mb-8 px-2">
+                Add some products to your basket to continue with checkout.
+            </p>
+            <a
+                href="/"
+                className="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition-colors"
+            >
+                Back to shop
+            </a>
+            </div>
         </div>
+        <FooterTPS />
       </div>
     );
   }
@@ -127,6 +133,7 @@ export default function CheckoutPage() {
       <div className="max-w-4xl mx-auto px-4">
         {/* Order Summary */}
         <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
+          <header></header>
             <h2 className="text-xl font-bold mb-4">Order Summary</h2>
             <div className="space-y-4">
                 {items.map((item) => (
@@ -248,6 +255,8 @@ export default function CheckoutPage() {
             </>
         )}
       </div>
+      
+      <FooterTPS />
     </div>
   );
 }
