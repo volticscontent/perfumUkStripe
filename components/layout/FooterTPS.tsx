@@ -12,7 +12,7 @@ export default function FooterTPS({ className = '' }: FooterTPSProps) {
         alt="The Perfume Shop Footer"
         width={1920}
         height={600}
-        className="w-full object-cover mb-20"
+        className="w-full object-cover"
         priority={false}
       />
     </footer>

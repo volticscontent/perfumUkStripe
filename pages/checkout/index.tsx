@@ -130,10 +130,11 @@ export default function CheckoutPage() {
         <title>Checkout | Perfumes UK</title>
       </Head>
       
+      <HeaderTPS />
+
       <div className="max-w-4xl mx-auto px-4">
         {/* Order Summary */}
         <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
-          <header></header>
             <h2 className="text-xl font-bold mb-4">Order Summary</h2>
             <div className="space-y-4">
                 {items.map((item) => (
