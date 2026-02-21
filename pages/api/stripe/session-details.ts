@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST!, {
-  apiVersion: '2025-10-29.clover',
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2022-11-15' as any, // fallback for typescript compilation, though Stripe Node SDK 19.x uses string literals
 });
 
 export default async function handler(

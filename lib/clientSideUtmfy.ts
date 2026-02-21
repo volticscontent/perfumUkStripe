@@ -42,7 +42,7 @@ export async function sendClientSideConversionToUtmfy(
   try {
     const now = new Date().toISOString();
     const orderId = `client_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    
+
     // Preparar dados no formato esperado pelo UTMify
     const conversionData: ClientSideUtmfyData = {
       orderId,
@@ -67,7 +67,7 @@ export async function sendClientSideConversionToUtmfy(
       commission: {
         totalPriceInCents: Math.round(totalValue * 100), // Converter para centavos
         gatewayFeeInCents: Math.round(totalValue * 100 * 0.029), // Estimativa de 2.9%
-        userCommissionInCents: 0,
+        userCommissionInCents: Math.round(totalValue * 100) - Math.round(totalValue * 100 * 0.029), // Valor líquido real
       },
       products: items.map(item => ({
         id: item.id || 'perfume_001',
@@ -97,7 +97,7 @@ export async function sendClientSideConversionToUtmfy(
     } else {
       const errorText = await response.text();
       console.error('❌ Erro ao enviar conversão para UTMify (client-side):', response.status, errorText);
-      
+
       // Salvar no localStorage como fallback
       const fallbackData = {
         ...conversionData,
@@ -106,7 +106,7 @@ export async function sendClientSideConversionToUtmfy(
       };
       localStorage.setItem(`utmfy_fallback_${orderId}`, JSON.stringify(fallbackData));
       console.log('💾 Dados salvos no localStorage para retry posterior');
-      
+
       return false;
     }
   } catch (error) {
@@ -121,15 +121,15 @@ export async function retryFailedUtmfyConversions(): Promise<void> {
 
   try {
     const keys = Object.keys(localStorage).filter(key => key.startsWith('utmfy_fallback_'));
-    
+
     for (const key of keys) {
       try {
         const data = JSON.parse(localStorage.getItem(key) || '{}');
-        
+
         // Tentar reenviar apenas se não passou muito tempo (24h) e não tentou muitas vezes
         const isRecent = (Date.now() - data.timestamp) < 24 * 60 * 60 * 1000;
         const hasRetriesLeft = (data.retry_count || 0) < 3;
-        
+
         if (isRecent && hasRetriesLeft) {
           const response = await fetch('/api/utmfy/client-conversion', {
             method: 'POST',

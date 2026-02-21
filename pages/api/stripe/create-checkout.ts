@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { items, utm_campaign, customerEmail }: { items: CartItem[], utm_campaign: string | null, customerEmail?: string } = req.body;
+    const { items, utmParams, customerEmail }: { items: CartItem[], utmParams?: any, customerEmail?: string } = req.body;
 
     if (!items || !Array.isArray(items) || items.length === 0) {
       return res.status(400).json({ error: 'Items são obrigatórios' });
@@ -27,12 +27,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Criar linha de itens para o Stripe usando price_data
     const lineItems = items.map(item => {
       // Validar preço - Forçar 49.99 para todos os itens conforme regra de negócio (rollback)
-    const price = 49.99;
-    // const price = Number(item.price);
-    // if (isNaN(price) || price <= 0) {
-    //   console.warn(`Preço inválido para o item ${item.title}: ${item.price}. Usando fallback 49.99`);
-    // }
-    const finalPrice = 49.99;
+      const price = 49.99;
+      // const price = Number(item.price);
+      // if (isNaN(price) || price <= 0) {
+      //   console.warn(`Preço inválido para o item ${item.title}: ${item.price}. Usando fallback 49.99`);
+      // }
+      const finalPrice = 49.99;
 
       // Extrair número do set do handle
       let setName = 'Set';
@@ -43,7 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // Fallback para tentar extrair qualquer número do final
         const numMatch = item.handle.match(/(\d+)$/);
         if (numMatch) {
-            setName = `Set-${numMatch[1]}`;
+          setName = `Set-${numMatch[1]}`;
         }
       }
 
@@ -76,7 +76,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
       payment_method_types: ['card'],
       metadata: {
-        utm_campaign: utm_campaign || ''
+        utm_campaign: utmParams?.utm_campaign || '',
+        utm_source: utmParams?.utm_source || '',
+        utm_medium: utmParams?.utm_medium || '',
+        utm_content: utmParams?.utm_content || '',
+        utm_term: utmParams?.utm_term || ''
       }
     } as any);
 
@@ -84,7 +88,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   } catch (error) {
     console.error('❌ Erro:', error);
-    return res.status(500).json({ 
+    return res.status(500).json({
       error: 'Erro interno',
       details: error instanceof Error ? error.message : 'Erro desconhecido'
     });

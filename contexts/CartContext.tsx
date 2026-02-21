@@ -42,7 +42,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     initializeAutoCleanup()
   }, [])
-  
+
   const addItem = (newItem: Omit<CartItem, 'quantity'>, quantity: number = 1) => {
     // Validar e corrigir IDs obsoletos antes de adicionar
     const validatedItem = validateAndFixCartItem(newItem)
@@ -53,14 +53,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     // Se o item já tem stripeId, usar ele diretamente
     let stripeId = validatedItem.stripeId || ''
-    
+
     // Se não tem stripeId, tentar obter do mapeamento
     if (!stripeId) {
       const handle = validatedItem.handle || ''
-      
+
       // Verificar primeiro no mapeamento de variantes (que é um objeto simples)
       stripeId = stripeVariantMapping[handle as keyof typeof stripeVariantMapping] || ''
-      
+
       // Se não encontrar, verificar no mapeamento de produtos (que tem estrutura diferente)
       if (!stripeId && handle in stripeProductMapping) {
         const productMapping = stripeProductMapping[handle as keyof typeof stripeProductMapping]
@@ -69,43 +69,34 @@ export function CartProvider({ children }: { children: ReactNode }) {
         }
       }
     }
-    
+
     // Item com ID do Stripe
     const itemWithStripeId = {
       ...validatedItem,
       stripeId
     }
 
+    // Rastrear evento AddToCart ANTES da função de setState
+    pixel.addToCart({
+      value: itemWithStripeId.price * quantity,
+      currency: 'GBP',
+      content_name: itemWithStripeId.title,
+      content_ids: [itemWithStripeId.id.toString()]
+    })
+
     setItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === itemWithStripeId.id)
-      
+
       if (existingItem) {
         // Atualizar quantidade
-        const updatedItems = prevItems.map(item =>
+        return prevItems.map(item =>
           item.id === itemWithStripeId.id
             ? { ...item, quantity: item.quantity + quantity }
             : item
         )
-        
-        // Rastrear evento AddToCart
-        pixel.addToCart({
-          value: itemWithStripeId.price * quantity,
-          currency: 'GBP',
-          content_name: itemWithStripeId.title,
-          content_ids: [itemWithStripeId.id]
-        })
-
-        return updatedItems
       }
 
       // Adicionar novo item
-      pixel.addToCart({
-        value: itemWithStripeId.price * quantity,
-        currency: 'GBP',
-        content_name: itemWithStripeId.title,
-        content_ids: [itemWithStripeId.id]
-      })
-
       return [...prevItems, { ...itemWithStripeId, quantity }]
     })
     setIsOpen(true)
@@ -130,14 +121,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   const initiateCheckout = async () => {
-    // Rastrear evento InitiateCheckout antes de redirecionar para a página de Checkout Embedded
-    pixel.initiateCheckout({
-      value: total,
-      currency: 'GBP',
-      content_ids: items.map(item => item.id),
-      num_items: items.length
-    })
-
     // Redirecionar para a página interna de checkout
     window.location.href = '/checkout'
   }

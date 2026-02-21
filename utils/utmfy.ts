@@ -36,16 +36,16 @@ export interface UtmfyConversionData {
 
 export async function sendConversionToUtmfy(data: UtmfyConversionData): Promise<boolean> {
   try {
-    const utmfyWebhookUrl = process.env.UTMFY_WEBHOOK_URL;
-    const utmfyApiKey = process.env.UTMFY_API_KEY;
-    
+    const utmfyWebhookUrl = process.env.UTMIFY_WEBHOOK_URL;
+    const utmfyApiKey = process.env.UTMIFY_API_KEY;
+
     if (!utmfyWebhookUrl) {
-      console.warn('UTMFY_WEBHOOK_URL não configurada. Configure a URL gerada no painel da Utmfy.');
+      console.warn('UTMIFY_WEBHOOK_URL não configurada. Configure a URL gerada no painel da Utmfy.');
       return false;
     }
 
     if (!utmfyApiKey) {
-      console.warn('UTMFY_API_KEY não configurada. Configure a chave da API da Utmfy.');
+      console.warn('UTMIFY_API_KEY não configurada. Configure a chave da API da Utmfy.');
       return false;
     }
 
@@ -79,7 +79,7 @@ export function formatStripeToUtmfy(
   eventType: string = 'purchase'
 ): UtmfyConversionData {
   const now = new Date().toISOString();
-  
+
   return {
     orderId: session.id,
     platform: 'stripe',
@@ -103,7 +103,7 @@ export function formatStripeToUtmfy(
     commission: {
       totalPriceInCents: session.amount_total || 0,
       gatewayFeeInCents: Math.round((session.amount_total || 0) * 0.029), // Estimativa de 2.9%
-      userCommissionInCents: 0, // Pode ser configurado conforme necessário
+      userCommissionInCents: session.amount_total ? session.amount_total - Math.round(session.amount_total * 0.029) : 0, // Valor atribuído ao produtor/afiliado
     },
     products: [
       {
