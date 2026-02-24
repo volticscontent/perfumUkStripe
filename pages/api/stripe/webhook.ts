@@ -113,8 +113,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             value: session.amount_total ? session.amount_total / 100 : 0,
             currency: session.currency?.toUpperCase() || 'GBP',
             sourceUrl: session.success_url || 'https://theperfumeuk.shop',
-            clientIp: undefined, // Difícil obter IP original do cliente via webhook assíncrono do Stripe
-            userAgent: undefined, // Stripe não passa o UA do cliente
           });
         } catch (error) {
           console.error('❌ Erro ao processar Facebook CAPI:', error);
