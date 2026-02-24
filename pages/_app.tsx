@@ -10,7 +10,7 @@ import { useRouter } from 'next/router'
 
 export default function App({ Component, pageProps }: AppProps) {
   // Inicializa o rastreamento de página
-  usePixel();
+  usePixel(true);
   
   // Inicializa o rastreamento de UTMs em todas as páginas
   useUTM();

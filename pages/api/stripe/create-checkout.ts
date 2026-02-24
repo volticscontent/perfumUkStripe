@@ -24,6 +24,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const origin = req.headers.origin || 'https://theperfumeuk.shop';
 
+    // Extrair dados do cliente para rastreamento (Facebook CAPI)
+    const fbp = req.cookies._fbp || '';
+    const fbc = req.cookies._fbc || '';
+    const userAgent = req.headers['user-agent'] || '';
+    const clientIp = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || req.socket.remoteAddress || '';
+
     // Criar linha de itens para o Stripe usando price_data
     const lineItems = items.map(item => {
       // Validar preço - Forçar 49.99 para todos os itens conforme regra de negócio (rollback)
@@ -80,7 +86,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         utm_source: utmParams?.utm_source || '',
         utm_medium: utmParams?.utm_medium || '',
         utm_content: utmParams?.utm_content || '',
-        utm_term: utmParams?.utm_term || ''
+        utm_term: utmParams?.utm_term || '',
+        fbp,
+        fbc,
+        user_agent: userAgent.substring(0, 500), // Stripe tem limite de 500 chars
+        client_ip: clientIp
       }
     } as any);
 

@@ -92,6 +92,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           // Para simplificar, usamos um ID genérico se não tivermos os itens, ou buscamos via API se crítico.
           // Aqui usamos o ID da sessão como EventID para deduplicação com o Client-Side.
           
+          // Extrair metadados de rastreamento (FBP, FBC, IP, UA)
+          const fbp = session.metadata?.fbp;
+          const fbc = session.metadata?.fbc;
+          const userAgent = session.metadata?.user_agent;
+          const clientIp = session.metadata?.client_ip;
+
           await sendCapiEvent({
             eventName: 'Purchase',
             eventId: session.id, // Chave de deduplicação
@@ -99,6 +105,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             phone: customerPhone,
             firstName: firstName,
             lastName: lastName,
+            fbp,
+            fbc,
+            userAgent,
+            clientIp,
+            externalId: session.id,
             value: session.amount_total ? session.amount_total / 100 : 0,
             currency: session.currency?.toUpperCase() || 'GBP',
             sourceUrl: session.success_url || 'https://theperfumeuk.shop',

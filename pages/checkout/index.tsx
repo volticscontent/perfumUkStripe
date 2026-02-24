@@ -170,7 +170,7 @@ export default function CheckoutPage() {
                 )}
 
                 {step === 'contact' ? (
-                    <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <div className="bg-white p-6 rounded-lg shadow-sm pb-10">
                         <h2 className="text-xl font-bold mb-6">Contact Information</h2>
                         <form onSubmit={handleContactSubmit} className="space-y-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

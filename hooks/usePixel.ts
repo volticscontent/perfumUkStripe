@@ -4,17 +4,19 @@ import { trackEvent, setGlobalUserData } from '@/lib/utils';
 
 export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID_1 || '1201843863809192';
 
-export const usePixel = () => {
+export const usePixel = (trackPageView = false) => {
   const router = useRouter();
 
   useEffect(() => {
+    if (!trackPageView) return;
+
     const handleRouteChange = () => trackEvent('PageView');
 
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events]);
+  }, [router.events, trackPageView]);
 
   return {
     // Função para atualizar dados do usuário para Advanced Matching

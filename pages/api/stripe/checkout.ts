@@ -25,6 +25,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: 'Pelo menos um item é necessário' });
     }
 
+    // Extrair dados do cliente para rastreamento (Facebook CAPI)
+    const fbp = req.cookies._fbp || '';
+    const fbc = req.cookies._fbc || '';
+    const userAgent = req.headers['user-agent'] || '';
+    const clientIp = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || req.socket.remoteAddress || '';
+
     // Importa os mapeamentos de IDs
     const stripeVariantMapping = require('../../../data/stripe_variant_mapping.json');
     const stripeProductMapping = require('../../../data/stripe_product_mapping.json');
@@ -98,7 +104,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           utm_campaign: utmParams.utm_campaign,
           utm_term: utmParams.utm_term,
           utm_content: utmParams.utm_content,
-        })
+        }),
+        fbp,
+        fbc,
+        user_agent: userAgent.substring(0, 500), // Stripe tem limite de 500 chars
+        client_ip: clientIp,
       },
       // Configuração para checkout com redirecionamento
       ui_mode: 'hosted',

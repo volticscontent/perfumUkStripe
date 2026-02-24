@@ -1,4 +1,8 @@
 // Função para enviar conversões para UTMify via client-side
+
+// Taxa de conversão fixa de GBP para BRL
+const GBP_TO_BRL_RATE = 7.4;
+
 interface ClientSideUtmfyData {
   orderId: string;
   platform: string;
@@ -43,6 +47,10 @@ export async function sendClientSideConversionToUtmfy(
     const now = new Date().toISOString();
     const orderId = `client_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
+    // Converter valores de GBP para BRL
+    const totalValueGBP_Cents = Math.round(totalValue * 100);
+    const totalValueBRL_Cents = Math.round(totalValueGBP_Cents * GBP_TO_BRL_RATE);
+
     // Preparar dados no formato esperado pelo UTMify
     const conversionData: ClientSideUtmfyData = {
       orderId,
@@ -65,9 +73,9 @@ export async function sendClientSideConversionToUtmfy(
         utm_term: utmParams.utm_term || null,
       },
       commission: {
-        totalPriceInCents: Math.round(totalValue * 100), // Converter para centavos
-        gatewayFeeInCents: Math.round(totalValue * 100 * 0.029), // Estimativa de 2.9%
-        userCommissionInCents: Math.round(totalValue * 100) - Math.round(totalValue * 100 * 0.029), // Valor líquido real
+        totalPriceInCents: totalValueBRL_Cents,
+        gatewayFeeInCents: Math.round(totalValueBRL_Cents * 0.029), // Estimativa de 2.9%
+        userCommissionInCents: totalValueBRL_Cents - Math.round(totalValueBRL_Cents * 0.029), // Valor líquido real
       },
       products: items.map(item => ({
         id: item.id || 'perfume_001',
@@ -75,7 +83,7 @@ export async function sendClientSideConversionToUtmfy(
         planName: item.name || 'Perfume Premium',
         name: item.name || 'Perfume',
         quantity: item.quantity || 1,
-        priceInCents: Math.round((item.price || 0) * 100),
+        priceInCents: Math.round((item.price || 0) * 100 * GBP_TO_BRL_RATE),
       })),
     };
 

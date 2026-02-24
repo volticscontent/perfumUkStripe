@@ -1,4 +1,8 @@
 // Utilitários para integração com Utmfy
+
+// Taxa de conversão fixa de GBP para BRL
+const GBP_TO_BRL_RATE = 7.0;
+
 export interface UtmfyConversionData {
   orderId: string;
   platform: string;
@@ -80,6 +84,10 @@ export function formatStripeToUtmfy(
 ): UtmfyConversionData {
   const now = new Date().toISOString();
 
+  // Converter valores de GBP para BRL
+  const amountTotalGBP = session.amount_total || 0;
+  const amountTotalBRL = Math.round(amountTotalGBP * GBP_TO_BRL_RATE);
+
   return {
     orderId: session.id,
     platform: 'stripe',
@@ -101,9 +109,9 @@ export function formatStripeToUtmfy(
       utm_term: session.metadata?.utm_term || null,
     },
     commission: {
-      totalPriceInCents: session.amount_total || 0,
-      gatewayFeeInCents: Math.round((session.amount_total || 0) * 0.029), // Estimativa de 2.9%
-      userCommissionInCents: session.amount_total ? session.amount_total - Math.round(session.amount_total * 0.029) : 0, // Valor atribuído ao produtor/afiliado
+      totalPriceInCents: amountTotalBRL,
+      gatewayFeeInCents: Math.round(amountTotalBRL * 0.029), // Estimativa de 2.9%
+      userCommissionInCents: amountTotalBRL ? amountTotalBRL - Math.round(amountTotalBRL * 0.029) : 0, // Valor atribuído ao produtor/afiliado
     },
     products: [
       {
@@ -112,7 +120,7 @@ export function formatStripeToUtmfy(
         planName: 'Perfume Premium',
         name: 'Perfume',
         quantity: 1,
-        priceInCents: session.amount_total || 0,
+        priceInCents: amountTotalBRL,
       }
     ],
   };
